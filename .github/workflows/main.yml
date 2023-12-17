@@ -27,13 +27,9 @@ jobs:
     - name: Publish VL Nuget
       uses: vvvv/PublishVLNuget@1.0.42
       with:
-        csproj: src\VL.NewLibrary.Template.csproj
-        nuspec: deployment\VL.NewLibrary.Template.nuspec
-
-        # Fill the Icon file
+        csproj: src\VL.MediaPipe.csproj
+        nuspec: deployment\VL.MediaPipe.nuspec
         icon-src: https://raw.githubusercontent.com/vvvv/PublicContent/master/nugeticon.png
         icon-dst: ./deployment/nugeticon.png
-        
-        # Provide the nuget key. See: https://thegraybook.vvvv.org/reference/extending/publishing.html#getting-a-nugetorg-api-key
-        nuget-key: ${{ secrets.NUGET_KEY }}
+        nuget-key: ${{ secrets.VVVV_ORG_NUGET_KEY }}
 
