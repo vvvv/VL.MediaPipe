@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.MediaPipe</id>
-    <version>0.0.2-alpha</version>
+    <version>0.0.3-alpha</version>
     <title>VL.MediaPipe</title>
     <authors>Dom Scott, Torin Blankensmith, vvvv</authors>
     <owners>vvvv</owners>
@@ -12,6 +12,7 @@
     <description>MediaPipe for vvvv</description>
     <tags>mediapipe, ML, tracking</tags>
 	<dependencies>
+	  <dependency id="Stride.Core" version="[4.1.0.1838]" />
       <dependency id="VL.CEF.Stride" version="0.5.3" />
       <dependency id="VL.WebSocket" version="0.7.0-alpha" />
     </dependencies>
