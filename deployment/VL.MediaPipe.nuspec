@@ -12,7 +12,7 @@
     <description>MediaPipe for vvvv</description>
     <tags>mediapipe, ML, tracking</tags>
 	<dependencies>
-      <dependency id="VL.CEF.Stride" version="0.5.3" />
+      <dependency id="VL.CEF" version="0.5.4" />
       <dependency id="VL.IO.WebSocket" version="0.7.0-alpha" />
     </dependencies>
     <license type="expression">MIT</license>

@@ -1,3 +1,3 @@
 namespace MediaPipe;
 
-public enum ModelEnums { Lite, Full, Heavy };
+public enum PoseModels { Lite, Full, Heavy };
