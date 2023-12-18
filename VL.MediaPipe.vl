@@ -2254,8 +2254,8 @@
     </Node>
   </Patch>
   <NugetDependency Id="SsBopOnOI8iPyzbxPdbPCd" Location="VL.IO.WebSocket" Version="0.7.0-alpha" />
-  <PlatformDependency Id="GX4pa4iUeRqMYAqu2F7GiM" Location="../../../../../AppData/Local/vvvv/gamma-preview/nugets/VL.MediaPipe.0.0.5-alpha/lib/net6.0/VL.MediaPipe.dll" />
-  <DocumentDependency Id="T9SJsBPGzeaPHWARC7IHN9" Location="../../../../../AppData/Local/vvvv/gamma-preview/nugets/VL.MediaPipe.0.0.5-alpha/VL.IO.HTTP.WebServer.vl" />
+  <PlatformDependency Id="GX4pa4iUeRqMYAqu2F7GiM" Location="VL.MediaPipe.dll" />
   <NugetDependency Id="A7yE1vIrfBIN7A3FGrZXL6" Location="VL.CEF.Stride" Version="0.5.3" />
   <NugetDependency Id="GhSanPhe5ODOie6Iaa6exl" Location="VL.CEF" Version="0.5.3" />
+  <DocumentDependency Id="MlhVUHw1S99MMzM28v8UOQ" Location="./VL.IO.HTTP.WebServer.vl" />
 </Document>
