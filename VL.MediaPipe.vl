@@ -1994,6 +1994,11 @@
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="JCY6maRBqN1LQHJkTpYV3D" Name="Pose Model Type" Kind="InputPin" Bounds="802,324" DefaultValue="">
+              <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.dll">
+                <Choice Kind="TypeFlag" Name="ModelEnums" />
+              </p:TypeAnnotation>
+            </Pin>
             <Pin Id="HZ4j3KNQnvANDctdijbL55" Name="Min Detection Confidence" Kind="InputPin" Bounds="815,168" DefaultValue="0.5">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Float32" />
@@ -2007,11 +2012,6 @@
             <Pin Id="HAbujMTLuWrNBVFcRu2KcK" Name="Min Tracking Confidence" Kind="InputPin" DefaultValue="0.5">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="JCY6maRBqN1LQHJkTpYV3D" Name="Pose Model Type" Kind="InputPin" Bounds="802,324" DefaultValue="">
-              <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.dll">
-                <Choice Kind="TypeFlag" Name="ModelEnums" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="SoxEK3KZG0kLqy8RTHrQOc" Name="Output" Kind="OutputPin" Bounds="342,792" />
@@ -2155,9 +2155,8 @@
     </Node>
   </Patch>
   <NugetDependency Id="SsBopOnOI8iPyzbxPdbPCd" Location="VL.IO.WebSocket" Version="0.7.0-alpha" />
-  <NugetDependency Id="R45XCSqvwGyLbW97Zdxfjx" Location="VL.CEF.Stride" Version="0.5.1" />
-  <NugetDependency Id="FQb8ouJ1GIWPBZWHlxn5IO" Location="VL.CEF" Version="0.5.1" />
   <PlatformDependency Id="GX4pa4iUeRqMYAqu2F7GiM" Location="./lib/net6.0/VL.MediaPipe.dll" />
   <DocumentDependency Id="T9SJsBPGzeaPHWARC7IHN9" Location="./VL.IO.HTTP.WebServer.vl" />
-  <ProjectDependency Id="FwmDfdPJrJiPDSGoLk8lm8" Location="./csharp/VL.MediaPipe/VL.MediaPipe.csproj" />
+  <NugetDependency Id="A7yE1vIrfBIN7A3FGrZXL6" Location="VL.CEF.Stride" Version="0.5.3" />
+  <NugetDependency Id="GhSanPhe5ODOie6Iaa6exl" Location="VL.CEF" Version="0.5.3" />
 </Document>

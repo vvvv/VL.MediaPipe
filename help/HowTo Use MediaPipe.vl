@@ -105,7 +105,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="102,478,75,19" Id="LuP9deUSayQLigrlBzW2GX">
+          <Node Bounds="132,478,75,19" Id="LuP9deUSayQLigrlBzW2GX">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="FaceDetector" />
@@ -117,7 +117,7 @@
             <Pin Id="Dd9OrD2bownLkUZpH2Reec" Name="Min Overlap Suppression" Kind="InputPin" />
             <Pin Id="BkmXERUxElmOT7gBVjCbog" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="102,575,125,19" Id="N9EC6yNqSRiPmPYyxel87h">
+          <Node Bounds="132,575,125,19" Id="N9EC6yNqSRiPmPYyxel87h">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="FaceLandmarksDetector" />
@@ -149,7 +149,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="365,227,168,15" ShowValueBox="true" isIOBox="true" Value="Integrated Camera (04f2:b614)">
+          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="365,227,182,15" ShowValueBox="true" isIOBox="true" Value="HD Pro Webcam C920 (046d:082d)">
             <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="TypeFlag" Name="CamerasEnum" />
             </p:TypeAnnotation>
@@ -163,7 +163,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="E88hL8T5UkTOFDCNiz1qdd" Bounds="106,516,144,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_detector">
+          <Pad Id="E88hL8T5UkTOFDCNiz1qdd" Bounds="136,516,144,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_detector">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -172,7 +172,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="L8Ax6IZZRFEMH6sb5nNCL2" Bounds="106,618,144,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_detector">
+          <Pad Id="L8Ax6IZZRFEMH6sb5nNCL2" Bounds="136,618,144,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_detector">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -190,7 +190,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="DaOZHl6N68HOJvY7OYm3iu" Bounds="106,722,144,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/pose_landmarker">
+          <Pad Id="DaOZHl6N68HOJvY7OYm3iu" Bounds="136,722,144,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/pose_landmarker">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -235,18 +235,19 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="102,677,105,19" Id="U96iBZkfG9IO4tnkDtZF1f">
+          <Node Bounds="132,677,105,19" Id="U96iBZkfG9IO4tnkDtZF1f">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="PoseDetector" />
             </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="Uif6CRsPKWpQcvLbPwWilw" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="LZ0Ngt7AJnnPhPq3rMRT7C" Name="Input" Kind="InputPin" />
             <Pin Id="DhDVz8EpqtBLFiUe6hxPrA" Name="Max Number of Poses" Kind="InputPin" />
+            <Pin Id="Oq2tOVN7CkqQNUxgpkJKRI" Name="Pose Model Type" Kind="InputPin" />
             <Pin Id="UjzRzufolKQP0k3HGNnvDj" Name="Min Detection Confidence" Kind="InputPin" />
             <Pin Id="QYQ1ivHbmIIMaRUaegdgVQ" Name="Min Presence Confidence" Kind="InputPin" />
             <Pin Id="O7U3F8lZRqJLppWwwA38ga" Name="Min Tracking Confidence" Kind="InputPin" />
-            <Pin Id="Oq2tOVN7CkqQNUxgpkJKRI" Name="Pose Model Type" Kind="InputPin" />
             <Pin Id="GLPgNONyHzVNwvogqB9TGY" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="Ozd3k247z6HPMNyV6xa60k" Comment="Detect poses" Bounds="184,260,35,35" ShowValueBox="true" isIOBox="true" Value="True">
@@ -279,7 +280,7 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.5.1" />
+  <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.5.3" />
   <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2023.5.3-0403-g984a15c5cf" />
   <NugetDependency Id="LVi6AOgIWYkNdVDA5if0rq" Location="VL.MediaPipe" Version="0.0.0" />
 </Document>
