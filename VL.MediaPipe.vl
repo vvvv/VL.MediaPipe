@@ -336,11 +336,6 @@
               <Pin Id="FNZWom3aMqNMIsyOuAmnv1" Name="Is Listening" Kind="OutputPin" />
               <Pin Id="OJI2NEtYHqzNSPkwIpD24E" Name="Statistics" Kind="OutputPin" />
             </Node>
-            <Pad Id="T7tD8q3gscfOx2uoTL8LY9" Comment="Content Base Directory" Bounds="118,162,38,15" ShowValueBox="true" isIOBox="true" Value="..\web">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="String" />
-              </p:TypeAnnotation>
-            </Pad>
             <Pad Id="ErTOZ90biwaLp7MYdag7ee" Comment="Is Listening" Bounds="195,302,35,35" ShowValueBox="true" isIOBox="true" />
             <Node Bounds="936,404,85,19" Id="SO1dlkW2EJTMoFhZ8EToin">
               <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
@@ -610,32 +605,6 @@
               <Pin Id="OZsW8T8XSSDNH1PGfmgPRy" Name="Output" Kind="StateOutputPin" />
               <Pin Id="HHUOmGdXtoGNxBH1InNbhJ" Name="Apply" Kind="InputPin" />
             </Node>
-            <Node Bounds="46,116,87,19" Id="UZZ3jgQtRdoMTlzEHRQrci">
-              <p:NodeReference LastCategoryFullName="System.Application" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="ApplicationPath" />
-              </p:NodeReference>
-              <Pin Id="H8Cj4lUPCOsLuluMRiiXGI" Name="Node Context" Kind="InputPin" IsHidden="true" />
-              <Pin Id="SE2goT5Y7D4MhPKZm03MiO" Name="Output" Kind="OutputPin" />
-            </Node>
-            <Node Bounds="46,176,60,19" Id="LLbcX3X53o1QLoJKOml2hd">
-              <p:NodeReference LastCategoryFullName="IO" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="MakePath" />
-              </p:NodeReference>
-              <Pin Id="H0xoA3RRrILLyOmKbfO2u1" Name="Path" Kind="InputPin" IsHidden="true" />
-              <Pin Id="IOhNaFg9RjYLbuxZdpr0Sg" Name="Input" Kind="InputPin" />
-              <Pin Id="LxM0XW0DnrUMu1tnpehKCW" Name="Input 2" Kind="InputPin" />
-              <Pin Id="ADyATybEMtfN2YDbvC4fv3" Name="Output" Kind="OutputPin" />
-            </Node>
-            <Node Bounds="46,214,55,19" Id="BzssawPzc1rOfvYS8GTCrc">
-              <p:NodeReference LastCategoryFullName="System.Conversion" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="ToString" />
-              </p:NodeReference>
-              <Pin Id="GNBAiqoZes1Ljf18jFJcdC" Name="Input" Kind="InputPin" />
-              <Pin Id="QLpQk4tpeeDL9ZFlQEzkfT" Name="Result" Kind="OutputPin" />
-            </Node>
             <ControlPoint Id="VnyjZiHigUOPiswU4nZsH0" Bounds="215,133" />
             <Node Bounds="695,812,84,19" Id="N3AiurLMJTdP8oymIxHZBM">
               <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
@@ -893,6 +862,19 @@
               <Pin Id="OTUoNXjyFA1L4E8GGluqDQ" Name="Input 4" Kind="InputPin" />
               <Pin Id="Ble8J4yireEPowagNOu8y8" Name="Output" Kind="StateOutputPin" />
             </Node>
+            <Pad Id="KG9cOrslwcCMtmNoLSADT3" Bounds="88,129,35,15" ShowValueBox="true" isIOBox="true" Value="web\\">
+              <p:TypeAnnotation LastCategoryFullName="IO" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="ImmutableTypeFlag" Name="Path" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Node Bounds="86,168,55,19" Id="GtqbZEcnErNOuOfqD8BVkf">
+              <p:NodeReference LastCategoryFullName="System.Conversion" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="ToString" />
+              </p:NodeReference>
+              <Pin Id="E9nPJJEcABPMM8D968AS60" Name="Input" Kind="InputPin" />
+              <Pin Id="QbL5h1HLhGQMt8bO5RXKji" Name="Result" Kind="OutputPin" />
+            </Node>
           </Canvas>
           <ProcessDefinition Id="F0VFBEpCwPoL32Jm5O9xIB" HasStateOut="true">
             <Fragment Id="ILFpzz4Zfd0OHhQFuUocQn" Patch="RAjM2C25AeyMcMHy6wfJFl" Enabled="true" />
@@ -980,10 +962,6 @@
           <Link Id="GHotBXynbIeO3iFpGPTg1r" Ids="OZsW8T8XSSDNH1PGfmgPRy,FZDolKBh8FTPzPZDTmwalF" />
           <Link Id="Js1L4Z8q34JMbeukFHOg9G" Ids="HrhJrM7QwfdPultYr7BklU,HHUOmGdXtoGNxBH1InNbhJ" />
           <Link Id="S5KkQLqH33MQD3aNF797Wx" Ids="RicaVrJxPAhQVunM8h41J1,E8mdzOIAqKzNlgAC0CuWiS" />
-          <Link Id="ErfpapoaeuXN7QVPOPoS9p" Ids="SE2goT5Y7D4MhPKZm03MiO,IOhNaFg9RjYLbuxZdpr0Sg" />
-          <Link Id="VsbfZZ77M4PN01hpIu9Cqo" Ids="T7tD8q3gscfOx2uoTL8LY9,LxM0XW0DnrUMu1tnpehKCW" />
-          <Link Id="Ir1nwuZ9dB1NZfuCK1Qa3X" Ids="ADyATybEMtfN2YDbvC4fv3,GNBAiqoZes1Ljf18jFJcdC" />
-          <Link Id="JHP7rJQvjdNPPE7necgYTS" Ids="QLpQk4tpeeDL9ZFlQEzkfT,UUgBTqkICVrPzTZKa9wOzH" />
           <Link Id="OwyeUGXdBzcMw8zkylpsQv" Ids="VnyjZiHigUOPiswU4nZsH0,JgZR3qhjhsjMiNWWoydWbR" />
           <Link Id="Lp8ctzIerRMLq9Rdr0AArs" Ids="JTixARzx4mpQaduqsbRyBs,VnyjZiHigUOPiswU4nZsH0" IsHidden="true" />
           <Link Id="AEqG611CXgGNj2a0o8sDO0" Ids="VnyjZiHigUOPiswU4nZsH0,ViQ02Ery8A3LY3du0o88aR" />
@@ -1084,6 +1062,8 @@
           <Link Id="AJcEW5ZDSRKMUjsAR1597U" Ids="P4h8mAX9DVYOyi9ZvZ95OY,OVjIC5Yc7aJNvti3mu9PMw" />
           <Link Id="Mo9CtP82JoFPB1bMjrljad" Ids="B9gxDjCipHGP083G9AkWzo,GDVRKKxNCDfNyy0pXN4xxg" />
           <Link Id="Qyvkd32dzjtPehFeYIE92N" Ids="Ble8J4yireEPowagNOu8y8,AdxkBfEDUajPkgtn1uTO17" />
+          <Link Id="OHmf45zzmf0ONqOTRjw71A" Ids="KG9cOrslwcCMtmNoLSADT3,E9nPJJEcABPMM8D968AS60" />
+          <Link Id="KO8v24rDVSFMbSWlQz5Hsb" Ids="QbL5h1HLhGQMt8bO5RXKji,UUgBTqkICVrPzTZKa9wOzH" />
         </Patch>
       </Node>
       <!--
@@ -2338,6 +2318,6 @@
   <NugetDependency Id="SsBopOnOI8iPyzbxPdbPCd" Location="VL.IO.WebSocket" Version="0.7.0-alpha" />
   <PlatformDependency Id="GX4pa4iUeRqMYAqu2F7GiM" Location="VL.MediaPipe.dll" />
   <NugetDependency Id="A7yE1vIrfBIN7A3FGrZXL6" Location="VL.CEF.Stride" Version="0.5.3" />
-  <NugetDependency Id="GhSanPhe5ODOie6Iaa6exl" Location="VL.CEF" Version="0.5.3" />
+  <NugetDependency Id="GhSanPhe5ODOie6Iaa6exl" Location="VL.CEF" Version="0.5.4" />
   <DocumentDependency Id="MlhVUHw1S99MMzM28v8UOQ" Location="./VL.IO.HTTP.WebServer.vl" />
 </Document>
