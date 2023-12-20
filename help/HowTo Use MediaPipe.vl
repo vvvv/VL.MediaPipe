@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="Jr3PSf8cf9JO0yxDYF4J1a" LanguageVersion="2023.5.3-0405-gb0165f3bf2" Version="0.128">
-  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2023.5.3-0405-gb0165f3bf2" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="Jr3PSf8cf9JO0yxDYF4J1a" LanguageVersion="2023.5.3-0413-g27f174d434" Version="0.128">
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2023.5.3-0413-g27f174d434" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
-    <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="Main" CanvasType="FullCategory" />
     <!--
 
     ************************ Application ************************
@@ -29,7 +29,7 @@
             <Pin Id="EbczbNFE34RLCpZeYIRbCv" Name="Detect poses" Kind="InputPin" />
             <Pin Id="Kz0tPenxZGEP5t5DQf20IO" Name="Detect objects" Kind="InputPin" />
             <Pin Id="NS8f38KEgGMOJD9zQpou3O" Name="Classify images" Kind="InputPin" />
-            <Pin Id="Kftk1cUSf7KOK3ccgmcpEZ" Name="Image Segmentation" Kind="InputPin" />
+            <Pin Id="Kftk1cUSf7KOK3ccgmcpEZ" Name="Image Segmentation" Kind="InputPin" DefaultValue="False" />
             <Pin Id="RzJlP9ULamlLwJQl4zpEEd" Name="Show overlays" Kind="InputPin" />
             <Pin Id="U7uw9dxXxCTMdNAJoFxG84" Name="Width" Kind="InputPin" DefaultValue="640" />
             <Pin Id="D8xWw7HRdV1Npcxtau7F7x" Name="Height" Kind="InputPin" DefaultValue="270" />
@@ -42,7 +42,7 @@
             <Pin Id="DxARM8Wx9atLEjJsYCrZKI" Name="State Output" Kind="OutputPin" />
             <Pin Id="SVGaxn1MF1QOmovm0LVVth" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="402,382,95,19" Id="Qz02M0a265fMhPsfMeXCBR">
+          <Node Bounds="382,384,95,19" Id="Qz02M0a265fMhPsfMeXCBR">
             <p:NodeReference LastCategoryFullName="CEF" LastDependency="VL.CEF.Stride.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ToStrideRenderer" />
@@ -51,7 +51,7 @@
             <Pin Id="LzlPW6IcAYbOW0sKqzqQvs" Name="Browser" Kind="InputPin" />
             <Pin Id="GQ9isDNWSFRNmCKwVaPJW1" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="402,431,165,19" Id="QEn8pF0jXpxPvptaw8nyEc">
+          <Node Bounds="382,433,165,19" Id="QEn8pF0jXpxPvptaw8nyEc">
             <p:NodeReference LastCategoryFullName="Stride" LastDependency="VL.Stride.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="RenderWindow" />
@@ -90,7 +90,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="OhxUbFgoBiqPUIv9FeZ6pa" Comment="Detect facial landmarks" Bounds="124,173,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="OhxUbFgoBiqPUIv9FeZ6pa" Comment="Detect facial landmarks" Bounds="124,173,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -150,12 +150,12 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="344,228,182,15" ShowValueBox="true" isIOBox="true" Value="HD Pro Webcam C920 (046d:082d)">
+          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="344,153,182,15" ShowValueBox="true" isIOBox="true" Value="HD Pro Webcam C920 (046d:082d)">
             <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="TypeFlag" Name="CamerasEnum" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="F5ApVdxsPh7LZXDOgTGvfX" Bounds="788,141,87,20" ShowValueBox="true" isIOBox="true" Value="Wait for it &gt;">
+          <Pad Id="F5ApVdxsPh7LZXDOgTGvfX" Bounds="789,88,87,20" ShowValueBox="true" isIOBox="true" Value="Wait for it &gt;">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -251,7 +251,7 @@
             <Pin Id="O7U3F8lZRqJLppWwwA38ga" Name="Min Tracking Confidence" Kind="InputPin" />
             <Pin Id="GLPgNONyHzVNwvogqB9TGY" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="Ozd3k247z6HPMNyV6xa60k" Comment="Detect poses" Bounds="184,215,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="Ozd3k247z6HPMNyV6xa60k" Comment="Detect poses" Bounds="184,215,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -259,7 +259,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="BphNfmMvyf7LzvBjVcY5WM" Bounds="575,386,248,152" ShowValueBox="true" isIOBox="true" Value="&lt; Red node? Check missing dependencies in the Document Menu!&#xD;&#xA;&#xD;&#xA;Explanation: This node is not required for the operation of MediaPipe, only to preview the results. Therefore the VL.CEF.Stride pack is not shipping with the VL.MediaPipe pack. ">
+          <Pad Id="BphNfmMvyf7LzvBjVcY5WM" Bounds="555,388,248,152" ShowValueBox="true" isIOBox="true" Value="&lt; Red node? Check missing dependencies in the Document Menu!&#xD;&#xA;&#xD;&#xA;Explanation: This node is not required for the operation of MediaPipe, only to preview the results. Therefore the VL.CEF.Stride pack is not shipping with the VL.MediaPipe pack. ">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -282,6 +282,24 @@
           </Node>
           <Pad Id="UlGKLKhHjBiP1XqbrHxk0e" Comment="Detection Time" Bounds="159,447,35,15" ShowValueBox="true" isIOBox="true" />
           <Pad Id="UEVYyt5d1DrPqZMTEg3gVs" Comment="Draw Time" Bounds="182,468,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="FI16PEkCOnqOkmlcBGcZ59" Bounds="675,123,240,147" ShowValueBox="true" isIOBox="true" Value="No video showing after ~10s? &gt; &#xD;&#xA;&#xD;&#xA;In case you have 2 GPUs you have 2 options&#xD;&#xA;- Enable the optional &quot;Shared Texture..&quot; Input on the MediaPipe node&#xD;&#xA;- Make the unterlying WebRenderer run on the same GPU, see:&#xD;&#xA;">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="Dcfe7mGBRoCPlTD0L8I5xc" Bounds="679,281,140,19" ShowValueBox="true" isIOBox="true" Value="https://github.com/vvvv/VL.CEF/blob/master/README.md#troubleshooting">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="NnQxyM64wAjMFnS799ZJfW" Name="Create" />
         <Patch Id="HlMT1WaS0ehPS9K2fCBqxG" Name="Update" />
@@ -308,6 +326,6 @@
     </Node>
   </Patch>
   <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.5.3" />
-  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2023.5.3-0405-gb0165f3bf2" />
+  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2023.5.3-0413-g27f174d434" />
   <NugetDependency Id="LVi6AOgIWYkNdVDA5if0rq" Location="VL.MediaPipe" Version="0.0.0" />
 </Document>
