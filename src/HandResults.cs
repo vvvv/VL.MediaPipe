@@ -1,52 +1,56 @@
 ﻿namespace MediaPipe.HandResults
 {
-    public class Rootobject
+    public class HandRoot
     {
-        public Handresults handResults { get; set; }
-        public Resolution resolution { get; set; }
+        public Handresults HandResults { get; set; }
+        public Resolution Resolution { get; set; }
     }
 
     public class Handresults
     {
-        public Landmark[][] landmarks { get; set; }
-        public Worldlandmark[][] worldLandmarks { get; set; }
-        public Handedness[][] handednesses { get; set; }
-        public Handedness1[][] handedness { get; set; }
+        public Landmark[][] Landmarks { get; set; }
+        public Worldlandmark[][] WorldLandmarks { get; set; }
+        public Handedness[][] Handednesses { get; set; }
+        public Handedness1[][] Handedness { get; set; }
     }
 
     public class Landmark
     {
-        public float x { get; set; }
-        public float y { get; set; }
-        public float z { get; set; }
+        public float x { private get; init; }
+        public float y { private get; init; }
+        public float z { private get; init; }
+
+        public Vector3 Position { get { return new Vector3(x, y, z); } }
     }
 
     public class Worldlandmark
     {
-        public float x { get; set; }
-        public float y { get; set; }
-        public float z { get; set; }
+        public float x { private get; init; }
+        public float y { private get; init; }
+        public float z { private get; init; }
+
+        public Vector3 Position { get { return new Vector3(x, y, z); } }
     }
 
     public class Handedness
     {
-        public float score { get; set; }
-        public int index { get; set; }
-        public string categoryName { get; set; }
-        public string displayName { get; set; }
+        public float Score { get; set; }
+        public int Index { get; set; }
+        public string CategoryName { get; set; }
+        public string DisplayName { get; set; }
     }
 
     public class Handedness1
     {
-        public float score { get; set; }
-        public int index { get; set; }
-        public string categoryName { get; set; }
-        public string displayName { get; set; }
+        public float Score { get; set; }
+        public int Index { get; set; }
+        public string CategoryName { get; set; }
+        public string DisplayName { get; set; }
     }
 
     public class Resolution
     {
-        public int width { get; set; }
-        public int height { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
     }
 }

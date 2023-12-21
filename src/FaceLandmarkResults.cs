@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace MediaPipe.FaceLandmarkResults
+﻿namespace MediaPipe.FaceLandmarkResults
 {
     public class FaceLandmarkRoot
     {

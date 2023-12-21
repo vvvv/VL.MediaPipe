@@ -1,27 +1,27 @@
 ﻿namespace VL.MediaPipe.ImageResults
 {
-    public class Rootobject
+    public class ImageRoot
     {
-        public Imageresults imageResults { get; set; }
-        public Resolution resolution { get; set; }
+        public Imageresults ImageResults { get; set; }
+        public Resolution Resolution { get; set; }
     }
 
     public class Imageresults
     {
-        public Classification[] classifications { get; set; }
-        public int timestampMs { get; set; }
+        public Classification[] Classifications { get; set; }
+        public int TimestampMs { get; set; }
     }
 
     public class Classification
     {
-        public object[] categories { get; set; }
-        public int headIndex { get; set; }
-        public string headName { get; set; }
+        public object[] Categories { get; set; }
+        public int HeadIndex { get; set; }
+        public string HeadName { get; set; }
     }
 
     public class Resolution
     {
-        public int width { get; set; }
-        public int height { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
     }
 }

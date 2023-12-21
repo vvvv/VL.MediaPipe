@@ -17,9 +17,7 @@ namespace MediaPipe.FaceDetectorResults
 
     public class FaceDescription
     {
-        [JsonPropertyName("categories")]
         public Category[] Categories { get; init; }
-        [JsonPropertyName("keypoints")]
         public Keypoint[] Keypoints { get; init; }
 
         //with .NET8 we'll be able to set the below to private and then jsoninclude

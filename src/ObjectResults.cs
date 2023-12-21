@@ -1,21 +1,23 @@
 ﻿namespace VL.MediaPipe.ObjectResults
 {
-    public class Rootobject
+    public class ObjectRoot
     {
-        public Objectresults objectResults { get; set; }
-        public Resolution resolution { get; set; }
+        public Objectresults ObjectResults { get; set; }
+        public Resolution Resolution { get; set; }
     }
 
     public class Objectresults
     {
-        public Detection[] detections { get; set; }
+        public Detection[] Detections { get; set; }
     }
 
     public class Detection
     {
-        public Category[] categories { get; set; }
-        public object[] keypoints { get; set; }
-        public Boundingbox boundingBox { get; set; }
+        public Category[] Categories { get; set; }
+        public object[] Keypoints { get; set; }
+        public Boundingbox boundingBox { private get; init; }
+
+        public Rectangle BoundingRect { get { return new Rectangle(boundingBox.originX, boundingBox.originY, boundingBox.width, boundingBox.height); } }
     }
 
     public class Boundingbox
@@ -29,15 +31,15 @@
 
     public class Category
     {
-        public float score { get; set; }
-        public int index { get; set; }
-        public string categoryName { get; set; }
-        public string displayName { get; set; }
+        public float Score { get; set; }
+        public int Index { get; set; }
+        public string CategoryName { get; set; }
+        public string DisplayName { get; set; }
     }
 
     public class Resolution
     {
-        public int width { get; set; }
-        public int height { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
     }
 }
