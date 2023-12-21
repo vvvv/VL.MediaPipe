@@ -31,11 +31,6 @@
               <Pin Id="IV1MGCD1bpfP7rpmgGphcw" Name="Statistics" Kind="OutputPin" />
               <Pin Id="RYfTllXw1myMEuDxbJmSr9" Name="Is Listening" Kind="OutputPin" />
             </Node>
-            <Pad Id="B9gxDjCipHGP083G9AkWzo" Comment="Port" Bounds="611,195,35,15" ShowValueBox="true" isIOBox="true" Value="3002">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Integer32" />
-              </p:TypeAnnotation>
-            </Pad>
             <Node Bounds="191,309,65,19" Id="Mrj5kmDr789NUBQHXFiwfx">
               <p:NodeReference LastCategoryFullName="IO.HTTP" LastDependency="VL.IO.HTTP.WebServer.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -267,7 +262,7 @@
               <Pin Id="RicaVrJxPAhQVunM8h41J1" Name="Output" Kind="StateOutputPin" />
               <Pin Id="GINyfVYd3bnOQWjfCmr1sX" Name="Apply" Kind="InputPin" DefaultValue="False" />
             </Node>
-            <Pad Id="DuEmCPQ0xrXOPhxaw8aH7N" Comment="Startup Url" Bounds="343,531,140,15" ShowValueBox="true" isIOBox="true" Value="http://localhost:{0}/index.html">
+            <Pad Id="DuEmCPQ0xrXOPhxaw8aH7N" Comment="Startup Url" Bounds="343,531,265,15" ShowValueBox="true" isIOBox="true" Value="http://localhost:{0}/index.html?Wsport={1}">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
@@ -286,9 +281,9 @@
               <Pin Id="JtQHUjcX66zPx7AbiqNTTQ" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Pad Id="VIrV7PvDcTHQZZ5VCQiYvA" Comment="Error Text" Bounds="409,697,73,15" ShowValueBox="true" isIOBox="true" />
-            <ControlPoint Id="QtqT1tRbC9cOrklfCGQkNl" Bounds="694,309" />
-            <Pad Id="Nv28eVDuWqhPjeSwpCDLny" Bounds="763,287" />
-            <ControlPoint Id="GQGLrhEZZNiNfQ4pp7qjEm" Bounds="763,308" />
+            <ControlPoint Id="QtqT1tRbC9cOrklfCGQkNl" Bounds="509,307" />
+            <Pad Id="Nv28eVDuWqhPjeSwpCDLny" Bounds="578,285" />
+            <ControlPoint Id="GQGLrhEZZNiNfQ4pp7qjEm" Bounds="578,306" />
             <Node Bounds="-1054,893,36,19" Id="Ko8S5mDEoMxNJEwxEm7i8S">
               <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1234,7 +1229,7 @@
                         </Node>
                       </Patch>
                     </Node>
-                    <Node Bounds="780,1293,92,19" Id="MEuMK97sk8BLCPYG9AyBz5">
+                    <Node Bounds="780,1293,92,26" Id="MEuMK97sk8BLCPYG9AyBz5">
                       <p:NodeReference LastCategoryFullName="System.Text.Json.JsonSerializerOptions" LastDependency="System.Text.Json.dll">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <CategoryReference Kind="AssemblyCategory" Name="JsonSerializerOptions" />
@@ -1242,7 +1237,7 @@
                       </p:NodeReference>
                       <Pin Id="BpvMC5nOdWeNrXFet6JMaQ" Name="Output" Kind="StateOutputPin" />
                     </Node>
-                    <Node Bounds="780,1336,164,19" Id="RJ1QenysM0bQYff9lZy6IS">
+                    <Node Bounds="780,1336,164,26" Id="RJ1QenysM0bQYff9lZy6IS">
                       <p:NodeReference LastCategoryFullName="System.Text.Json.JsonSerializerOptions" LastDependency="System.Text.Json.dll">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <CategoryReference Kind="AssemblyCategory" Name="JsonSerializerOptions" />
@@ -1316,6 +1311,7 @@
               <Pin Id="BUCnZUXlFjwN75B0txa6tQ" Name="Value" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="AecqCgEgeMgLHgaQzLsab4" Bounds="1043,2775" />
+            <ControlPoint Id="LxAGOSvUYFhPlAUoiA7gXo" Bounds="611,191" />
           </Canvas>
           <ProcessDefinition Id="F0VFBEpCwPoL32Jm5O9xIB" HasStateOut="true">
             <Fragment Id="ILFpzz4Zfd0OHhQFuUocQn" Patch="RAjM2C25AeyMcMHy6wfJFl" Enabled="true" />
@@ -1329,7 +1325,6 @@
           <Link Id="TQeIn1kcU7rLycMSnm2Fas" Ids="Gl65k0TSkU5NhSHTPFP2nC,HNgSF60JAWBOZzMCrDRniT" />
           <Link Id="LKAYnmD0OKRNzGmw5naaCY" Ids="NEfUTqOZ4LgOwuSNgZL98F,VJZTyTBJbKEP19WrBgqbqy" />
           <Link Id="IjdA6Qg7xL0LhgcfMIJ3IF" Ids="Rch7Gvj8jqkLKZkoGt07Vu,UU31jVTZeseNuD0ESIhKXK" />
-          <Link Id="EdY2BdSZJuHOX86qiK7z6V" Ids="B9gxDjCipHGP083G9AkWzo,DHtgDVvFKE5OSFy3ILuZGC" />
           <Link Id="HYryN6sMEYNLFxnqsQhP9W" Ids="FNZWom3aMqNMIsyOuAmnv1,ErTOZ90biwaLp7MYdag7ee" />
           <Link Id="IR30IGB61IGMahiNEUL7yU" Ids="VrECVEjtWJyMX5WZV4YooA,TJ9AI1JIqDzM96VkXFJ2p5" />
           <Link Id="Mt5csAXnHgtPlPIpgV96tT" Ids="MuqzSLSy3mEPZjWL0kV9rj,Vm9PyUtGARQO4X26Th89AA" />
@@ -1436,6 +1431,7 @@
             <Pin Id="EN7hZNiyZqAPBnTTarsCYi" Name="Enabled" Kind="InputPin" Bounds="420,-36" />
             <Pin Id="E9AVajdd5HqPeIfkTxGyaF" Name="Output" Kind="OutputPin" Bounds="1196,370" />
             <Pin Id="A9XbMICfDjgNscxqCmfxBh" Name="Shared Texture Enabled" Kind="InputPin" Bounds="508,201" DefaultValue="True" Visibility="Optional" />
+            <Pin Id="KfBpZQHSXZ6LzfbUWLQdKB" Name="Websocket Port" Kind="InputPin" DefaultValue="3002" Visibility="Optional" />
           </Patch>
           <Patch Id="VQ4eqsZOPMHOkpyQtdS3sh" Name="GetWebsocket (Internal)">
             <Pin Id="NvP2pOF0F52QGnuT7GPtCl" Name="Websocket" Kind="OutputPin" />
@@ -1461,7 +1457,6 @@
           <Link Id="E5e2h2X8xe2QCy2VbwLWj1" Ids="NAvFFH7bSeINEGEfBVwYRp,OvVgRPVP1ZyNHs9MwMfQpV" />
           <Link Id="G0PZk6wEaoWMwsif9cqSkf" Ids="RYfTllXw1myMEuDxbJmSr9,QavidVG82BXOdRhVs6NUDO" />
           <Link Id="AJcEW5ZDSRKMUjsAR1597U" Ids="P4h8mAX9DVYOyi9ZvZ95OY,OVjIC5Yc7aJNvti3mu9PMw" />
-          <Link Id="Mo9CtP82JoFPB1bMjrljad" Ids="B9gxDjCipHGP083G9AkWzo,GDVRKKxNCDfNyy0pXN4xxg" />
           <Link Id="Qyvkd32dzjtPehFeYIE92N" Ids="Ble8J4yireEPowagNOu8y8,AdxkBfEDUajPkgtn1uTO17" />
           <Link Id="KO8v24rDVSFMbSWlQz5Hsb" Ids="QbL5h1HLhGQMt8bO5RXKji,UUgBTqkICVrPzTZKa9wOzH" />
           <Link Id="UJNdkFIJgsGNV9dDLMEj7V" Ids="QbL5h1HLhGQMt8bO5RXKji,Pb0tEbEZy9dPYYb8htzmc4" />
@@ -1579,6 +1574,10 @@
           <Link Id="R2WeAUqq4jePeWPaorFc4D" Ids="DAmMpCfGucAN5tP9pr19g7,Ert10fuoSHINRBlwZQYdLj" />
           <Link Id="D7cwg3BQmpZM7ONAaR3os5" Ids="ThPZWZBpEbMLvxubYhkcv4,GYqyi91Lp5AOaFA0WZMw5e" />
           <Link Id="Sr6BWPUFGEHO33a1huyBKo" Ids="BpvMC5nOdWeNrXFet6JMaQ,S6QfRcEH0JJM8RLLeMp64Y" />
+          <Link Id="Ve9SmLAwIveLDEWC2fuzX6" Ids="KfBpZQHSXZ6LzfbUWLQdKB,LxAGOSvUYFhPlAUoiA7gXo" IsHidden="true" />
+          <Link Id="SNMEiPUbNlWQFI9UdogKNU" Ids="LxAGOSvUYFhPlAUoiA7gXo,UyrNP7C8ClwMhrPYwSN3Zn" />
+          <Link Id="UNYWPQnzrAJP86IbBYktuY" Ids="LxAGOSvUYFhPlAUoiA7gXo,DHtgDVvFKE5OSFy3ILuZGC" />
+          <Link Id="TOGnUypqazNPWACxEUiKjH" Ids="LxAGOSvUYFhPlAUoiA7gXo,GDVRKKxNCDfNyy0pXN4xxg" />
         </Patch>
       </Node>
       <!--

@@ -4688,7 +4688,7 @@ let allModelState = [faceLandmarkState, faceDetectorState, handState, gestureSta
 let landmarkerModelState = [faceLandmarkState, handState, gestureState, poseState];
 (async function setup() {
   handleQueryParams();
-  setupWebSocket(socketState.adddress + ":3002", socketState);
+  setupWebSocket(socketState.adddress + ":" + socketState.port, socketState);
   webcamState.webcamDevices = await getWebcamDevices();
   handState.landmarker = await createHandLandmarker(WASM_PATH);
   gestureState.landmarker = await createGestureLandmarker(WASM_PATH);
