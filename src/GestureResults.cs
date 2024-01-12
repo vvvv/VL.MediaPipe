@@ -12,7 +12,7 @@
         public Landmark[][] Landmarks { get; set; }
         public Worldlandmark[][] WorldLandmarks { get; set; }
         public Handedness[][] Handedness { get; set; }
-        public Handedness1[][] Handednesses { get; set; }
+        public Handedness[][] Handednesses { get; set; }
     }
 
     public class Gesture
@@ -42,14 +42,6 @@
     }
 
     public class Handedness
-    {
-        public float Score { get; set; }
-        public int Index { get; set; }
-        public string CategoryName { get; set; }
-        public string DisplayName { get; set; }
-    }
-
-    public class Handedness1
     {
         public float Score { get; set; }
         public int Index { get; set; }

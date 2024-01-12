@@ -25,9 +25,9 @@ namespace MediaPipe.FaceDetectorResults
         public Boundingbox boundingBox { private get; init; }
 
         public Rectangle BoundingRect { get { return new Rectangle(boundingBox.originX, boundingBox.originY, boundingBox.width, boundingBox.height); } }
-    }
+    } 
 
-    public class Boundingbox
+    public record Boundingbox
     {
         public int originX { get; set; }
         public int originY { get; set; }

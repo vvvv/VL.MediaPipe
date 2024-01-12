@@ -1,4 +1,6 @@
-﻿namespace VL.MediaPipe.ObjectResults
+﻿using System.Text.Json.Serialization;
+
+namespace VL.MediaPipe.ObjectResults
 {
     public class ObjectRoot
     {
@@ -8,10 +10,11 @@
 
     public class Objectresults
     {
-        public Detection[] Detections { get; set; }
+        [JsonPropertyName("detections")]
+        public ObjectDescription[] Objects { get; set; }
     }
 
-    public class Detection
+    public class ObjectDescription
     {
         public Category[] Categories { get; set; }
         public object[] Keypoints { get; set; }

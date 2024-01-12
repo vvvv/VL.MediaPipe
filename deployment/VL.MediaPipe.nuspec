@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.MediaPipe</id>
-    <version>0.0.12-alpha</version>
+    <version>0.1.0-alpha</version>
     <title>VL.MediaPipe</title>
     <authors>Dom Scott, Torin Blankensmith, vvvv</authors>
     <owners>vvvv</owners>
@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>MediaPipe for vvvv</summary>
     <description>MediaPipe for vvvv</description>
-    <tags>mediapipe, ML, tracking</tags>
+    <tags>VL, ML, tracking, skeleton, objectdetection</tags>
 	<dependencies>
       <dependency id="VL.CEF" version="0.5.4" />
       <dependency id="VL.IO.WebSocket" version="0.7.0-alpha" />
