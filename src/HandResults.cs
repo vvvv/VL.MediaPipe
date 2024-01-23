@@ -1,5 +1,7 @@
 ﻿namespace MediaPipe.HandResults
 {
+    public enum Fingers { Wrist, Thumb_CMC, Thumb_MCP, Thumb_IP, Thumb_TIP, IndexFinger_MCP, IndexFinger_PIP, IndexFinger_DIP, IndexFinger_TIP, MiddleFinger_MCP, MiddleFinger_PIP, MiddleFinger_DIP, MiddleFinger_TIP, RingFinger_MCP, RingFinger_PIP, RingFinger_DIP, RingFinger_TIP, Pinky_MCP, Pinky_PIP, Pinky_DIP, Pinky_TIP }
+    
     public class HandRoot
     {
         public Handresults HandResults { get; set; }
