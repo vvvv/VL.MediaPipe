@@ -2962,11 +2962,9 @@
                           <FullNameCategoryReference ID="VL.MediaPipe.PoseResults.Landmark" />
                         </p:NodeReference>
                         <Pin Id="AGQEHmYcH78PAiBbs5oi0x" Name="Input" Kind="StateInputPin" />
-                        <Pin Id="P6Dts1rIPPZOhmKVrVexqT" Name="Output" Kind="OutputPin" IsHidden="true" />
+                        <Pin Id="P6Dts1rIPPZOhmKVrVexqT" Name="Output" Kind="OutputPin" />
                         <Pin Id="OhiPYaCKuGQN5Gh5AyU5L7" Name="Position" Kind="OutputPin" />
                       </Node>
-                      <Pin Id="GjXmix48xfFPADWr2WkqEq" Name="Input" Kind="InputPin" />
-                      <Pin Id="Uof55r8diSoOVRJdPo3BEs" Name="Position" Kind="OutputPin" />
                       <ControlPoint Id="UmeeM8ATvTEL5k5MHP0tJj" Bounds="468,491" />
                       <Node Bounds="466,437,85,19" Id="BMEvx6BMMQNQdyqaT1OFNq">
                         <p:NodeReference LastCategoryFullName="Math.Ranges" LastDependency="VL.CoreLib.vl">
@@ -2983,6 +2981,9 @@
                       <Link Id="AjTTqi0mAOSO7DXdzb4T1R" Ids="UmeeM8ATvTEL5k5MHP0tJj,Uof55r8diSoOVRJdPo3BEs" IsHidden="true" />
                       <Link Id="MGlnTyP0o7MN8fZ97FD3ml" Ids="HgpoItlGlJGOX1lJhAp1Jb,UmeeM8ATvTEL5k5MHP0tJj" />
                       <Link Id="BK69HPR7dh2NvwAiijBar8" Ids="OhiPYaCKuGQN5Gh5AyU5L7,PNA4ZP64VC2PP5qa9PsaCu" />
+                      <Pin Id="GjXmix48xfFPADWr2WkqEq" Name="Input" Kind="InputPin" />
+                      <Pin Id="BZVQFjJPBqnMEgx1p2xkbd" Name="Output" Kind="OutputPin" />
+                      <Pin Id="Uof55r8diSoOVRJdPo3BEs" Name="Position" Kind="OutputPin" />
                     </Patch>
                   </Node>
                 </Canvas>
@@ -3009,10 +3010,69 @@
                 <ProcessDefinition Id="Qhok4czPviTMwkdH3Bb6Ap" IsHidden="true" />
               </Patch>
             </Node>
+            <!--
+
+    ************************ PoseJointByName ************************
+
+-->
+            <Node Name="PoseJointByName" Bounds="908,427,152,157" Id="EaU45ZMlUiALtjOt95DQ4P">
+              <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+                <Choice Kind="OperationDefinition" Name="Operation" />
+              </p:NodeReference>
+              <Patch Id="TSMkMiTfjoNPdA5P31k75a">
+                <Node Bounds="983,470,65,19" Id="OmYiEzHKqP7QQTiO1U3kmf">
+                  <p:NodeReference LastCategoryFullName="Primitive.Enum" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <Choice Kind="OperationCallFlag" Name="Enum2Ord" />
+                  </p:NodeReference>
+                  <Pin Id="OOKIuDV6tYcPdLK1NPPLIi" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="OlU9a4YjdSQL8P9W3yrakZ" Name="Result" Kind="OutputPin" />
+                </Node>
+                <ControlPoint Id="GpN54YFr1c2QWeb9FzPXya" Bounds="985,445" />
+                <Link Id="OlwLYdRvzxqObnv69AV3Vd" Ids="GpN54YFr1c2QWeb9FzPXya,OOKIuDV6tYcPdLK1NPPLIi" />
+                <Link Id="SdYO1QGn2ZAOlHdXOpTKgc" Ids="VAMszPnDWPYNEkE1EiErfw,GpN54YFr1c2QWeb9FzPXya" IsHidden="true" />
+                <Node Bounds="921,504,52,19" Id="NHbYyQ2iwsSPXPxl2Erf7P">
+                  <p:NodeReference LastCategoryFullName="Collections.Interfaces.IReadOnlyList" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <CategoryReference Kind="MutableInterfaceType" Name="IReadOnlyList" NeedsToBeDirectParent="true" />
+                    <Choice Kind="OperationCallFlag" Name="GetSlice" />
+                  </p:NodeReference>
+                  <Pin Id="PunTnR6nB0gLsJED3NozKT" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="RUdSV9QA1T0MetkTU7BYDw" Name="Default Value" Kind="InputPin" />
+                  <Pin Id="TnqRCfCTg2ONydVs0cHo1I" Name="Index" Kind="InputPin" />
+                  <Pin Id="GA4yFzihNyBLtxwpPea15P" Name="Result" Kind="OutputPin" />
+                </Node>
+                <Link Id="OL3ma7hP8CdOMapT3xueM2" Ids="OlU9a4YjdSQL8P9W3yrakZ,TnqRCfCTg2ONydVs0cHo1I" />
+                <ControlPoint Id="Hl4AvTYsfNrNoU6SQn6aIB" Bounds="922,447" />
+                <Link Id="VSRAnDFmDPZOO3zwxiAqlX" Ids="Hl4AvTYsfNrNoU6SQn6aIB,PunTnR6nB0gLsJED3NozKT" />
+                <Link Id="Q9DsxqokcOWOukq1GGsOV2" Ids="EZgfeauSIdOLelA4d45NtR,Hl4AvTYsfNrNoU6SQn6aIB" IsHidden="true" />
+                <ControlPoint Id="FytlhkV860ZOlX5GZj9L9F" Bounds="922,567" />
+                <Link Id="KTT9amSny7HLP3WV77gGhp" Ids="GA4yFzihNyBLtxwpPea15P,FytlhkV860ZOlX5GZj9L9F" />
+                <Link Id="FxRJrjrDTnPLqyNpwTVlAW" Ids="FytlhkV860ZOlX5GZj9L9F,TtZrM1e7hLtOvmMigNTaYO" IsHidden="true" />
+                <Pin Id="EZgfeauSIdOLelA4d45NtR" Name="Input" Kind="InputPin" Bounds="96,565">
+                  <p:TypeAnnotation LastCategoryFullName="Collections.Mutable" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="TypeFlag" Name="MutableArray" />
+                    <p:TypeArguments>
+                      <TypeReference>
+                        <Choice Kind="TypeFlag" Name="Landmark" />
+                        <FullNameCategoryReference ID="MediaPipe.PoseDetector" />
+                      </TypeReference>
+                    </p:TypeArguments>
+                  </p:TypeAnnotation>
+                </Pin>
+                <Pin Id="VAMszPnDWPYNEkE1EiErfw" Name="Joint" Kind="InputPin" Bounds="117,538">
+                  <p:TypeAnnotation LastCategoryFullName="VL.MediaPipe.PoseResults" LastDependency="VL.MediaPipe.dll">
+                    <Choice Kind="TypeFlag" Name="PoseJoints" />
+                  </p:TypeAnnotation>
+                </Pin>
+                <Pin Id="TtZrM1e7hLtOvmMigNTaYO" Name="Result" Kind="OutputPin" Bounds="89,660" />
+              </Patch>
+            </Node>
           </Canvas>
           <ProcessDefinition Id="BO32KjPsP3PPDLOMmuwnz4">
             <Fragment Id="U4JJBOfVxJVMzjsX0YE98T" Patch="Qrl3dTsFDRtLXA34ETNrOL" Enabled="true" />
             <Fragment Id="HMS2NKfeh47OsgWJCoXofy" Patch="PgnxYEAXLHhQK4JJZokFwZ" Enabled="true" />
+            <Fragment Id="VZMCA6SyGQDP2hKD79OMFQ" Patch="EaU45ZMlUiALtjOt95DQ4P" />
           </ProcessDefinition>
           <Link Id="HGlU0KzQKTRO5FdSPvNBjX" Ids="VifAGnwp458NJOW3v5U4nP,LfBDrWzTXDeL5amb2KMNZu" IsHidden="true" />
           <Link Id="G2AlDT4ef7KNCVZhNX1fRo" Ids="LfBDrWzTXDeL5amb2KMNZu,KOs049rYyNJLNrNNrEmQe9" />
@@ -3414,8 +3474,8 @@
                       <Link Id="DP3m56oiimfQXoKGArEu3D" Ids="FMHKH281BAsOd1fjWwisxA,NBUoZMvhKjDO7pd3NX230C" />
                       <Link Id="Va9WdqNHJbBOaYOECAKW0W" Ids="CNb0IkB4t4vMS6ML9apRV8,VOkwvPv5G2NLx7TOTmXkcN" />
                       <Pin Id="IuAUUXIq1pzOgFr3AHHdGE" Name="Input" Kind="InputPin" />
-                      <Pin Id="Mrc2dkUy7DtQThuGaepr1d" Name="Position" Kind="OutputPin" Bounds="479,436" />
                       <Pin Id="L7TAoudTNz7NWiQLHdJZJv" Name="Output" Kind="OutputPin" />
+                      <Pin Id="Mrc2dkUy7DtQThuGaepr1d" Name="Position" Kind="OutputPin" Bounds="479,436" />
                     </Patch>
                   </Node>
                 </Canvas>
@@ -3462,10 +3522,10 @@
             </Node>
             <!--
 
-    ************************ LandmarkByName ************************
+    ************************ FingerJointByName ************************
 
 -->
-            <Node Name="LandmarkByName" Bounds="761,483,152,157" Id="ENkoKpDvaHWN2T8lHTboxW">
+            <Node Name="FingerJointByName" Bounds="761,483,152,157" Id="ENkoKpDvaHWN2T8lHTboxW">
               <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
                 <Choice Kind="OperationDefinition" Name="Operation" />
               </p:NodeReference>
@@ -3510,9 +3570,9 @@
                     </p:TypeArguments>
                   </p:TypeAnnotation>
                 </Pin>
-                <Pin Id="HEZVn9h9zPUPogA1dOxnIB" Name="Landmark" Kind="InputPin" Bounds="117,538">
+                <Pin Id="HEZVn9h9zPUPogA1dOxnIB" Name="Joint" Kind="InputPin" Bounds="117,538">
                   <p:TypeAnnotation LastCategoryFullName="MediaPipe.HandResults" LastDependency="VL.MediaPipe.dll">
-                    <Choice Kind="TypeFlag" Name="Fingers" />
+                    <Choice Kind="TypeFlag" Name="FingerJoints" />
                   </p:TypeAnnotation>
                 </Pin>
                 <Pin Id="C2el1m6cAfJNdvMIkjVFX1" Name="Result" Kind="OutputPin" Bounds="89,660" />

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="JgxE2kJFTvtMLbT7kQd5sl" LanguageVersion="2024.6.0-0022-g93bfcdd657" Version="0.128">
+<Document xmlns:p="property" xmlns:r="reflection" Id="Jr3PSf8cf9JO0yxDYF4J1a" LanguageVersion="2024.6.0-0022-g93bfcdd657" Version="0.128">
   <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2024.6.0-0022-g93bfcdd657" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="Main" CanvasType="FullCategory" />
@@ -103,23 +103,16 @@
               <Choice Kind="TypeFlag" Name="CamerasEnum" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="UIFsqYAsK50NnfoQaJA6Yr" Comment="Detect hands" Bounds="167,150,35,35" ShowValueBox="true" isIOBox="true" Value="True">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Node Bounds="126,286,85,19" Id="PYNCAGXV2adNDRozV8seEL">
+          <Node Bounds="126,286,105,19" Id="PYNCAGXV2adNDRozV8seEL">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="HandDetector" />
+              <Choice Kind="ProcessAppFlag" Name="PoseDetector" />
             </p:NodeReference>
             <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="RROZja0sJBHOxcKPQhf2WF" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="CyM5ZduSSS0NQMqN1D4lBP" Name="Input" Kind="InputPin" />
-            <Pin Id="BxMzwSOvTy8Pqt13aF7PUn" Name="Max Number of Hands" Kind="InputPin" />
+            <Pin Id="Pw1aCNupIj4MIV9qm6B9vg" Name="Max Number of Poses" Kind="InputPin" />
+            <Pin Id="Bp0RVLGkvH8LEjBfbVJKtb" Name="Pose Model Type" Kind="InputPin" />
             <Pin Id="IJrNt5iLXKdMxk1BRolzKy" Name="Min Detection Confidence" Kind="InputPin" />
             <Pin Id="INFwIcXc9mRMqp1HLUkRLJ" Name="Min Presence Confidence" Kind="InputPin" />
             <Pin Id="Q8OHRDpdQ5vLjtR83fTHJ9" Name="Min Tracking Confidence" Kind="InputPin" />
@@ -219,11 +212,13 @@
                     <Pin Id="Oh9Oa9UtskqOngagRW4G87" Name="Output" Kind="OutputPin" />
                   </Node>
                   <Node Bounds="562,472,53,26" Id="Uz9CWwiK6QrQMlxQmr0NdZ">
-                    <p:NodeReference LastCategoryFullName="MediaPipe.HandDetector.Landmark" LastDependency="VL.MediaPipe.vl">
+                    <p:NodeReference LastCategoryFullName="MediaPipe.PoseDetector.Landmark" LastDependency="VL.MediaPipe.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <CategoryReference Kind="Category" Name="MediaPipe" />
-                      <CategoryReference Kind="Category" Name="HandDetector" />
                       <CategoryReference Kind="ClassType" Name="Landmark" />
+                      <CategoryReference Kind="ClassType" Name="Landmark" NeedsToBeDirectParent="true">
+                        <p:OuterCategoryReference Kind="Category" Name="PoseDetector" NeedsToBeDirectParent="true" />
+                      </CategoryReference>
                       <Choice Kind="OperationCallFlag" Name="Position" />
                     </p:NodeReference>
                     <Pin Id="T5EKM3IKny9NcOOXUgWn4w" Name="Input" Kind="StateInputPin" />
@@ -257,9 +252,9 @@
               </Node>
               <ControlPoint Id="SQuBeBQP4MeOG8Dp3iAiHZ" Bounds="749,504" />
               <Node Bounds="437,668,102,19" Id="Gbe1oMsAuLsQATggcRyhFz">
-                <p:NodeReference LastCategoryFullName="MediaPipe.HandDetector" LastDependency="VL.MediaPipe.vl">
+                <p:NodeReference LastCategoryFullName="MediaPipe.PoseDetector" LastDependency="VL.MediaPipe.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="FingerJointByName" />
+                  <Choice Kind="OperationCallFlag" Name="PoseJointByName" />
                 </p:NodeReference>
                 <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
                 <Pin Id="MI0bnI50NxDOZrItZXa9vs" Name="Input" Kind="InputPin" />
@@ -308,11 +303,13 @@
                 <Pin Id="NBVx7h8nw5SPcSvDqFXf9j" Name="Output" Kind="OutputPin" />
               </Node>
               <Node Bounds="648,709,53,26" Id="Vl0N09yn7XALFMwYTGqw53">
-                <p:NodeReference LastCategoryFullName="MediaPipe.HandDetector.Landmark" LastDependency="VL.MediaPipe.vl">
+                <p:NodeReference LastCategoryFullName="MediaPipe.PoseDetector.Landmark" LastDependency="VL.MediaPipe.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="Category" Name="MediaPipe" />
-                  <CategoryReference Kind="Category" Name="HandDetector" />
                   <CategoryReference Kind="ClassType" Name="Landmark" />
+                  <CategoryReference Kind="ClassType" Name="Landmark" NeedsToBeDirectParent="true">
+                    <p:OuterCategoryReference Kind="Category" Name="PoseDetector" NeedsToBeDirectParent="true" />
+                  </CategoryReference>
                   <Choice Kind="OperationCallFlag" Name="Position" />
                 </p:NodeReference>
                 <Pin Id="IdYpnolq56VMOJOQaWN9AS" Name="Input" Kind="StateInputPin" />
@@ -336,9 +333,9 @@
                   <Choice Kind="TypeFlag" Name="RGBA" />
                 </p:TypeAnnotation>
               </Pad>
-              <Pad Id="N7tLATW8dRWNd7YmRWJUyG" Comment="Joint" Bounds="538,645,107,15" ShowValueBox="true" isIOBox="true" Value="Pinky_TIP">
-                <p:TypeAnnotation LastCategoryFullName="MediaPipe.HandResults" LastDependency="VL.MediaPipe.vl">
-                  <Choice Kind="TypeFlag" Name="FingerJoints" />
+              <Pad Id="QH7LhuTKThaMvvRZlj8ah3" Comment="Joint" Bounds="534,643,92,15" ShowValueBox="true" isIOBox="true" Value="Nose">
+                <p:TypeAnnotation LastCategoryFullName="VL.MediaPipe.PoseResults" LastDependency="VL.MediaPipe.vl">
+                  <Choice Kind="TypeFlag" Name="PoseJoints" />
                 </p:TypeAnnotation>
               </Pad>
             </Patch>
@@ -378,6 +375,14 @@
               </Item>
             </p:Value>
           </Pad>
+          <Pad Id="RCLi0jStH05MWi3SvsU7aP" Comment="Detect poses" Bounds="208,166,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="NnQxyM64wAjMFnS799ZJfW" Name="Create" />
         <Patch Id="HlMT1WaS0ehPS9K2fCBqxG" Name="Update" />
@@ -389,7 +394,6 @@
         <Link Id="SOnb1YALh3MMVkk6zuJo5O" Ids="LJMquxkmM4RMIBAMmcfYOc,GLkum1P2NxbPecuyyuq01Q" />
         <Link Id="JYW60daQt19QdE3rNx5rI8" Ids="QjcGiacVbCKNznZGjbMrT8,OJ7OnLos1QTMR3Mj3PreCP" />
         <Link Id="QCUTOGeLOuhPWj8iNe0XJy" Ids="Rl6H1fA5L95MB7LiXYxnuK,SfPjXVj05ZiQI6muvE1PL1" />
-        <Link Id="VQUoUnspXaIQYLhwkPcuKH" Ids="UIFsqYAsK50NnfoQaJA6Yr,PPLupqHmGcmNJKdYNQfljU" />
         <Link Id="ODuREheFym6OJOxIDcEh4e" Ids="DxARM8Wx9atLEjJsYCrZKI,CyM5ZduSSS0NQMqN1D4lBP" />
         <Link Id="TrC5Dgou52FMelUwEjJbOp" Ids="GLNGBg4v1uCN2vvO6KGuLU,VqgNx2JCOW9MuNbiPUPkUA" />
         <Link Id="NHwfwckaQjcNJkh4LqBU4i" Ids="OcfM0as9DTMPFiFuCkTc1r,FsXr7tAmHsNMLOhZaOD2Gi" />
@@ -408,7 +412,6 @@
         <Link Id="JuJw1Ht1CsRMDufE2I6ZsI" Ids="SQuBeBQP4MeOG8Dp3iAiHZ,R6gmSLEv7e2MmXG4TatzqK" />
         <Link Id="NRwzlZHLBvlN0C3G6OZBrd" Ids="Fk5xcw1k09DPucm7JonM5s,URnln2887QgOxBy7jN3qZy" />
         <Link Id="S9UFwcfDASbMkjTmGkljV1" Ids="GQ9isDNWSFRNmCKwVaPJW1,EHoWtc8JPszNBb1tM0cJu4" />
-        <Link Id="ATxC82Dd0QTPcRA0rDxhaK" Ids="VqcBEbjVbl3OuS7z5YSQFH,MI0bnI50NxDOZrItZXa9vs" />
         <Link Id="L757GzQmvQ6PYbZunXOH6A" Ids="Rvgtsy1ve0gO7IRarwnHkW,T5EKM3IKny9NcOOXUgWn4w" />
         <Link Id="QJSYuWDhdtJOaBCecFSo5y" Ids="Q8lS6skmkTNO0NGGoVlj5h,OcfM0as9DTMPFiFuCkTc1r" />
         <Link Id="OMP3BHTPQSPQUnOTUTSDIv" Ids="BAKWj7vPVtwLY4Kyr26XC0,Jb3xcoeMEdvM88h94vx3YY" />
@@ -417,7 +420,9 @@
         <Link Id="PpOb4vtEq7JLliiCWz3h9F" Ids="AZLkVBSEDMzLhTnPASzmNM,MEaS5dvYXZNPaZhJtRuq5P" />
         <Link Id="RJZJdFBeT0fNuQ0wOEnoZk" Ids="FkOAjtatDMDPAin6FWPPFH,MSE4OfVbgLENzYu9tink2O" />
         <Link Id="CMdqGHVlsspQFEcoZJEA2k" Ids="SwOk8jlmRRfOMRHhJYZGWp,JE2XVLIL7DhLRTUD2A1QUw" />
-        <Link Id="O48hZ10Q9nBMf2l75CbPz3" Ids="N7tLATW8dRWNd7YmRWJUyG,AwTSfPSz7cqMD8MqT1HSOp" />
+        <Link Id="HbTEDkNW7ECNc1HHlRZbN7" Ids="QH7LhuTKThaMvvRZlj8ah3,AwTSfPSz7cqMD8MqT1HSOp" />
+        <Link Id="SEPIFLo8GCsPpUP0V9v5U3" Ids="VqcBEbjVbl3OuS7z5YSQFH,MI0bnI50NxDOZrItZXa9vs" />
+        <Link Id="SoSPEwxz5q5LHMo00a3bx7" Ids="RCLi0jStH05MWi3SvsU7aP,EbczbNFE34RLCpZeYIRbCv" />
       </Patch>
     </Node>
   </Patch>
