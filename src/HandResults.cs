@@ -1,5 +1,7 @@
 ﻿namespace MediaPipe.HandResults
 {
+    public enum Hand { Any, Left, Right }
+
     public enum FingerJoints { 
         Wrist, 
         Thumb_CMC, 
