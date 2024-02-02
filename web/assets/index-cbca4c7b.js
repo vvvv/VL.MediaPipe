@@ -4102,7 +4102,7 @@ let poseState = {
   minDetectionConfidence: 0.5,
   minPresenceConfidence: 0.5,
   minTrackingConfidence: 0.5,
-  draw: (state, canvas) => drawPoseLandmarks(state, canvas)
+  draw: (state, canvas) => drawPoseLandmarks$1(state, canvas)
 };
 const createPoseLandmarker = async (WASM_PATH2) => {
   console.log("Starting pose detection");
@@ -4122,7 +4122,7 @@ const createPoseLandmarker = async (WASM_PATH2) => {
   });
   return poseLandmarker;
 };
-function drawPoseLandmarks(results, drawingUtils) {
+function drawPoseLandmarks$1(results, drawingUtils) {
   if (results && results.landmarks) {
     for (const landmark of results.landmarks) {
       drawingUtils.drawLandmarks(landmark, {
@@ -4445,6 +4445,47 @@ function createCopyTextureToCanvas(results) {
   }
   gl.drawArrays(gl.TRIANGLES, 0, 6);
 }
+let imageEmbedderModelTypes = {
+  "small": "./mediapipe/models/image_embedder/mobilenet_v3_small.tflite",
+  "large": "./mediapipe/models/image_embedder/mobilenet_v3_large.tflite"
+};
+let imageEmbedderState = {
+  modelTypes: imageEmbedderModelTypes,
+  detect: true,
+  modelPath: imageEmbedderModelTypes["large"],
+  landmarker: void 0,
+  results: void 0,
+  resultsName: "imageEmbedderResults",
+  draw: (state, canvas) => drawPoseLandmarks(state, canvas)
+};
+const createImageEmbedder = async (WASM_PATH2) => {
+  console.log("Starting Image Embedder");
+  const vision = await So.forVisionTasks(WASM_PATH2);
+  let imageEmbedder2 = await ic.createFromOptions(vision, {
+    baseOptions: {
+      modelAssetPath: imageEmbedderState.modelPath
+    },
+    runningMode: "VIDEO"
+  });
+  return imageEmbedder2;
+};
+async function predictWebcam$1() {
+  if (runningMode === "IMAGE") {
+    runningMode = "VIDEO";
+    await imageEmbedder.setOptions({ runningMode });
+  }
+  const startTimeMs = performance.now();
+  const embedderResult = await imageEmbedder.embedForVideo(video, startTimeMs);
+  if (uploadImageEmbedderResult != null) {
+    const similarity = ic.cosineSimilarity(
+      uploadImageEmbedderResult.embeddings[0],
+      embedderResult.embeddings[0]
+    );
+    videoResult.className = "";
+    videoResult.innerText = "Image similarity: " + similarity.toFixed(2);
+  }
+  window.requestAnimationFrame(predictWebcam$1);
+}
 const canvasElement$1 = document.getElementById("output_canvas");
 const canvasCtx = canvasElement$1.getContext("2d");
 const offscreenCanvas = document.createElement("canvas");
@@ -4468,7 +4509,7 @@ let webcamState = {
   changeWebcam: (webcam) => changeWebcam(webcam)
 };
 let socketState = {
-  adddress: "ws://127.0.0.1",
+  adddress: "ws://localhost",
   port: "3002",
   ws: void 0
 };
@@ -4566,6 +4607,7 @@ const configMap = {
   "Detectobjects": (value) => detectSwitch(objectState, parseInt(value) === 1),
   "Detectimages": (value) => detectSwitch(imageState, parseInt(value) === 1),
   "Detectsegments": (value) => detectSwitch(segmenterState, parseInt(value) === 1),
+  "Detectimageembeddings": (value) => detectSwitch(imageEmbedderState, parseInt(value) === 1),
   "Showoverlays": (value) => overlaySwitch(parseInt(value) === 1),
   "Hnumhands": (value) => handState.numHands = value,
   "Hdetectconf": (value) => handState.minDetectionConfidence = value,
@@ -4599,8 +4641,8 @@ const configMap = {
   "Imodeltype": (value) => modelCheck(imageState, value),
   "Iscore": (value) => imageState.scoreThreshold = value,
   "Smodeltype": (value) => modelCheck(segmenterState, value),
-  "Smodeltype": (value) => modelCheck(segmenterState, value),
-  "Sshowmulticlassbackgroundonly": (value) => segmenterState.showMultiClassBackgroundOnly = parseInt(value) === 1
+  "Sshowmulticlassbackgroundonly": (value) => segmenterState.showMultiClassBackgroundOnly = parseInt(value) === 1,
+  "Iemodeltype": (value) => modelCheck(imageEmbedderState, value)
   // 'Scolor0r': value => segmenterState.legendColors[0][0] = Math.round(value * 255.0),
   // 'Scolor0g': value => segmenterState.legendColors[0][1] = Math.round(value * 255.0),
   // 'Scolor0b': value => segmenterState.legendColors[0][2] = Math.round(value * 255.0),
@@ -4677,14 +4719,14 @@ function overlaySwitch(value) {
   const canvas = document.getElementById("segmentation");
 }
 const WASM_PATH = "./mediapipe/wasm";
-const video = document.getElementById("webcam");
+const video$1 = document.getElementById("webcam");
 let flippedVideo = null;
-webcamState.videoElement = video;
+webcamState.videoElement = video$1;
 const canvasElement = document.getElementById("output_canvas");
 const objectsDiv = document.getElementById("objects");
 const facesDiv = document.getElementById("faces");
 const segmentationCanvas = document.getElementById("segmentation");
-let allModelState = [faceLandmarkState, faceDetectorState, handState, gestureState, poseState, objectState, imageState, segmenterState];
+let allModelState = [faceLandmarkState, faceDetectorState, handState, gestureState, poseState, objectState, imageState, segmenterState, imageEmbedderState];
 let landmarkerModelState = [faceLandmarkState, handState, gestureState, poseState];
 (async function setup() {
   handleQueryParams();
@@ -4697,8 +4739,12 @@ let landmarkerModelState = [faceLandmarkState, handState, gestureState, poseStat
   poseState.landmarker = await createPoseLandmarker(WASM_PATH);
   objectState.landmarker = await createObjectDetector(WASM_PATH, objectsDiv);
   imageState.landmarker = await createImageClassifier(WASM_PATH);
-  segmenterState.landmarker = await createImageSegmenter(WASM_PATH, video, segmentationCanvas);
-    window.requestAnimationFrame(() => predictWebcam(allModelState, objectState, webcamState, video));
+  segmenterState.landmarker = await createImageSegmenter(WASM_PATH, video$1, segmentationCanvas);
+  imageEmbedderState.landmarker = await createImageEmbedder(WASM_PATH);
+  webcamState.startWebcam();
+  if (webcamState.webcamRunning) {
+    window.requestAnimationFrame(() => predictWebcam(allModelState, objectState, webcamState, video$1));
+  }
 })();
 function handleQueryParams() {
   socketState.port = window.location.port;
@@ -4717,7 +4763,8 @@ function safeSocketSend(ws2, data) {
 async function predictWebcam(allModelState2, objectState2, webcamState2, video2) {
   let timeToDetect = 0;
   let timeToDraw = 0;
-  if (!webcamState2.webcamRunning || video2.videoWidth === 0 || video2.videoHeight === 0) {
+  if (video2.videoWidth === 0 || video2.videoHeight === 0) {
+    console.log("videoWidth or videoHeight is 0");
     window.requestAnimationFrame(() => predictWebcam(allModelState2, objectState2, webcamState2, video2));
     return;
   }
@@ -4754,6 +4801,8 @@ async function predictWebcam(allModelState2, objectState2, webcamState2, video2)
           landmarker.results = await marker.recognizeForVideo(flippedVideo, startTimeMs);
         } else if (landmarker.resultsName === "imageResults") {
           landmarker.results = await marker.classifyForVideo(flippedVideo, startTimeMs);
+        } else if (landmarker.resultsName === "imageEmbedderResults") {
+          landmarker.results = await marker.embedForVideo(video2, startTimeMs);
         } else {
           landmarker.results = await marker.detectForVideo(flippedVideo, startTimeMs);
         }

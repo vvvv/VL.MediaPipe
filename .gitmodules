@@ -1,0 +1,4 @@
+[submodule "mediapipe-touchdesigner"]
+	path = mediapipe-touchdesigner
+	url = https://github.com/torinmb/mediapipe-touchdesigner.git
+	branch = image-embedding

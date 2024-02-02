@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="Nok3gNLoMHQQLnQxKlRlRD" LanguageVersion="2023.5.3-0450-g34173d70fc" Version="0.128">
-  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2023.5.3-0450-g34173d70fc" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="Nok3gNLoMHQQLnQxKlRlRD" LanguageVersion="2024.6.0-0081-g588702602e" Version="0.128">
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2024.6.0-0081-g588702602e" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="Main" CanvasType="FullCategory" />
     <!--
@@ -15,7 +15,7 @@
       </p:NodeReference>
       <Patch Id="OXVSo2lxnjmLC4jL1xyVXR">
         <Canvas Id="F7rihaZNHlTNFkOGqM80Y6" CanvasType="Group">
-          <Node Bounds="134,498,305,19" Id="Tgw9Pmml3LKNVltqgKMG6a">
+          <Node Bounds="74,528,325,19" Id="Tgw9Pmml3LKNVltqgKMG6a">
             <p:NodeReference LastCategoryFullName="Main" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="MediaPipe" />
@@ -29,7 +29,8 @@
             <Pin Id="EbczbNFE34RLCpZeYIRbCv" Name="Detect poses" Kind="InputPin" />
             <Pin Id="Kz0tPenxZGEP5t5DQf20IO" Name="Detect objects" Kind="InputPin" />
             <Pin Id="NS8f38KEgGMOJD9zQpou3O" Name="Classify images" Kind="InputPin" />
-            <Pin Id="Kftk1cUSf7KOK3ccgmcpEZ" Name="Imagse segmentation" Kind="InputPin" />
+            <Pin Id="Kftk1cUSf7KOK3ccgmcpEZ" Name="Image segmentation" Kind="InputPin" />
+            <Pin Id="FfU2aHG1bjDNXqUf6S8Yih" Name="Detect image embeddings" Kind="InputPin" />
             <Pin Id="RzJlP9ULamlLwJQl4zpEEd" Name="Show overlays" Kind="InputPin" />
             <Pin Id="U7uw9dxXxCTMdNAJoFxG84" Name="Width" Kind="InputPin" DefaultValue="640" />
             <Pin Id="D8xWw7HRdV1Npcxtau7F7x" Name="Height" Kind="InputPin" DefaultValue="360" />
@@ -43,7 +44,7 @@
             <Pin Id="DxARM8Wx9atLEjJsYCrZKI" Name="State Output" Kind="OutputPin" />
             <Pin Id="SVGaxn1MF1QOmovm0LVVth" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="414,557,95,19" Id="Qz02M0a265fMhPsfMeXCBR">
+          <Node Bounds="354,587,95,19" Id="Qz02M0a265fMhPsfMeXCBR">
             <p:NodeReference LastCategoryFullName="CEF" LastDependency="VL.CEF.Stride.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ToStrideRenderer" />
@@ -52,7 +53,7 @@
             <Pin Id="LzlPW6IcAYbOW0sKqzqQvs" Name="Browser" Kind="InputPin" />
             <Pin Id="GQ9isDNWSFRNmCKwVaPJW1" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="414,676,165,19" Id="QEn8pF0jXpxPvptaw8nyEc">
+          <Node Bounds="354,706,165,19" Id="QEn8pF0jXpxPvptaw8nyEc">
             <p:NodeReference LastCategoryFullName="Stride" LastDependency="VL.Stride.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="RenderWindow" />
@@ -74,6 +75,7 @@
             <Pin Id="CRBDv5TMYlCNX6yKzG5cP3" Name="Clear Stencil" Kind="InputPin" IsHidden="true" />
             <Pin Id="ChN5BKIvZSAMkcnGXcwT5x" Name="Clear" Kind="InputPin" />
             <Pin Id="NNcs0oML9QGOt0OViKnlAF" Name="Edit Mode" Kind="InputPin" />
+            <Pin Id="EktMOX3C0nENqNQurTtsvN" Name="Commands" Kind="InputPin" IsHidden="true" />
             <Pin Id="BvOMBgC2rcrQToD9jJXLq6" Name="Enable Keyboard Shortcuts" Kind="InputPin" />
             <Pin Id="OTarLdFOamrLz50HFs87YB" Name="Enabled" Kind="InputPin" />
             <Pin Id="Q4GA7xAJ7EHLMZU9QlK3iN" Name="Present Interval" Kind="InputPin" />
@@ -83,7 +85,7 @@
             <Pin Id="Jlx05uq9lGAM9cbxKzzVxI" Name="Back Buffer" Kind="OutputPin" />
             <Pin Id="LfMVd40pUqULd5zu3hH8WQ" Name="Depth Buffer" Kind="OutputPin" />
           </Node>
-          <Pad Id="LJMquxkmM4RMIBAMmcfYOc" Comment="Enabled" Bounds="530,426,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="LJMquxkmM4RMIBAMmcfYOc" Comment="Enabled" Bounds="470,456,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -91,7 +93,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="OhxUbFgoBiqPUIv9FeZ6pa" Comment="Detect facial landmarks" Bounds="155,121,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="OhxUbFgoBiqPUIv9FeZ6pa" Comment="Detect facial landmarks" Bounds="95,91,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -99,7 +101,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="TkXR5VkVcI2NpVEaE3XDXt" Comment="Show overlays" Bounds="296,447,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="TkXR5VkVcI2NpVEaE3XDXt" Comment="Show overlays" Bounds="256,475,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -107,7 +109,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="154,681,75,19" Id="LuP9deUSayQLigrlBzW2GX">
+          <Node Bounds="94,711,75,19" Id="LuP9deUSayQLigrlBzW2GX">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="FaceDetector" />
@@ -119,7 +121,7 @@
             <Pin Id="Dd9OrD2bownLkUZpH2Reec" Name="Min Overlap Suppression" Kind="InputPin" />
             <Pin Id="BkmXERUxElmOT7gBVjCbog" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="154,763,125,19" Id="N9EC6yNqSRiPmPYyxel87h">
+          <Node Bounds="94,793,125,19" Id="N9EC6yNqSRiPmPYyxel87h">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="FaceLandmarksDetector" />
@@ -137,7 +139,7 @@
             <Pin Id="Uc7m35K8LTiLrQkeSg0SEq" Name="Blend Shapes" Kind="OutputPin" />
             <Pin Id="Un4u6v6CJYdOhBIK2whMnd" Name="Transformations" Kind="OutputPin" />
           </Node>
-          <Pad Id="KmC17d136REMBra659QEjA" Comment="Detect faces" Bounds="136,76,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="KmC17d136REMBra659QEjA" Comment="Detect faces" Bounds="76,46,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -145,7 +147,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="QjcGiacVbCKNznZGjbMrT8" Comment="Reset" Bounds="442,426,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="QjcGiacVbCKNznZGjbMrT8" Comment="Reset" Bounds="382,456,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -153,12 +155,12 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="376,480,182,15" ShowValueBox="true" isIOBox="true" Value="HD Pro Webcam C920 (046d:082d)">
+          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="316,510,182,15" ShowValueBox="true" isIOBox="true" Value="HD Pro Webcam C920 (046d:082d)">
             <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="TypeFlag" Name="CamerasEnum" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="F5ApVdxsPh7LZXDOgTGvfX" Bounds="796,152,87,20" ShowValueBox="true" isIOBox="true" Value="Wait for it &gt;">
+          <Pad Id="F5ApVdxsPh7LZXDOgTGvfX" Bounds="736,182,87,20" ShowValueBox="true" isIOBox="true" Value="Wait for it &gt;">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -167,7 +169,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="E88hL8T5UkTOFDCNiz1qdd" Bounds="165,719,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_detector">
+          <Pad Id="E88hL8T5UkTOFDCNiz1qdd" Bounds="105,749,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_detector">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -176,7 +178,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="L8Ax6IZZRFEMH6sb5nNCL2" Bounds="165,800,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_landmarker">
+          <Pad Id="L8Ax6IZZRFEMH6sb5nNCL2" Bounds="105,830,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_landmarker">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -185,7 +187,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="MXUfeeQ4K0GONxl2o7S5pW" Bounds="165,1032,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/gesture_recognizer">
+          <Pad Id="MXUfeeQ4K0GONxl2o7S5pW" Bounds="105,1062,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/gesture_recognizer">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -194,7 +196,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="DaOZHl6N68HOJvY7OYm3iu" Bounds="165,883,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/pose_landmarker">
+          <Pad Id="DaOZHl6N68HOJvY7OYm3iu" Bounds="105,913,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/pose_landmarker">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -203,7 +205,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="PoL8rmKo5QjM7SssW51NFz" Bounds="165,1279,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/image_segmenter">
+          <Pad Id="PoL8rmKo5QjM7SssW51NFz" Bounds="105,1309,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/image_segmenter">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -212,7 +214,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="HE57arzYT9kLTtsDP0ek4J" Bounds="165,1194,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/image_classifier">
+          <Pad Id="HE57arzYT9kLTtsDP0ek4J" Bounds="105,1224,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/image_classifier">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -221,7 +223,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="JV9gipd1BPSLbonqH7iIDz" Bounds="165,1108,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/object_detector">
+          <Pad Id="JV9gipd1BPSLbonqH7iIDz" Bounds="105,1138,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/object_detector">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -230,12 +232,11 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="154,845,105,19" Id="U96iBZkfG9IO4tnkDtZF1f">
+          <Node Bounds="94,875,105,19" Id="U96iBZkfG9IO4tnkDtZF1f">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="PoseDetector" />
             </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="Uif6CRsPKWpQcvLbPwWilw" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="LZ0Ngt7AJnnPhPq3rMRT7C" Name="Input" Kind="InputPin" />
             <Pin Id="DhDVz8EpqtBLFiUe6hxPrA" Name="Max Number of Poses" Kind="InputPin" />
@@ -246,7 +247,7 @@
             <Pin Id="PrfMsnRlhDBNDnUXSX7gXC" Name="Landmarks" Kind="OutputPin" />
             <Pin Id="LVORHfjSrO0LejWdGXeVOg" Name="World Landmarks" Kind="OutputPin" />
           </Node>
-          <Pad Id="Ozd3k247z6HPMNyV6xa60k" Comment="Detect poses" Bounds="216,258,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="Ozd3k247z6HPMNyV6xa60k" Comment="Detect poses" Bounds="156,228,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -254,7 +255,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="BphNfmMvyf7LzvBjVcY5WM" Bounds="587,561,248,152" ShowValueBox="true" isIOBox="true" Value="&lt; Red node? Check missing dependencies in the Document Menu!&#xD;&#xA;&#xD;&#xA;Explanation: This node is not required for the operation of MediaPipe, only to preview the results. Therefore the VL.CEF.Stride pack is not shipping with the VL.MediaPipe pack. ">
+          <Pad Id="BphNfmMvyf7LzvBjVcY5WM" Bounds="527,591,248,152" ShowValueBox="true" isIOBox="true" Value="&lt; Red node? Check missing dependencies in the Document Menu!&#xD;&#xA;&#xD;&#xA;Explanation: This node is not required for the operation of MediaPipe, only to preview the results. Therefore the VL.CEF.Stride pack is not shipping with the VL.MediaPipe pack. ">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -263,7 +264,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="189,582,53,19" Id="NQphdLOs6GINWPigh9wH82">
+          <Node Bounds="129,612,53,19" Id="NQphdLOs6GINWPigh9wH82">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Timings" />
@@ -275,9 +276,9 @@
             <Pin Id="Ncv1ihalvJHNDycgCPmCSV" Name="Draw Time" Kind="OutputPin" />
             <Pin Id="BvGny9FWVIKOUhIQLTcOJW" Name="Source Frame Rate" Kind="OutputPin" />
           </Node>
-          <Pad Id="UlGKLKhHjBiP1XqbrHxk0e" Comment="Detection Time" Bounds="191,620,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="UEVYyt5d1DrPqZMTEg3gVs" Comment="Draw Time" Bounds="214,641,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="FI16PEkCOnqOkmlcBGcZ59" Bounds="682,187,240,147" ShowValueBox="true" isIOBox="true" Value="No video showing after ~10s? &gt; &#xD;&#xA;&#xD;&#xA;In case you have 2 GPUs you have 2 options&#xD;&#xA;- Enable the optional &quot;Shared Texture..&quot; Input on the MediaPipe node&#xD;&#xA;- Make the unterlying WebRenderer run on the same GPU, see:&#xD;&#xA;">
+          <Pad Id="UlGKLKhHjBiP1XqbrHxk0e" Comment="Detection Time" Bounds="131,650,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="UEVYyt5d1DrPqZMTEg3gVs" Comment="Draw Time" Bounds="154,671,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="FI16PEkCOnqOkmlcBGcZ59" Bounds="622,217,240,147" ShowValueBox="true" isIOBox="true" Value="No video showing after ~10s? &gt; &#xD;&#xA;&#xD;&#xA;In case you have 2 GPUs you have 2 options&#xD;&#xA;- Enable the optional &quot;Shared Texture..&quot; Input on the MediaPipe node&#xD;&#xA;- Make the unterlying WebRenderer run on the same GPU, see:&#xD;&#xA;">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -286,7 +287,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="Dcfe7mGBRoCPlTD0L8I5xc" Bounds="686,345,140,19" ShowValueBox="true" isIOBox="true" Value="https://github.com/vvvv/VL.CEF/blob/master/README.md#troubleshooting">
+          <Pad Id="Dcfe7mGBRoCPlTD0L8I5xc" Bounds="626,375,140,19" ShowValueBox="true" isIOBox="true" Value="https://github.com/vvvv/VL.CEF/blob/master/README.md#troubleshooting">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -295,7 +296,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="UIFsqYAsK50NnfoQaJA6Yr" Comment="Detect hands" Bounds="175,166,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="UIFsqYAsK50NnfoQaJA6Yr" Comment="Detect hands" Bounds="115,136,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -303,12 +304,11 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="154,921,85,19" Id="PYNCAGXV2adNDRozV8seEL">
+          <Node Bounds="94,951,85,19" Id="PYNCAGXV2adNDRozV8seEL">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="HandDetector" />
             </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
             <Pin Id="RROZja0sJBHOxcKPQhf2WF" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="CyM5ZduSSS0NQMqN1D4lBP" Name="Input" Kind="InputPin" />
             <Pin Id="BxMzwSOvTy8Pqt13aF7PUn" Name="Max Number of Hands" Kind="InputPin" />
@@ -318,7 +318,7 @@
             <Pin Id="EhgZpKy774GPx9eqsL1WjU" Name="Landmarks" Kind="OutputPin" />
             <Pin Id="UOqLgA6uolBM5TRQ5qjflC" Name="World Landmarks" Kind="OutputPin" />
           </Node>
-          <Pad Id="SOp3oRE8Z2TNTfh7VrVHiT" Bounds="165,961,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/hand_landmarker">
+          <Pad Id="SOp3oRE8Z2TNTfh7VrVHiT" Bounds="105,991,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/hand_landmarker">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -327,7 +327,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="ORkK4fGNW04PteM5lHudek" Comment="Detect gestures" Bounds="195,211,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="ORkK4fGNW04PteM5lHudek" Comment="Detect gestures" Bounds="135,181,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -335,7 +335,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="154,992,125,19" Id="JdWN7153YKLOqjVls0pm5k">
+          <Node Bounds="94,1022,125,19" Id="JdWN7153YKLOqjVls0pm5k">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GestureDetector" />
@@ -355,7 +355,7 @@
             <Pin Id="MuVkwGa9dswPM83ucaEkfd" Name="Handedness" Kind="OutputPin" />
             <Pin Id="ELzYosCzb5BM3rgm6QInV4" Name="Handednesses" Kind="OutputPin" />
           </Node>
-          <Node Bounds="154,1072,85,19" Id="B2EjBaAUw4dOp0yiabHf13">
+          <Node Bounds="94,1102,85,19" Id="B2EjBaAUw4dOp0yiabHf13">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ObjectDetector" />
@@ -368,7 +368,7 @@
             <Pin Id="Tcjv7a6YPlzPyevEdJs95C" Name="Object Model Type" Kind="InputPin" />
             <Pin Id="GFkV7EaiApKQDltqGomqHl" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="154,1157,86,19" Id="BkrvvIiaFPGQKd7NvSOEVc">
+          <Node Bounds="94,1187,86,19" Id="BkrvvIiaFPGQKd7NvSOEVc">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ImageClassifier" />
@@ -381,7 +381,7 @@
             <Pin Id="HfyBzuSnZjHNMdiVOC9sYY" Name="Image Model Type" Kind="InputPin" />
             <Pin Id="LPVAmMDJpoTMf2kGgwub3b" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="154,1243,92,19" Id="PQRMzYKOPM0NcqOPRM4rTU">
+          <Node Bounds="94,1273,92,19" Id="PQRMzYKOPM0NcqOPRM4rTU">
             <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ImageSegmenter" />
@@ -392,7 +392,7 @@
             <Pin Id="Qi1vBNxUvpONg2yLLMez6y" Name="Segmentation Model Type" Kind="InputPin" />
             <Pin Id="OdsxLIxXCsEOZjyiYaRAyC" Name="Show MultiClass Background Only" Kind="InputPin" />
           </Node>
-          <Pad Id="RNEJVZfoj7oQRXl9N6o01y" Comment="Detect objects" Bounds="236,304,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="RNEJVZfoj7oQRXl9N6o01y" Comment="Detect objects" Bounds="176,274,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -400,7 +400,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="TjtdpcS5vIILZluHUyaV83" Comment="Classify images" Bounds="256,351,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="TjtdpcS5vIILZluHUyaV83" Comment="Classify images" Bounds="196,321,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -408,7 +408,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="T7DDVtafhYwM1GgSvbUbso" Comment="Image segmentation" Bounds="277,397,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="T7DDVtafhYwM1GgSvbUbso" Comment="Image segmentation" Bounds="216,367,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -416,6 +416,34 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
+          <Pad Id="BjN3sQmjUyYMZ2rXq2QvST" Comment="Detect image embeddings" Bounds="236,421,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="KPU4KRF2cYJLA0fGNqJFCI" Bounds="105,1384,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/image_embedder">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="94,1348,134,19" Id="JjHE68Hx5zjLqNMvtwNXps">
+            <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="ImageEmbeddingDetector" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="SKeyeFoZKjOPZa5bHafKpY" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="Jy6Gqfzey4MM6JchPpk1Ut" Name="Input" Kind="InputPin" />
+            <Pin Id="MNAY40m7MdELPBhUMVFWfA" Name="Image Embedder Model Type" Kind="InputPin" />
+            <Pin Id="PrZNfPhqDx4LWIsE9GLvz4" Name="Embeddings" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="NnQxyM64wAjMFnS799ZJfW" Name="Create" />
         <Patch Id="HlMT1WaS0ehPS9K2fCBqxG" Name="Update" />
@@ -448,10 +476,12 @@
         <Link Id="RTWyZreD002NaibTMtSfHF" Ids="TjtdpcS5vIILZluHUyaV83,NS8f38KEgGMOJD9zQpou3O" />
         <Link Id="Bdv683w3FTrMbRieFjNPby" Ids="T7DDVtafhYwM1GgSvbUbso,Kftk1cUSf7KOK3ccgmcpEZ" />
         <Link Id="OnvKOtYovm9MBuDdeKKgQe" Ids="GQ9isDNWSFRNmCKwVaPJW1,VqgNx2JCOW9MuNbiPUPkUA" />
+        <Link Id="MqSkYmx5QOYPmnYDMILjhi" Ids="BjN3sQmjUyYMZ2rXq2QvST,FfU2aHG1bjDNXqUf6S8Yih" />
+        <Link Id="Drdfr7p5ZRiM4wHF6cUCNs" Ids="DxARM8Wx9atLEjJsYCrZKI,Jy6Gqfzey4MM6JchPpk1Ut" />
       </Patch>
     </Node>
   </Patch>
   <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.5.3" />
-  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2023.5.3-0450-g34173d70fc" />
+  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2024.6.0-0081-g588702602e" />
   <NugetDependency Id="LVi6AOgIWYkNdVDA5if0rq" Location="VL.MediaPipe" Version="0.0.0" />
 </Document>
