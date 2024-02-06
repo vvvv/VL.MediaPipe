@@ -4521,70 +4521,84 @@ let outputState = {
   height: 720
 };
 async function changeWebcam(webcam) {
-  let webcamFound = true;
+  var _a2;
+  console.log("Attempting to change webcam to " + webcam);
+  var webcamFound = true;
   if (webcam !== webcamState.webcamLabel) {
     webcamFound = false;
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    const webcamDevices = devices.filter((device) => device.kind === "videoinput");
-    webcamDevices.forEach((webcamDevice) => {
-      if (webcamDevice.label == webcam) {
-        webcamState.webcamId = webcamDevice.deviceId;
-        console.log("Using webcam: " + webcamDevice.label);
-        console.log("Reported capabilities:", webcamDevice.getCapabilities());
-        webcamFound = true;
-      }
-    });
-    if (!webcamFound) {
-      console.log("Can't find webcam: " + webcamState.webcamLabel);
+    if (!((_a2 = navigator.mediaDevices) == null ? void 0 : _a2.enumerateDevices)) {
+      console.log("enumerateDevices() not supported.");
     } else {
-      const constraints = {
-        video: {
-          deviceId: {
-            exact: webcamState.webcamId
-          },
-          height: {
-            exact: webcamState.height
-          },
-          width: {
-            exact: webcamState.width
-          },
-          frameRate: {
-            ideal: webcamState.targetFrameRate
+      navigator.mediaDevices.enumerateDevices().then((devices) => {
+        devices = devices.filter((device) => device.kind === "videoinput");
+        webcamState.webcamDevices = devices;
+        devices.forEach((device) => {
+          if (device.label == webcam) {
+            webcamState.webcamId = device.deviceId;
+            console.log("Found webcam: " + device.label);
+            console.log("Reported capabilities:", device.getCapabilities());
+            webcamFound = true;
           }
+        });
+        if (!webcamFound) {
+          console.log("Can't find webcam: " + webcamState.webcamLabel);
+        } else if (!webcamState.webcamRunning || webcamState.webcamLabel != webcam) {
+          webcamState.webcamLabel = webcam;
+          startNewWebcam();
         }
-      };
-      if (webcamState.webcamRunning) {
-        const tracks = webcamState.videoElement.srcObject.getTracks();
-        tracks.forEach((track) => {
-          track.stop();
-        });
-        webcamState.webcamRunning = false;
-      }
-      try {
-        let stream = await navigator.mediaDevices.getUserMedia(constraints);
-        webcamState.videoElement.srcObject = stream;
-        webcamState.webcamLabel = webcam;
-        stream.getTracks().forEach(function(track) {
-          let trackSettings = track.getSettings();
-          webcamState.frameRate = trackSettings.frameRate;
-          console.log("Webcam started with following settings: ", trackSettings);
-        });
-        webcamState.webcamRunning = true;
-        webcamState.videoElement.height = webcamState.height;
-        socketState.ws.send(JSON.stringify({ success: "webcamStarted" }));
-      } catch (err) {
-        console.log("Error starting webcam: " + err.name + ": " + err.message);
-        socketState.ws.send(JSON.stringify({ error: "webcamStartFail" }));
-      }
-    }
-    offscreenCanvas.width = webcamState.width;
-    offscreenCanvas.height = webcamState.height;
-    if (webcamState.flipped) {
-      webcamState.videoElement.style.transform = "scaleX(-1)";
-    } else {
-      webcamState.videoElement.style.transform = "scaleX(1)";
+      }).catch((err) => {
+        console.error(`${err.name}: ${err.message}`);
+      });
     }
   }
+  if (webcamState.flipped) {
+    webcamState.videoElement.style.transform = "scaleX(-1)";
+  } else {
+    webcamState.videoElement.style.transform = "scaleX(1)";
+  }
+}
+async function startNewWebcam() {
+  const constraints = {
+    video: {
+      deviceId: {
+        exact: webcamState.webcamId
+      },
+      width: {
+        exact: webcamState.width
+      },
+      height: {
+        exact: webcamState.height
+      },
+      aspectRatio: 1.7777777777777777,
+      frameRate: {
+        ideal: webcamState.targetFrameRate
+      }
+    }
+  };
+  if (webcamState.webcamRunning) {
+    const tracks = webcamState.videoElement.srcObject.getTracks();
+    tracks.forEach((track) => {
+      track.stop();
+    });
+    webcamState.webcamRunning = false;
+  }
+  try {
+    let stream = await navigator.mediaDevices.getUserMedia(constraints);
+    webcamState.videoElement.srcObject = stream;
+    stream.getTracks().forEach(function(track) {
+      let trackSettings = track.getSettings();
+      webcamState.frameRate = trackSettings.frameRate;
+      console.log("Webcam started with following settings: ", trackSettings);
+    });
+    webcamState.webcamRunning = true;
+    webcamState.videoElement.height = webcamState.height;
+    socketState.ws.send(JSON.stringify({ success: "webcamStarted" }));
+  } catch (err) {
+    console.log("Error starting webcam: " + err.name + ": " + err.message);
+    socketState.ws.send(JSON.stringify({ error: "webcamStartFail" }));
+  }
+  offscreenCanvas.width = webcamState.width;
+  offscreenCanvas.height = webcamState.height;
 }
 const configMap = {
   "Wsaddress": (value) => socketState.adddress = value,
@@ -4666,7 +4680,7 @@ const configMap = {
   // 'Scolor6b': value => segmenterState.legendColors[6][2] = Math.round(value * 255.0),
 };
 function modelCheck(state, value) {
-  console.log("Looking for  : " + value);
+  console.log("Looking for model : " + value);
   if (state.modelTypes.hasOwnProperty(value)) {
     console.log("Setting : " + state.modelTypes[value]);
     state.modelPath = state.modelTypes[value];
@@ -4742,9 +4756,7 @@ let landmarkerModelState = [faceLandmarkState, handState, gestureState, poseStat
   segmenterState.landmarker = await createImageSegmenter(WASM_PATH, video$1, segmentationCanvas);
   imageEmbedderState.landmarker = await createImageEmbedder(WASM_PATH);
   webcamState.startWebcam();
-  if (webcamState.webcamRunning) {
-    window.requestAnimationFrame(() => predictWebcam(allModelState, objectState, webcamState, video$1));
-  }
+  window.requestAnimationFrame(() => predictWebcam(allModelState, objectState, webcamState, video$1));
 })();
 function handleQueryParams() {
   socketState.port = window.location.port;
@@ -4763,7 +4775,7 @@ function safeSocketSend(ws2, data) {
 async function predictWebcam(allModelState2, objectState2, webcamState2, video2) {
   let timeToDetect = 0;
   let timeToDraw = 0;
-  if (video2.videoWidth === 0 || video2.videoHeight === 0) {
+  if (!webcamState2.webcamRunning || video2.videoWidth === 0 || video2.videoHeight === 0) {
     console.log("videoWidth or videoHeight is 0");
     window.requestAnimationFrame(() => predictWebcam(allModelState2, objectState2, webcamState2, video2));
     return;
@@ -4839,7 +4851,7 @@ async function predictWebcam(allModelState2, objectState2, webcamState2, video2)
 function setupWebSocket(socketURL, socketState2) {
   socketState2.ws = new WebSocket(socketURL);
   socketState2.ws.addEventListener("open", () => {
-    console.log("WebSocket connection opened:");
+    console.log("WebSocket connection opened");
     socketState2.ws.send("pong");
     getWebcamDevices().then((devices) => {
       socketState2.ws.send(JSON.stringify({ type: "webcamDevices", devices }));
