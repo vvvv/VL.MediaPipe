@@ -1,14 +1,18 @@
 # VL.MediaPipe
-[MediaPipe](https://developers.google.com/mediapipe) for VL.
+Hand-, face- and full body tracking, image segmentation, object detection and more, from a color video stream. Based on [Google's MediaPipe](https://developers.google.com/mediapipe).
 
-This is based on the work done by [Dom Scott](https://github.com/domisjustanumber) and [Torin Blankensmith](https://github.com/torinmb) for TouchDesigner, over at [mediapipe-touchdesigner](https://github.com/torinmb/mediapipe-touchdesigner). You can watch their [introduction video on YouTube](https://www.youtube.com/watch?v=Cx4Ellaj6kk) to see what's possible.
+For use with [vvvv](http://visualprogramming.net), the visual live-programming environment for .NET  
 
-Then try it with vvvv, the visual live-programming environment for .NET  
-Download: http://visualprogramming.net
+## Getting started
+- Install as [described here](https://thegraybook.vvvv.org/reference/hde/managing-nugets.html) via commandline:
 
-## Using the library
-In order to use this library with VL you have to install the nuget that is available via nuget.org. For information on how to use nugets with VL, see [Managing Nugets](https://thegraybook.vvvv.org/reference/hde/managing-nugets.html) in the VL documentation. As described there you go to the commandline and then type:
+    `nuget install VL.MediaPipe -pre`
 
-    nuget install VL.MediaPipe -pre
+- Find usage examples and more information via the [Help Browser](https://thegraybook.vvvv.org/reference/hde/findinghelp.html)
 
-Demos are available via the Help Browser!
+## Contributing
+- Report issues on [github](https://github.com/vvvv/VL.MediaPipe/issues) or on [the vvvv forum](https://discourse.vvvv.org/c/vvvv-gamma/28)
+- When making a pull-request, please make sure to read the general [guidlines on contributing to vvvv libraries](https://thegraybook.vvvv.org/reference/extending/contributing.html) 
+
+## Credits
+Based on the work done by [Dom Scott](https://github.com/domisjustanumber) and [Torin Blankensmith](https://github.com/torinmb) over at [mediapipe-touchdesigner](https://github.com/torinmb/mediapipe-touchdesigner). You can watch their [introduction video on YouTube](https://www.youtube.com/watch?v=Cx4Ellaj6kk) to see what's possible.
