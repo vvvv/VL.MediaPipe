@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.MediaPipe</id>
-    <version>0.3.2-alpha</version>
+    <version>0.3.3-alpha</version>
     <title>VL.MediaPipe</title>
     <authors>Dom Scott, Torin Blankensmith, vvvv</authors>
     <owners>vvvv</owners>
@@ -17,13 +17,15 @@
     </dependencies>
     <license type="expression">MIT</license>
     <icon>icon\nugeticon.png</icon>
+    <readme>docs\README.md</readme>
   </metadata>
   <files>
     <file src="..\buildTransitive\**" target="buildTransitive\" />
     <file src="..\*.vl" target="" exclude="" />
-	<file src="..\lib\**" target="lib\" exclude="" />
+    <file src="..\lib\**" target="lib\" exclude="" />
     <file src="..\help\**" target="help\" exclude="" />
-	<file src="..\web\**" target="web\" exclude="" />
+    <file src="..\web\**" target="web\" exclude="" />
+    <file src="..\README.md" target="docs\" />
     <file src="nugeticon.png" target="icon\" />
   </files>
 </package>
