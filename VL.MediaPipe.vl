@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="M2aPRBXAePbOKHj546pVLK" LanguageVersion="2024.6.0-0081-g588702602e" Version="0.128">
-  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2024.6.0-0081-g588702602e" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="M2aPRBXAePbOKHj546pVLK" LanguageVersion="2024.6.3" Version="0.128">
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2024.6.3" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="MediaPipe" CanvasType="FullCategory">
       <!--
@@ -415,10 +415,10 @@
                     <Choice Kind="ProcessAppFlag" Name="Log" />
                   </p:NodeReference>
                   <Pin Id="QI3h333otQhLSBoRu0srdS" Name="Node Context" Kind="InputPin" IsHidden="true" />
-                  <Pin Id="UT0qscSqvVfOW0gLMDAcRv" Name="Category" Kind="InputPin" />
+                  <Pin Id="JuH4smQfR4yMMiQFp8ffR7" Name="Message" Kind="InputPin" />
                   <Pin Id="Q07YzQ9EQjZOc1AUPBInhf" Name="Log Level" Kind="InputPin" DefaultValue="Debug" />
                   <Pin Id="JIHG8f38COrLUoJu1h00xO" Name="Event Id" Kind="InputPin" />
-                  <Pin Id="JuH4smQfR4yMMiQFp8ffR7" Name="Message" Kind="InputPin" />
+                  <Pin Id="UT0qscSqvVfOW0gLMDAcRv" Name="Category" Kind="InputPin" />
                   <Pin Id="Us8wQ0fSGqqPzynTaoPTau" Name="Exception" Kind="InputPin" />
                   <Pin Id="NNSNmfmQ1akOSw8uFUJRw3" Name="Apply" Kind="InputPin" DefaultValue="True" />
                 </Node>
@@ -488,10 +488,10 @@
                 <Choice Kind="ProcessAppFlag" Name="Log" />
               </p:NodeReference>
               <Pin Id="P0RMeSKRQn4NU83VLtblzq" Name="Node Context" Kind="InputPin" IsHidden="true" />
-              <Pin Id="QLHz6qD7QDxLodhszpKwoX" Name="Category" Kind="InputPin" />
+              <Pin Id="OvVgRPVP1ZyNHs9MwMfQpV" Name="Message" Kind="InputPin" />
               <Pin Id="GB9Ov2gTBQBML5SUQmAwUb" Name="Log Level" Kind="InputPin" DefaultValue="Debug" />
               <Pin Id="AkWGuRcjqnjLPED41kqoLD" Name="Event Id" Kind="InputPin" />
-              <Pin Id="OvVgRPVP1ZyNHs9MwMfQpV" Name="Message" Kind="InputPin" />
+              <Pin Id="QLHz6qD7QDxLodhszpKwoX" Name="Category" Kind="InputPin" />
               <Pin Id="Sj5gHvz0YWePjH0NJfEpn7" Name="Exception" Kind="InputPin" />
               <Pin Id="G2rcASCAq4uLkNchzb5jWz" Name="Apply" Kind="InputPin" />
             </Node>
@@ -530,10 +530,10 @@
                 <Choice Kind="ProcessAppFlag" Name="Log" />
               </p:NodeReference>
               <Pin Id="TUY486RARAyLc2IoIc145s" Name="Node Context" Kind="InputPin" IsHidden="true" />
-              <Pin Id="Qz3eskTe0C0OuptTtEQpI7" Name="Category" Kind="InputPin" />
+              <Pin Id="AdxkBfEDUajPkgtn1uTO17" Name="Message" Kind="InputPin" />
               <Pin Id="C25HdFmZl1rN3IzJB2qfdT" Name="Log Level" Kind="InputPin" DefaultValue="Debug" />
               <Pin Id="GHRyKTsXkKcOWIWYHe8yDj" Name="Event Id" Kind="InputPin" />
-              <Pin Id="AdxkBfEDUajPkgtn1uTO17" Name="Message" Kind="InputPin" />
+              <Pin Id="Qz3eskTe0C0OuptTtEQpI7" Name="Category" Kind="InputPin" />
               <Pin Id="GzCzEtFQdl1OPapkevQiaH" Name="Exception" Kind="InputPin" />
               <Pin Id="OVjIC5Yc7aJNvti3mu9PMw" Name="Apply" Kind="InputPin" />
             </Node>
@@ -574,10 +574,10 @@
                 <Choice Kind="ProcessAppFlag" Name="Log" />
               </p:NodeReference>
               <Pin Id="SxWTYnnuZuhLUENLFLaOut" Name="Node Context" Kind="InputPin" IsHidden="true" />
-              <Pin Id="HWfvaCsxSpWON1cS0CXd2l" Name="Category" Kind="InputPin" />
+              <Pin Id="K9MjiFH447NNyKwI78w6rP" Name="Message" Kind="InputPin" />
               <Pin Id="EdzHGwLkshDNFYADkUdUvZ" Name="Log Level" Kind="InputPin" DefaultValue="Debug" />
               <Pin Id="AV6DSoZfu9yOeAZiFO7IKl" Name="Event Id" Kind="InputPin" />
-              <Pin Id="K9MjiFH447NNyKwI78w6rP" Name="Message" Kind="InputPin" />
+              <Pin Id="HWfvaCsxSpWON1cS0CXd2l" Name="Category" Kind="InputPin" />
               <Pin Id="DPSy4NfyIeePw3Jy1tYLxy" Name="Exception" Kind="InputPin" />
               <Pin Id="UQqWYa7dkVWMwLiGGeFmDX" Name="Apply" Kind="InputPin" />
             </Node>
@@ -605,10 +605,10 @@
                 <Choice Kind="ProcessAppFlag" Name="Log" />
               </p:NodeReference>
               <Pin Id="Aw5lnkO984MLWw2QWn76yg" Name="Node Context" Kind="InputPin" IsHidden="true" />
-              <Pin Id="EtFAwL2MCfkNfUertD7TgD" Name="Category" Kind="InputPin" />
+              <Pin Id="Ej1GgiQzTgTPXKi5ugavH3" Name="Message" Kind="InputPin" />
               <Pin Id="Sh4UZ6JWkgUM8JDBhh8XRp" Name="Log Level" Kind="InputPin" DefaultValue="Debug" />
               <Pin Id="NeB6RaUDrizPECegTuXFVh" Name="Event Id" Kind="InputPin" />
-              <Pin Id="Ej1GgiQzTgTPXKi5ugavH3" Name="Message" Kind="InputPin" />
+              <Pin Id="EtFAwL2MCfkNfUertD7TgD" Name="Category" Kind="InputPin" />
               <Pin Id="ShEVdlpkNveNJLYwz1QBLE" Name="Exception" Kind="InputPin" />
               <Pin Id="HTO9Jlmb100MBl2kNkWZZx" Name="Apply" Kind="InputPin" />
             </Node>
@@ -1170,10 +1170,10 @@
                                 <Choice Kind="ProcessAppFlag" Name="Log" />
                               </p:NodeReference>
                               <Pin Id="TftEiXf29SYNU9zpmhr4wL" Name="Node Context" Kind="InputPin" IsHidden="true" />
-                              <Pin Id="G9UwQeKNfWFNMTKy2pZfVo" Name="Category" Kind="InputPin" />
+                              <Pin Id="V3ok8KiBks2Ovk92sh8gLa" Name="Message" Kind="InputPin" />
                               <Pin Id="Epoy3FO4ZCoOCyA9BNE22z" Name="Log Level" Kind="InputPin" DefaultValue="Debug" />
                               <Pin Id="SS1xtUP8peVOs3ieTmuOVl" Name="Event Id" Kind="InputPin" />
-                              <Pin Id="V3ok8KiBks2Ovk92sh8gLa" Name="Message" Kind="InputPin" />
+                              <Pin Id="G9UwQeKNfWFNMTKy2pZfVo" Name="Category" Kind="InputPin" />
                               <Pin Id="Juka7OZPOEDNNHmxZKFgOv" Name="Exception" Kind="InputPin" />
                               <Pin Id="PjJvpqY9TDpNu0GzcW0QPw" Name="Apply" Kind="InputPin" DefaultValue="True" />
                             </Node>
@@ -2767,6 +2767,7 @@
                       <Pin Id="RxS7dOldIoMQbAonl9M8Ig" Name="Output" Kind="OutputPin" />
                       <Pin Id="DHqj5xpsFBnLT0do9cJfal" Name="Source Frame Rate" Kind="OutputPin" />
                     </Node>
+                    <Patch Id="H9UuX7hmT84OUksMedEdUh" Name="Dispose" />
                   </Patch>
                 </Node>
               </Patch>
@@ -5553,8 +5554,7 @@
   </Patch>
   <NugetDependency Id="SsBopOnOI8iPyzbxPdbPCd" Location="VL.IO.WebSocket" Version="0.7.0-alpha" />
   <PlatformDependency Id="GX4pa4iUeRqMYAqu2F7GiM" Location="VL.MediaPipe.dll" />
-  <NugetDependency Id="A7yE1vIrfBIN7A3FGrZXL6" Location="VL.CEF.Stride" Version="0.5.3" />
-  <NugetDependency Id="GhSanPhe5ODOie6Iaa6exl" Location="VL.CEF" Version="0.5.4" />
   <DocumentDependency Id="MlhVUHw1S99MMzM28v8UOQ" Location="./VL.IO.HTTP.WebServer.vl" />
   <PlatformDependency Id="SO0763KgsPyN7d2jHLPUZ6" Location="System.Text.Json" />
+  <NugetDependency Id="G3a6CNjID7kOWzilC83hEQ" Location="VL.CEF" Version="0.5.5" />
 </Document>
