@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.MediaPipe</id>
-    <version>0.4.1-alpha</version>
+    <version>0.5.0-alpha</version>
     <title>VL.MediaPipe</title>
     <authors>Dom Scott, Torin Blankensmith, vvvv</authors>
     <owners>vvvv</owners>
