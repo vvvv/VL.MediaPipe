@@ -3340,7 +3340,7 @@
     ************************ ImageSegmenter ************************
 
 -->
-      <Node Name="ImageSegmenter" Bounds="150,667" Id="AthpqiMrzaDLvn2SZtA2XW">
+      <Node Name="ImageSegmenter" Bounds="150,667" Id="AthpqiMrzaDLvn2SZtA2XW" Summary="Lets you divide images into regions based on predefined categories" Remarks="Operates on image data with a machine learning (ML) model. It outputs an image with segmented regions, representing objects or areas in an image, depending on the model you choose">
         <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
           <Choice Kind="ContainerDefinition" Name="Process" />
         </p:NodeReference>
@@ -3428,12 +3428,12 @@
           <Patch Id="RQSEuaFM4FCPGpKPT2FuKY" Name="Create" />
           <Patch Id="K8aSJBHW8zaOpxNdXjtX1i" Name="Update" ManuallySortedPins="true">
             <Pin Id="AduTaFDOlbOLVkYlyYnyww" Name="Input" Kind="InputPin" Bounds="322,197" />
-            <Pin Id="MIUaBL7uPxQQCaAJfOhuIS" Name="Segmentation Model Type" Kind="InputPin" Bounds="802,324" DefaultValue="selfieMulticlass">
+            <Pin Id="MIUaBL7uPxQQCaAJfOhuIS" Name="Segmentation Model Type" Kind="InputPin" Bounds="802,324" DefaultValue="selfieMulticlass" Summary="Allows model type selection">
               <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.dll">
                 <Choice Kind="TypeFlag" Name="SegmentationModels" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="CXVejioVPXlMRHaz50Erut" Name="Show MultiClass Background Only" Kind="InputPin" Bounds="892,400" />
+            <Pin Id="CXVejioVPXlMRHaz50Erut" Name="Show MultiClass Background Only" Kind="InputPin" Bounds="892,400" Summary="Toggles beyween background/foreground only distinction and multi class distinction in multi class models" />
           </Patch>
           <Link Id="VG6blp7BkzSLdl1q7jrytB" Ids="KYioAWBrVD9LbB1kUcnPDJ,JxZy9Xy0JZ9ODy1yUoNZU2" />
           <Link Id="H6da4pwbSMXOcALkdhMPgQ" Ids="Kqw7N2ojLLJLUquebbIuG8,Oz4yAqeqBclLsISaZ1QUu8" IsFeedback="true" />
