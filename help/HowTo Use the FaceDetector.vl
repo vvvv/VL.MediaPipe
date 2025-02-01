@@ -78,7 +78,7 @@
     ************************ FaceDetectorResults ************************
 
 -->
-      <Node Name="FaceDetectorResults" Bounds="140,169" Id="QJYPMPK0FneNDltXbrWoWG">
+      <Node Name="FaceDetectorResults" Bounds="140,169" Id="QJYPMPK0FneNDltXbrWoWG" Summary="Collects all relevant FaceDetector information">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" />
         </p:NodeReference>
@@ -487,7 +487,7 @@
     ************************ DrawFaceDetectorResults ************************
 
 -->
-      <Node Name="DrawFaceDetectorResults" Bounds="140,233" Id="MyNyn6lQAg1PF7tl0MIvVF">
+      <Node Name="DrawFaceDetectorResults" Bounds="140,233" Id="MyNyn6lQAg1PF7tl0MIvVF" Summary="Draws debug data for FaceDetectorResults">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" />
         </p:NodeReference>
