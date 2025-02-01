@@ -2112,7 +2112,7 @@
     ************************ FaceDetector ************************
 
 -->
-      <Node Name="FaceDetector" Bounds="150,338" Id="JmQ0517akdrMUhVrEiGz1o" Remarks="Uses a machine learning (ML) model that works with single images or a continuous stream of images. Outputs face locations, along with the following facial key points: left eye, right eye, nose tip, mouth, left eye tragion, and right eye tragion">
+      <Node Name="FaceDetector" Bounds="150,338" Id="JmQ0517akdrMUhVrEiGz1o" Summary="Locates faces and facial features within an image" Remarks="Uses a machine learning (ML) model that works with single images or a continuous stream of images. Outputs face locations, along with the following facial key points: left eye, right eye, nose tip, mouth, left eye tragion, and right eye tragion">
         <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
           <Choice Kind="ContainerDefinition" Name="Process" />
         </p:NodeReference>
