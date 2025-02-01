@@ -3433,7 +3433,7 @@
                 <Choice Kind="TypeFlag" Name="SegmentationModels" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="CXVejioVPXlMRHaz50Erut" Name="Show MultiClass Background Only" Kind="InputPin" Bounds="892,400" Summary="Toggles beyween background/foreground only distinction and multi class distinction in multi class models" />
+            <Pin Id="CXVejioVPXlMRHaz50Erut" Name="Show MultiClass Background Only" Kind="InputPin" Bounds="892,400" Summary="Toggles between background/foreground only distinction and multi-class distinction in multi-class models" />
           </Patch>
           <Link Id="VG6blp7BkzSLdl1q7jrytB" Ids="KYioAWBrVD9LbB1kUcnPDJ,JxZy9Xy0JZ9ODy1yUoNZU2" />
           <Link Id="H6da4pwbSMXOcALkdhMPgQ" Ids="Kqw7N2ojLLJLUquebbIuG8,Oz4yAqeqBclLsISaZ1QUu8" IsFeedback="true" />
