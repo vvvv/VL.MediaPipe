@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Document xmlns:p="property" xmlns:r="reflection" Id="M2aPRBXAePbOKHj546pVLK" LanguageVersion="2025.7.0-0057-g878c1609bc" Version="0.128">
-  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2025.7.0-0057-g878c1609bc" />
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2024.6.7" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="MediaPipe" CanvasType="FullCategory">
       <!--
@@ -15,13 +15,13 @@
         </p:NodeReference>
         <Patch Id="E8arcmZGe0TPZ0vlEpFeqO">
           <Canvas Id="JYhXpwd4mcaLkH0seSBDPL" CanvasType="Group">
-            <Node Bounds="580,226,93,19" Id="UKUnRI08ijmLL0vKqrLYTc">
+            <Node Bounds="580,226,105,19" Id="UKUnRI08ijmLL0vKqrLYTc">
               <p:NodeReference LastCategoryFullName="IO.WebSocket" LastDependency="VL.IO.WebSocket.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="WebSocketServer" />
               </p:NodeReference>
               <Pin Id="GLuwQCBFAXTOFFJLFB75xB" Name="Node Context" Kind="InputPin" IsHidden="true" />
-              <Pin Id="OyNbx6nxsI9PEcegcNo2a0" Name="Listener IP" Kind="InputPin" />
+              <Pin Id="BfJqWZ5MlAoN8M5TKbqrec" Name="Hostname or IP" Kind="InputPin" />
               <Pin Id="DHtgDVvFKE5OSFy3ILuZGC" Name="Port" Kind="InputPin" DefaultValue="3002" />
               <Pin Id="CVEDPj5yZtdM2CNe8wT8Ad" Name="Ssl" Kind="InputPin" />
               <Pin Id="P5i3P6XUEaiMILnI9iIb18" Name="Enabled" Kind="InputPin" DefaultValue="True" />
@@ -30,8 +30,10 @@
               <Pin Id="NEfUTqOZ4LgOwuSNgZL98F" Name="Connected Clients" Kind="OutputPin" />
               <Pin Id="IV1MGCD1bpfP7rpmgGphcw" Name="Statistics" Kind="OutputPin" />
               <Pin Id="RYfTllXw1myMEuDxbJmSr9" Name="Is Listening" Kind="OutputPin" />
+              <Pin Id="H32cuG1RpVFMzuthCwT7LC" Name="Enable Logging" Kind="InputPin" IsHidden="true" />
+              <Pin Id="VmNNQHk7ureOZgb1L3S5ka" Name="Send Queue Length" Kind="OutputPin" />
             </Node>
-            <Node Bounds="191,309,65,19" Id="Mrj5kmDr789NUBQHXFiwfx">
+            <Node Bounds="191,309,85,19" Id="Mrj5kmDr789NUBQHXFiwfx">
               <p:NodeReference LastCategoryFullName="IO.HTTP" LastDependency="VL.IO.HTTP.WebServer.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="WebServer" />
@@ -40,6 +42,11 @@
               <Pin Id="BkuuJYx8MTRN9xq45trjIU" Name="Hostname or IP" Kind="InputPin" />
               <Pin Id="JgZR3qhjhsjMiNWWoydWbR" Name="Port" Kind="InputPin" />
               <Pin Id="UUgBTqkICVrPzTZKa9wOzH" Name="Content Base Directory" Kind="InputPin" DefaultValue="C:\www" />
+              <Pin Id="PKGPEkgrFroNLOyryt0XSB" Name="Serve from Base Directory" Kind="InputPin" />
+              <Pin Id="GQZjrlAzSMSMqcLP2RGxAv" Name="Content Routes" Kind="InputPin" IsHidden="true" />
+              <Pin Id="LoHpnHYzNkOODW8TaigAHe" Name="Static Routes" Kind="InputPin" IsHidden="true" />
+              <Pin Id="LlCJV2g8Ro1MmeqdpW0sJQ" Name="Dynamic Routes" Kind="InputPin" IsHidden="true" />
+              <Pin Id="F2IP013t4azLxALWFbO5pe" Name="Parameter Routes" Kind="InputPin" IsHidden="true" />
               <Pin Id="NfMCETpZj7MPOe9wxW8SDR" Name="Enabled" Kind="InputPin" DefaultValue="True" />
               <Pin Id="FNZWom3aMqNMIsyOuAmnv1" Name="Is Listening" Kind="OutputPin" />
               <Pin Id="OJI2NEtYHqzNSPkwIpD24E" Name="Statistics" Kind="OutputPin" />
@@ -386,16 +393,17 @@
               <Patch Id="LMqofrdNxTmNQXHCGi4AGo" ManuallySortedPins="true">
                 <Patch Id="OJXGuYsrI6uMsjG8EqLqcO" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="U9RJekMx3wRO63QoVLc9NF" Name="Then" ManuallySortedPins="true" />
-                <Node Bounds="1220,1493,85,26" Id="OzyNhohyiGSPL9wN19MPno">
+                <Node Bounds="1220,1493,85,19" Id="OzyNhohyiGSPL9wN19MPno">
                   <p:NodeReference LastCategoryFullName="IO.WebSocket.WebSocketServer" LastDependency="VL.IO.WebSocket.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="ClassType" Name="WebSocketServer" NeedsToBeDirectParent="true" />
-                    <Choice Kind="OperationCallFlag" Name="SendString (Async)" />
+                    <Choice Kind="OperationCallFlag" Name="SendString" />
                   </p:NodeReference>
                   <Pin Id="HNgSF60JAWBOZzMCrDRniT" Name="Input" Kind="StateInputPin" />
                   <Pin Id="UU31jVTZeseNuD0ESIhKXK" Name="Client" Kind="InputPin" />
                   <Pin Id="RCuL2OMd1SBPp7EvUryY4M" Name="Data" Kind="InputPin" />
                   <Pin Id="IuQR8pMjStPP1X9CY0pQrm" Name="Encoding" Kind="InputPin" />
+                  <Pin Id="C1NINgmKoV8NqVbyaTKQbY" Name="Cancellation Token" Kind="InputPin" IsHidden="true" />
                   <Pin Id="IKY5av0fVOgPx0S1VkTWts" Name="Apply" Kind="InputPin" DefaultValue="True" />
                   <Pin Id="Vey5A0yIPySM8EsxP6BOzA" Name="Output" Kind="StateOutputPin" />
                 </Node>
@@ -5062,16 +5070,17 @@
                     <Patch Id="Kp2ojg4o0ShLieZVZ74msw" ManuallySortedPins="true">
                       <Patch Id="P2PddQMHpBiMh90VffevE9" Name="Create" ManuallySortedPins="true" />
                       <Patch Id="ULrZmC5m2aBQBiJ0TiITSm" Name="Then" ManuallySortedPins="true" />
-                      <Node Bounds="409,531,85,26" Id="BIv7PKN94jNP2AOkXgnLIA">
+                      <Node Bounds="409,531,85,19" Id="BIv7PKN94jNP2AOkXgnLIA">
                         <p:NodeReference LastCategoryFullName="IO.WebSocket.WebSocketServer" LastDependency="VL.IO.WebSocket.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <CategoryReference Kind="ClassType" Name="WebSocketServer" NeedsToBeDirectParent="true" />
-                          <Choice Kind="OperationCallFlag" Name="SendString (Async)" />
+                          <Choice Kind="OperationCallFlag" Name="SendString" />
                         </p:NodeReference>
                         <Pin Id="NUZcmoLCULuP8LOieVl66U" Name="Input" Kind="StateInputPin" />
                         <Pin Id="Ama0BOu1Fi8QVZGmvSRudn" Name="Client" Kind="InputPin" />
                         <Pin Id="KFuUOjU865LLoklhWqauR2" Name="Data" Kind="InputPin" />
                         <Pin Id="LtepPiveTMVNAv2s9ZISCx" Name="Encoding" Kind="InputPin" />
+                        <Pin Id="Nfu9mTHPPB9N1dIWRNek9S" Name="Cancellation Token" Kind="InputPin" IsHidden="true" />
                         <Pin Id="Mh9m1W80zw5QYrc0ZwpDA2" Name="Apply" Kind="InputPin" DefaultValue="True" />
                         <Pin Id="Aj30MUT6BSOMqmpd8je4v3" Name="Output" Kind="StateOutputPin" />
                       </Node>
@@ -5181,16 +5190,17 @@
                     <Patch Id="OL2imAyM6RDOP2RBXwtGRs" ManuallySortedPins="true">
                       <Patch Id="AdLBZuiQYunOXV35iuuuHT" Name="Create" ManuallySortedPins="true" />
                       <Patch Id="EDxuTEhHFx4MUXvHfXRDe9" Name="Then" ManuallySortedPins="true" />
-                      <Node Bounds="351,676,85,26" Id="Qcvicx2GCRQMdFYgA3a2RY">
+                      <Node Bounds="351,676,85,19" Id="Qcvicx2GCRQMdFYgA3a2RY">
                         <p:NodeReference LastCategoryFullName="IO.WebSocket.WebSocketServer" LastDependency="VL.IO.WebSocket.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <CategoryReference Kind="ClassType" Name="WebSocketServer" NeedsToBeDirectParent="true" />
-                          <Choice Kind="OperationCallFlag" Name="SendString (Async)" />
+                          <Choice Kind="OperationCallFlag" Name="SendString" />
                         </p:NodeReference>
                         <Pin Id="DKuwEsk7dtHMUr7bXrVeUv" Name="Input" Kind="StateInputPin" />
                         <Pin Id="PeGlNIGqiUfMvzfpIVFmWS" Name="Client" Kind="InputPin" />
                         <Pin Id="EYZXDUZXpMlML9Jv5Pc2X5" Name="Data" Kind="InputPin" />
                         <Pin Id="C1HpuI2Mf9KQKM8OCTVS2Q" Name="Encoding" Kind="InputPin" />
+                        <Pin Id="EHAP9Oqtx7CMXBFwse7Gdi" Name="Cancellation Token" Kind="InputPin" IsHidden="true" />
                         <Pin Id="NPG8ao976kqMLE5F1PJpou" Name="Apply" Kind="InputPin" DefaultValue="True" />
                         <Pin Id="CwQuBzTjnwXP2VTCraMQ3X" Name="Output" Kind="StateOutputPin" />
                       </Node>
@@ -5297,16 +5307,17 @@
                     <Patch Id="IEtzTNti9tJO7mFalucEMF" ManuallySortedPins="true">
                       <Patch Id="FZHDpNlmlF2O6SGMFrEUVL" Name="Create" ManuallySortedPins="true" />
                       <Patch Id="VtjKn5xF9TsL70aAyEePwl" Name="Then" ManuallySortedPins="true" />
-                      <Node Bounds="351,676,85,26" Id="CMvWTM5fUQ8NYqvOevYhUr">
+                      <Node Bounds="351,676,85,19" Id="CMvWTM5fUQ8NYqvOevYhUr">
                         <p:NodeReference LastCategoryFullName="IO.WebSocket.WebSocketServer" LastDependency="VL.IO.WebSocket.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <CategoryReference Kind="ClassType" Name="WebSocketServer" NeedsToBeDirectParent="true" />
-                          <Choice Kind="OperationCallFlag" Name="SendString (Async)" />
+                          <Choice Kind="OperationCallFlag" Name="SendString" />
                         </p:NodeReference>
                         <Pin Id="RZLqKPRj0kvPpLlHSnWZuV" Name="Input" Kind="StateInputPin" />
                         <Pin Id="AeYTYjOysZVNJdrCkGBSuv" Name="Client" Kind="InputPin" />
                         <Pin Id="Umhdan5XEqQOIj3OOiMs25" Name="Data" Kind="InputPin" />
                         <Pin Id="BK789ARTqo5PW4KFpzUhc5" Name="Encoding" Kind="InputPin" />
+                        <Pin Id="HAwHo72m1dlO4bNMEnB5zd" Name="Cancellation Token" Kind="InputPin" IsHidden="true" />
                         <Pin Id="PQXbCc3Hu5PMEyRC0O9lBq" Name="Apply" Kind="InputPin" DefaultValue="True" />
                         <Pin Id="OvhONoZaRUzOfj7kRjRClg" Name="Output" Kind="StateOutputPin" />
                       </Node>
@@ -5552,9 +5563,9 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="SsBopOnOI8iPyzbxPdbPCd" Location="VL.IO.WebSocket" Version="0.7.0-alpha" />
+  <NugetDependency Id="SsBopOnOI8iPyzbxPdbPCd" Location="VL.IO.WebSocket" Version="1.1.0" />
   <PlatformDependency Id="GX4pa4iUeRqMYAqu2F7GiM" Location="VL.MediaPipe.dll" />
-  <DocumentDependency Id="MlhVUHw1S99MMzM28v8UOQ" Location="./VL.IO.HTTP.WebServer.vl" />
   <PlatformDependency Id="SO0763KgsPyN7d2jHLPUZ6" Location="System.Text.Json" />
   <NugetDependency Id="G3a6CNjID7kOWzilC83hEQ" Location="VL.CEF" Version="0.5.5" />
+  <NugetDependency Id="NUSiv3FPG3gMWwRu79ffAI" Location="VL.IO.WebServer" Version="1.0.1" />
 </Document>
