@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="M2aPRBXAePbOKHj546pVLK" LanguageVersion="2025.7.0-0057-g878c1609bc" Version="0.128">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" xmlns:r="reflection" Id="M2aPRBXAePbOKHj546pVLK" LanguageVersion="2024.6.7" Version="0.128">
   <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2024.6.7" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="MediaPipe" CanvasType="FullCategory">
@@ -331,8 +331,6 @@
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
             </Pad>
-            <ControlPoint Id="OcVk9FAd8jfLdD1GBaCjXK" Bounds="359,1136" />
-            <ControlPoint Id="HXfoSPFzApIPV8mrGubJ8U" Bounds="368,1211" />
             <Node Bounds="263,1338,67,19" Id="OPhmJf2oqEmPGKd4yV77Rf">
               <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -393,7 +391,7 @@
               <Patch Id="LMqofrdNxTmNQXHCGi4AGo" ManuallySortedPins="true">
                 <Patch Id="OJXGuYsrI6uMsjG8EqLqcO" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="U9RJekMx3wRO63QoVLc9NF" Name="Then" ManuallySortedPins="true" />
-                <Node Bounds="1220,1493,85,19" Id="OzyNhohyiGSPL9wN19MPno">
+                <Node Bounds="1220,1493,85,26" Id="OzyNhohyiGSPL9wN19MPno">
                   <p:NodeReference LastCategoryFullName="IO.WebSocket.WebSocketServer" LastDependency="VL.IO.WebSocket.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="ClassType" Name="WebSocketServer" NeedsToBeDirectParent="true" />
@@ -1751,6 +1749,16 @@
               <Pin Id="J9Dv7pR92E1MTlTACbrDo1" Name="Value" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="GHCwlIL7kXOMZGBZsI62WB" Bounds="1064,4013" />
+            <Node Bounds="326,1111,34,19" Id="EzklBmuBGeRPU1U754H8FN">
+              <p:NodeReference LastCategoryFullName="Primitive.Int2" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="Int2 (Split)" />
+              </p:NodeReference>
+              <Pin Id="BgxfigIoKH1NJYXPiKSn8N" Name="Input" Kind="StateInputPin" />
+              <Pin Id="JzrKAELKhQFQUbxnILxEl0" Name="X" Kind="OutputPin" />
+              <Pin Id="Fw2KZ10YlnjPLhlnlblWOl" Name="Y" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="HnIBEqM3UoAPFOF8FgfVer" Bounds="328,1095" />
           </Canvas>
           <ProcessDefinition Id="F0VFBEpCwPoL32Jm5O9xIB" HasStateOut="true">
             <Fragment Id="ILFpzz4Zfd0OHhQFuUocQn" Patch="RAjM2C25AeyMcMHy6wfJFl" Enabled="true" />
@@ -1829,19 +1837,13 @@
           <Link Id="TMAFMfRovlhLMgAW67TrFZ" Ids="Dl7JkMQCq0bPm9xcxh6xsg,AZthx943q8tQXMiqo71Nzj" />
           <Link Id="EanDx7241iyPgMS5OhPUAL" Ids="HDTqgIXrwzOMsJFk3mtzao,Sjjj2RWz5f0PQwutuJc7am" />
           <Link Id="FylwCyfPBjNNDFrfk2cNxQ" Ids="AgHvAK2jzpGQFevSKNiuV3,LHwddlqTer5MzY1vRVK08z" />
-          <Link Id="RL8lwecAvpiLdBAYqbXUgh" Ids="OcVk9FAd8jfLdD1GBaCjXK,GwUeAqFSkJLMPxTjH8Yd3e" />
-          <Link Id="N5KrJYz2NLiLI5HRgjYnH0" Ids="R9QD8VX3o6DOawc3TodVPv,OcVk9FAd8jfLdD1GBaCjXK" IsHidden="true" />
-          <Link Id="Um62MoiS4HmMByOHuArI5y" Ids="HXfoSPFzApIPV8mrGubJ8U,Vo85jrc1OAcLkAvG7pN31v" />
-          <Link Id="CDq16CL00fhNOi8aQseek0" Ids="SjgxKUGTEo9Mo8i0HlZaSO,HXfoSPFzApIPV8mrGubJ8U" IsHidden="true" />
           <Link Id="GgjpVecWWUGMv6eRW5qPY1" Ids="HDTqgIXrwzOMsJFk3mtzao,RTVSJlR9N2yQJESvhyxGRm" />
           <Link Id="T3sRvZSjWwlPSwxGxuySH3" Ids="TtbRfXVk6P0LiWCOJ8zmg1,KvBqKwLn5rFMzXtYzmdlSs" />
           <Link Id="IzZlUXaqkTqMt9U60DZwKA" Ids="GOfvMQOjha2NF0HMlR7vne,TtbRfXVk6P0LiWCOJ8zmg1" IsHidden="true" />
           <Link Id="DRgiQTsAcF7PlpRlUdh36w" Ids="JPVNdNx4IXkLD3D1zd3XVG,GhKWyL7Li60NfLOlealS3E" />
           <Link Id="Sm5PutCHgWxLygxQGnixUs" Ids="HDTqgIXrwzOMsJFk3mtzao,FZ2oyos8x6ULSihXG6NU7F" />
-          <Link Id="Gs7Qjk2QXsjOBee5f4w2fr" Ids="OcVk9FAd8jfLdD1GBaCjXK,QVdEif51XSAOIaYC35OBDg" />
           <Link Id="MTJqAt1pu6eNdHmpGhwufv" Ids="Is65NaVnnInOeow2JuX3J5,BjPB7394aGCOzX8CQ2QWWw" />
           <Link Id="O6he74kyJPRPZAEkiS9zi7" Ids="HDTqgIXrwzOMsJFk3mtzao,TZuztNzgkaUNzOC8o48ODZ" />
-          <Link Id="NsyL2R0CGIvOq5kRwbLoNa" Ids="HXfoSPFzApIPV8mrGubJ8U,GOlGac9BhMROyksI5cFX80" />
           <Link Id="IyCxeRUSyIHQHctQ42sVIH" Ids="DJk2VDs6iYeLZQdEEUne4J,STN3i6vlSGIPrK8PNy821D" />
           <Link Id="QXo5si9gLARPmpJLRXymXe" Ids="OG1rlKkndVuQPC5NTsO77T,BzJ78hmHFC0OFPwgsHWcj5" IsHidden="true" />
           <Patch Id="RAjM2C25AeyMcMHy6wfJFl" Name="Create" />
@@ -1856,28 +1858,19 @@
             <Pin Id="B4RJkO8M3qaLGA62zKD4i9" Name="Image segmentation" Kind="InputPin" Bounds="938,684" />
             <Pin Id="H15neKg16JgQQpXiLx2IJ7" Name="Detect image embeddings" Kind="InputPin" />
             <Pin Id="BFvNtseci3vMNGI8xRTden" Name="Show overlays" Kind="InputPin" />
-            <Pin Id="R9QD8VX3o6DOawc3TodVPv" Name="Width" Kind="InputPin" Bounds="793,741" DefaultValue="640">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Integer32" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="SjgxKUGTEo9Mo8i0HlZaSO" Name="Height" Kind="InputPin" Bounds="811,826" DefaultValue="360">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Integer32" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="GOfvMQOjha2NF0HMlR7vne" Name="Flip Camera" Kind="InputPin" Bounds="799,933" />
-            <Pin Id="JTixARzx4mpQaduqsbRyBs" Name="Webserver Port" Kind="InputPin" Bounds="221,90" DefaultValue="9980" Visibility="Optional" />
             <Pin Id="OG1rlKkndVuQPC5NTsO77T" Name="Camera" Kind="InputPin">
               <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.dll">
                 <Choice Kind="TypeFlag" Name="CamerasEnum" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="OgK5QnbrNREOTSIdIJbiMf" Name="Reset" Kind="InputPin" Bounds="455,95" />
-            <Pin Id="EN7hZNiyZqAPBnTTarsCYi" Name="Enabled" Kind="InputPin" Bounds="420,-36" />
-            <Pin Id="A9XbMICfDjgNscxqCmfxBh" Name="Shared Texture Enabled" Kind="InputPin" Bounds="508,201" DefaultValue="True" Visibility="Optional" />
+            <Pin Id="GOfvMQOjha2NF0HMlR7vne" Name="Flip Camera" Kind="InputPin" Bounds="799,933" />
+            <Pin Id="OVs9RDxaP3dN1wztUoUfCZ" Name="Image Size" Kind="InputPin" DefaultValue="640, 360" />
+            <Pin Id="JTixARzx4mpQaduqsbRyBs" Name="Webserver Port" Kind="InputPin" Bounds="221,90" DefaultValue="9980" Visibility="Optional" />
             <Pin Id="KfBpZQHSXZ6LzfbUWLQdKB" Name="Websocket Port" Kind="InputPin" DefaultValue="3002" Visibility="Optional" />
             <Pin Id="E9AVajdd5HqPeIfkTxGyaF" Name="Output" Kind="OutputPin" Bounds="1196,370" />
+            <Pin Id="A9XbMICfDjgNscxqCmfxBh" Name="Shared Texture Enabled" Kind="InputPin" Bounds="508,201" DefaultValue="True" Visibility="Optional" />
+            <Pin Id="OgK5QnbrNREOTSIdIJbiMf" Name="Reset" Kind="InputPin" Bounds="455,95" />
+            <Pin Id="EN7hZNiyZqAPBnTTarsCYi" Name="Enabled" Kind="InputPin" Bounds="420,-36" />
           </Patch>
           <Patch Id="VQ4eqsZOPMHOkpyQtdS3sh" Name="GetWebsocket (Internal)">
             <Pin Id="NvP2pOF0F52QGnuT7GPtCl" Name="Websocket" Kind="OutputPin" />
@@ -2113,6 +2106,12 @@
             <Pin Id="DLo3ZN4hH4DLxV1xgxOiX5" Name="Value" Kind="OutputPin" />
           </Patch>
           <Link Id="G5au8rhrfrPMcyp140pK2S" Ids="MBIkbKBDYajLvRwUrHekBw,BwdzIpCm0ArQRUveDzc3nU" />
+          <Link Id="BgLtdEVnVv1PXaGqbVrzYB" Ids="HnIBEqM3UoAPFOF8FgfVer,BgxfigIoKH1NJYXPiKSn8N" />
+          <Link Id="AkqWVQs8OtHQXsZyp8k5C1" Ids="OVs9RDxaP3dN1wztUoUfCZ,HnIBEqM3UoAPFOF8FgfVer" IsHidden="true" />
+          <Link Id="V2wnPQmqEQDLZLFlQhwYgt" Ids="JzrKAELKhQFQUbxnILxEl0,GwUeAqFSkJLMPxTjH8Yd3e" />
+          <Link Id="CamFpOB1KsNLNRpZ9bPhkj" Ids="JzrKAELKhQFQUbxnILxEl0,QVdEif51XSAOIaYC35OBDg" />
+          <Link Id="LWpXWCrNPpVOsjmVlaYt5Z" Ids="Fw2KZ10YlnjPLhlnlblWOl,Vo85jrc1OAcLkAvG7pN31v" />
+          <Link Id="NP7c166e50cLxf2EPdSY8A" Ids="Fw2KZ10YlnjPLhlnlblWOl,GOlGac9BhMROyksI5cFX80" />
         </Patch>
       </Node>
       <!--

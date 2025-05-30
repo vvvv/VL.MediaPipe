@@ -15,7 +15,7 @@
       </p:NodeReference>
       <Patch Id="OXVSo2lxnjmLC4jL1xyVXR">
         <Canvas Id="F7rihaZNHlTNFkOGqM80Y6" CanvasType="Group">
-          <Node Bounds="74,528,325,19" Id="Tgw9Pmml3LKNVltqgKMG6a">
+          <Node Bounds="74,528,345,19" Id="Tgw9Pmml3LKNVltqgKMG6a">
             <p:NodeReference LastCategoryFullName="Main" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="MediaPipe" />
@@ -32,17 +32,16 @@
             <Pin Id="Kftk1cUSf7KOK3ccgmcpEZ" Name="Image segmentation" Kind="InputPin" />
             <Pin Id="FfU2aHG1bjDNXqUf6S8Yih" Name="Detect image embeddings" Kind="InputPin" />
             <Pin Id="RzJlP9ULamlLwJQl4zpEEd" Name="Show overlays" Kind="InputPin" />
-            <Pin Id="U7uw9dxXxCTMdNAJoFxG84" Name="Width" Kind="InputPin" DefaultValue="640" />
-            <Pin Id="D8xWw7HRdV1Npcxtau7F7x" Name="Height" Kind="InputPin" DefaultValue="360" />
-            <Pin Id="CQ5txJoC2SGPLdEiAdy6gO" Name="Flip Camera" Kind="InputPin" />
-            <Pin Id="KcPKm8TnKRJOneNBx2aSBo" Name="Webserver Port" Kind="InputPin" IsHidden="true" />
             <Pin Id="SfPjXVj05ZiQI6muvE1PL1" Name="Camera" Kind="InputPin" />
-            <Pin Id="OJ7OnLos1QTMR3Mj3PreCP" Name="Reset" Kind="InputPin" />
-            <Pin Id="GLkum1P2NxbPecuyyuq01Q" Name="Enabled" Kind="InputPin" />
-            <Pin Id="JTb2F4Pim8DLJPYBoTh86h" Name="Shared Texture Enabled" Kind="InputPin" DefaultValue="False" />
+            <Pin Id="CQ5txJoC2SGPLdEiAdy6gO" Name="Flip Camera" Kind="InputPin" />
+            <Pin Id="GptDHzP5JZVOBTR1dlOPV8" Name="Image Size" Kind="InputPin" />
+            <Pin Id="KcPKm8TnKRJOneNBx2aSBo" Name="Webserver Port" Kind="InputPin" IsHidden="true" />
             <Pin Id="ISBNVdpKWvoPgkYipEb3o1" Name="Websocket Port" Kind="InputPin" IsHidden="true" />
             <Pin Id="DxARM8Wx9atLEjJsYCrZKI" Name="State Output" Kind="OutputPin" />
             <Pin Id="SVGaxn1MF1QOmovm0LVVth" Name="Output" Kind="OutputPin" />
+            <Pin Id="JTb2F4Pim8DLJPYBoTh86h" Name="Shared Texture Enabled" Kind="InputPin" DefaultValue="False" />
+            <Pin Id="OJ7OnLos1QTMR3Mj3PreCP" Name="Reset" Kind="InputPin" />
+            <Pin Id="GLkum1P2NxbPecuyyuq01Q" Name="Enabled" Kind="InputPin" />
           </Node>
           <Node Bounds="354,587,95,19" Id="Qz02M0a265fMhPsfMeXCBR">
             <p:NodeReference LastCategoryFullName="CEF" LastDependency="VL.CEF.Stride.vl">
@@ -114,7 +113,6 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="FaceDetector" />
             </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="EMgmvqpDZ1dPsTnQPtUPdI" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="FLXrUvj4TIAO0Z2l3Iec8G" Name="Input" Kind="InputPin" />
             <Pin Id="Hs2fiHDMw8MPF0cbCQdGjK" Name="Min Detection Confidence" Kind="InputPin" />
@@ -155,7 +153,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="316,510,182,15" ShowValueBox="true" isIOBox="true" Value="HD Pro Webcam C920 (046d:082d)">
+          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="316,510,182,15" ShowValueBox="true" isIOBox="true" Value="Integrated Camera (04f2:b614)">
             <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="TypeFlag" Name="CamerasEnum" />
             </p:TypeAnnotation>
@@ -387,7 +385,6 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ImageSegmenter" />
             </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="NtcrH1Yh27VMyFxMZmleAn" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="UuhabEeRcqUPvmsSPZ1fSM" Name="Input" Kind="InputPin" />
             <Pin Id="Qi1vBNxUvpONg2yLLMez6y" Name="Segmentation Model Type" Kind="InputPin" />
