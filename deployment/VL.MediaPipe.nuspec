@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.MediaPipe</id>
-    <version>0.6.0-alpha</version>
+    <version>0.6.1-alpha</version>
     <title>VL.MediaPipe</title>
     <authors>Dom Scott, Torin Blankensmith, vvvv</authors>
     <owners>vvvv</owners>
@@ -10,7 +10,7 @@
     <repository type="git" url="https://github.com/vvvv/VL.MediaPipe.git" />
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>MediaPipe for vvvv</description>
-    <tags>VL, ML, tracking, hand, face, skeleton, objectdetection</tags>
+    <tags>VL, ML, tracking, hand, face, skeleton, objectdetection, gesture, pose</tags>
 	<dependencies>
       <dependency id="VL.CEF" version="0.5.5" />
 	  <dependency id="VL.IO.WebServer" version ="1.0.1" />

@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" xmlns:r="reflection" Id="VZ44Aq31shXMd3dIKCU3O3" LanguageVersion="2024.6.7" Version="0.128">
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2024.6.7" />
+  <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
+    <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="Main" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="BOAk7RWsn17LNLIXLt0mux">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <CategoryReference Kind="Category" Name="Primitive" />
+      </p:NodeReference>
+      <Patch Id="OXVSo2lxnjmLC4jL1xyVXR">
+        <Canvas Id="F7rihaZNHlTNFkOGqM80Y6" CanvasType="Group">
+          <Node Bounds="108,314,305,19" Id="Tgw9Pmml3LKNVltqgKMG6a">
+            <p:NodeReference LastCategoryFullName="Main" LastDependency="VL.MediaPipe.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="MediaPipe" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="My9l2Mm0xueNc3nd0TOB8a" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="OsFIXnABJ7ENfHhWyzbx87" Name="Detect faces" Kind="InputPin" />
+            <Pin Id="PhEY81WoppxOCl8tR4rr2W" Name="Detect facial landmarks" Kind="InputPin" />
+            <Pin Id="PPLupqHmGcmNJKdYNQfljU" Name="Detect hands" Kind="InputPin" />
+            <Pin Id="SDEkpvLrLWTNClDxgEmgXc" Name="Detect gestures" Kind="InputPin" />
+            <Pin Id="EbczbNFE34RLCpZeYIRbCv" Name="Detect poses" Kind="InputPin" />
+            <Pin Id="Kz0tPenxZGEP5t5DQf20IO" Name="Detect objects" Kind="InputPin" />
+            <Pin Id="NS8f38KEgGMOJD9zQpou3O" Name="Classify images" Kind="InputPin" />
+            <Pin Id="AkqI4sfbaBRNj5kNwaTNZx" Name="Image segmentation" Kind="InputPin" />
+            <Pin Id="NMjuMOe9WboLbeTw7Xlsk1" Name="Detect image embeddings" Kind="InputPin" />
+            <Pin Id="RzJlP9ULamlLwJQl4zpEEd" Name="Show overlays" Kind="InputPin" />
+            <Pin Id="SfPjXVj05ZiQI6muvE1PL1" Name="Camera" Kind="InputPin" />
+            <Pin Id="CQ5txJoC2SGPLdEiAdy6gO" Name="Flip Camera" Kind="InputPin" />
+            <Pin Id="FqqnSG3sXfbPK1mvpSdJCm" Name="Image Size" Kind="InputPin" />
+            <Pin Id="KcPKm8TnKRJOneNBx2aSBo" Name="Webserver Port" Kind="InputPin" IsHidden="true" />
+            <Pin Id="ISBNVdpKWvoPgkYipEb3o1" Name="Websocket Port" Kind="InputPin" IsHidden="true" />
+            <Pin Id="DxARM8Wx9atLEjJsYCrZKI" Name="State Output" Kind="OutputPin" />
+            <Pin Id="SVGaxn1MF1QOmovm0LVVth" Name="Output" Kind="OutputPin" />
+            <Pin Id="JTb2F4Pim8DLJPYBoTh86h" Name="Shared Texture Enabled" Kind="InputPin" DefaultValue="False" />
+            <Pin Id="OJ7OnLos1QTMR3Mj3PreCP" Name="Reset" Kind="InputPin" />
+            <Pin Id="GLkum1P2NxbPecuyyuq01Q" Name="Enabled" Kind="InputPin" />
+          </Node>
+          <Node Bounds="391,373,95,19" Id="Qz02M0a265fMhPsfMeXCBR">
+            <p:NodeReference LastCategoryFullName="CEF" LastDependency="VL.CEF.Stride.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="ToStrideRenderer" />
+            </p:NodeReference>
+            <Pin Id="CrSrZe6ZjH0MhKrdJ999fH" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="LzlPW6IcAYbOW0sKqzqQvs" Name="Browser" Kind="InputPin" />
+            <Pin Id="GQ9isDNWSFRNmCKwVaPJW1" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="391,432,165,19" Id="QEn8pF0jXpxPvptaw8nyEc">
+            <p:NodeReference LastCategoryFullName="Stride" LastDependency="VL.Stride.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="RenderWindow" />
+            </p:NodeReference>
+            <Pin Id="Ra9VWzaj8p6McFi2EH5BfU" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="NyfBMSSSnkjM3aYYF8r97A" Name="Bounds" Kind="InputPin" DefaultValue="1138, 95, 640, 360" IsHidden="true" />
+            <Pin Id="Q40I4RjRzUVNq3G8Ieqcje" Name="Bound to Document" Kind="InputPin" IsHidden="true" />
+            <Pin Id="He2hbK6oDs7MlCcLoXHGTu" Name="Dialog If Document Changed" Kind="InputPin" IsHidden="true" />
+            <Pin Id="SI0HYnfhKKpMVm2GynbzCG" Name="Save Bounds" Kind="InputPin" IsHidden="true" />
+            <Pin Id="MwwLE74UjoFM4rkqI1iYG2" Name="Back Buffer Format" Kind="InputPin" IsHidden="true" />
+            <Pin Id="TUYat10Xuq6OvcleVm7r3C" Name="Depth Buffer Format" Kind="InputPin" IsHidden="true" />
+            <Pin Id="Mh3cu7h2FoAOuCOgS984Mc" Name="Multisample Count" Kind="InputPin" IsHidden="true" />
+            <Pin Id="VqgNx2JCOW9MuNbiPUPkUA" Name="Input" Kind="InputPin" />
+            <Pin Id="DO0xJMnPlawNPrtQkMPJ1A" Name="Render View" Kind="InputPin" />
+            <Pin Id="HgidKSUhgLgNpDruqSDTiI" Name="Title" Kind="InputPin" />
+            <Pin Id="Qdkk5Aj05riQEiR3Kpd1tt" Name="Clear Flags" Kind="InputPin" IsHidden="true" />
+            <Pin Id="TSkiv7kuy28LcBfsuQ5ckN" Name="Clear Color" Kind="InputPin" />
+            <Pin Id="T5bTREQicsHMbvOqmZjSvS" Name="Clear Depth" Kind="InputPin" IsHidden="true" />
+            <Pin Id="CRBDv5TMYlCNX6yKzG5cP3" Name="Clear Stencil" Kind="InputPin" IsHidden="true" />
+            <Pin Id="ChN5BKIvZSAMkcnGXcwT5x" Name="Clear" Kind="InputPin" />
+            <Pin Id="NNcs0oML9QGOt0OViKnlAF" Name="Edit Mode" Kind="InputPin" />
+            <Pin Id="JUtrLk21phwOQpsIXZRvbd" Name="Commands" Kind="InputPin" IsHidden="true" />
+            <Pin Id="BvOMBgC2rcrQToD9jJXLq6" Name="Enable Keyboard Shortcuts" Kind="InputPin" />
+            <Pin Id="OTarLdFOamrLz50HFs87YB" Name="Enabled" Kind="InputPin" />
+            <Pin Id="Q4GA7xAJ7EHLMZU9QlK3iN" Name="Present Interval" Kind="InputPin" />
+            <Pin Id="Rc3rXd0LvIOLS1zIHnlhO6" Name="Output" Kind="OutputPin" />
+            <Pin Id="JzEb7mbXy6AMsJp7h9Nkiq" Name="Client Bounds" Kind="OutputPin" />
+            <Pin Id="BDAcL8JU02zLO7kFmvxT4p" Name="Input Source" Kind="OutputPin" />
+            <Pin Id="Jlx05uq9lGAM9cbxKzzVxI" Name="Back Buffer" Kind="OutputPin" />
+            <Pin Id="LfMVd40pUqULd5zu3hH8WQ" Name="Depth Buffer" Kind="OutputPin" />
+          </Node>
+          <Pad Id="TkXR5VkVcI2NpVEaE3XDXt" Comment="Show overlays" Bounds="233,255,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="310,277,186,15" ShowValueBox="true" isIOBox="true" Value="Integrated Camera (04f2:b614)">
+            <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
+              <Choice Kind="TypeFlag" Name="CamerasEnum" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="F5ApVdxsPh7LZXDOgTGvfX" Bounds="773,73,87,20" ShowValueBox="true" isIOBox="true" Value="Wait for it &gt;">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="MXUfeeQ4K0GONxl2o7S5pW" Bounds="119,636,171,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/gesture_recognizer">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="BphNfmMvyf7LzvBjVcY5WM" Bounds="564,377,248,152" ShowValueBox="true" isIOBox="true" Value="&lt; Red node? Check missing dependencies in the Document Menu!&#xD;&#xA;&#xD;&#xA;Explanation: This node is not required for the operation of MediaPipe, only to preview the results. Therefore the VL.CEF.Stride pack is not shipping with the VL.MediaPipe pack. ">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="FI16PEkCOnqOkmlcBGcZ59" Bounds="659,108,240,147" ShowValueBox="true" isIOBox="true" Value="No video showing after ~10s? &gt; &#xD;&#xA;&#xD;&#xA;In case you have 2 GPUs you have 2 options&#xD;&#xA;- Enable the optional &quot;Shared Texture..&quot; Input on the MediaPipe node&#xD;&#xA;- Make the unterlying WebRenderer run on the same GPU, see:&#xD;&#xA;">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="Dcfe7mGBRoCPlTD0L8I5xc" Bounds="663,266,140,19" ShowValueBox="true" isIOBox="true" Value="https://github.com/vvvv/VL.CEF/blob/master/README.md#troubleshooting">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="UIFsqYAsK50NnfoQaJA6Yr" Comment="Detect hands" Bounds="149,147,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="ORkK4fGNW04PteM5lHudek" Comment="Detect gestures" Bounds="169,192,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="108,596,125,19" Id="JdWN7153YKLOqjVls0pm5k">
+            <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="GestureDetector" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="JGj7dYQtudtNKxHCRFpH6l" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="FFumYZ5uJI7Mc5uwcBepsZ" Name="Input" Kind="InputPin" />
+            <Pin Id="Dm4TOkE93bJPtVK9VdTgMp" Name="Max Number of Hands" Kind="InputPin" />
+            <Pin Id="GV8sGPGsNB8M8SxzN6FJzX" Name="Min Detection Confidence" Kind="InputPin" />
+            <Pin Id="IoQcA1tsdUmPvkY2n4fmPJ" Name="Min Presence Confidence" Kind="InputPin" />
+            <Pin Id="GR26Z4jHVsRNNZTmhZdOM1" Name="Min Tracking Confidence" Kind="InputPin" />
+            <Pin Id="N51Zxmojnd6MsDHiGZe7yY" Name="Max Number of Gestures" Kind="InputPin" DefaultValue="0" />
+            <Pin Id="SW2wKLsG0LYPefmOdmkVnA" Name="Score Threshold" Kind="InputPin" />
+            <Pin Id="NtLCoeUQ5N2OjHNHgfvQc3" Name="Landmarks" Kind="OutputPin" />
+            <Pin Id="VgEDNLXHghyMjqUNkHJlHM" Name="World Landmarks" Kind="OutputPin" />
+            <Pin Id="FZPfk5VDA4kLDspyLV1yD5" Name="Gestures" Kind="OutputPin" />
+            <Pin Id="MuVkwGa9dswPM83ucaEkfd" Name="Handedness" Kind="OutputPin" />
+            <Pin Id="ELzYosCzb5BM3rgm6QInV4" Name="Handednesses" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="101,673,588,154" Id="JAWzOXp6FBZPrMyv02V9sj">
+            <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+              <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+              <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
+            </p:NodeReference>
+            <Pin Id="PadOUtA8QOdMjcvKTMKNtN" Name="Break" Kind="OutputPin" />
+            <ControlPoint Id="M5FefWIqEAGQWHUDbFx0TI" Bounds="164,679" Alignment="Top" />
+            <Patch Id="EiiNzOYTqmDQELNuxg0RrQ" ManuallySortedPins="true">
+              <Patch Id="KCaVHx7Xx7aPR7Zf5Lax5B" Name="Create" ManuallySortedPins="true" />
+              <Patch Id="IBDANdFB5vdOaXbwsUECI8" Name="Update" ManuallySortedPins="true" />
+              <Patch Id="MrZZwNMLYfcNiOxDcPRGaZ" Name="Dispose" ManuallySortedPins="true" />
+              <Node Bounds="153,703,524,101" Id="NEVXr6hjkb9OccYsrh255G">
+                <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="Primitive" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
+                </p:NodeReference>
+                <Pin Id="RJQ4TGCxRaeO54RWhbhIdv" Name="Break" Kind="OutputPin" />
+                <Patch Id="CMrBan68cpDNfhBEOrAAW2" ManuallySortedPins="true">
+                  <Patch Id="OdzDY3xOQHUNdiz96URJsj" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="AXeADHl0x5qOquT6VdIRXU" Name="Update" ManuallySortedPins="true" />
+                  <Patch Id="LGBg1D6bEKlLlPcEFqlgwb" Name="Dispose" ManuallySortedPins="true" />
+                  <Node Bounds="165,741,152,26" Id="OZSbAyOGWEJNSTty1qXhsp">
+                    <p:NodeReference LastCategoryFullName="MediaPipe.GestureDetector.Gesture" LastDependency="VL.MediaPipe.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="ClassType" Name="Gesture" />
+                      <Choice Kind="OperationCallFlag" Name="CategoryName" />
+                    </p:NodeReference>
+                    <Pin Id="GWtBUpSRwXFOe2sjKAljKc" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="OOCqnkOESUrOAvNJiUjuhJ" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="QzImZj9nVe0MUwqLNVkjMZ" Name="Category Name" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="564,731,44,26" Id="BYstsTtbUccP9r0GjRqJJR">
+                    <p:NodeReference LastCategoryFullName="MediaPipe.GestureDetector.Gesture" LastDependency="VL.MediaPipe.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="ClassType" Name="Gesture" />
+                      <Choice Kind="OperationCallFlag" Name="Score" />
+                    </p:NodeReference>
+                    <Pin Id="Jebodau3uSTQFr0OIJKMsN" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="NaosobUmU2uLQ4FDOU35kp" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="Ua4JltJlKXINjQzfdsNlug" Name="Score" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="621,729,44,26" Id="K5jhqJSY5AjQc6091UlShE">
+                    <p:NodeReference LastCategoryFullName="MediaPipe.GestureDetector.Gesture" LastDependency="VL.MediaPipe.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="ClassType" Name="Gesture" />
+                      <Choice Kind="OperationCallFlag" Name="Index" />
+                    </p:NodeReference>
+                    <Pin Id="MhjVajQFCwjLVRmkKyWRRP" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="U1uAPs2U1avMzV4unOwl5s" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="R9r1XrwWzmXONpmDMuQ9pO" Name="Index" Kind="OutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="DJUogMdewRMLApwsybNNHb" Bounds="167,709" Alignment="Top" />
+                <ControlPoint Id="Qnqq8deL9elMX7XyOiIvqo" Bounds="328,798" Alignment="Bottom" />
+                <ControlPoint Id="PFyQhsfp5UcP56yjlisOjV" Bounds="607,798" Alignment="Bottom" />
+                <ControlPoint Id="ORhw4NHhbxuO7K1BuX1NyE" Bounds="655,798" Alignment="Bottom" />
+              </Node>
+            </Patch>
+            <ControlPoint Id="F3r6ZPrpucGLPagUDOSioy" Bounds="328,821" Alignment="Bottom" />
+            <ControlPoint Id="IWlG1TtxGUzNVBaDbtOWtH" Bounds="607,821" Alignment="Bottom" />
+            <ControlPoint Id="Cz0RVDEuvilL5VMRBUKFnS" Bounds="656,821" Alignment="Bottom" />
+          </Node>
+          <Pad Id="BF0iFEMuRUcPz0YKtRH84x" Comment="" Bounds="322,873,190,38" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="LgZY2Qu33gEPFGsvc2zJdx" Comment="" Bounds="609,868,45,38" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="VseNMJpyTKsPgLF7VhrKGM" Comment="" Bounds="676,864,46,45" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="321,977,56,26" Id="QC7rg2zb620OFKE3CtWKfI">
+            <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="4026531840" Name="Spread" NeedsToBeDirectParent="true" />
+              <Choice Kind="OperationCallFlag" Name="Contains" />
+            </p:NodeReference>
+            <Pin Id="BCuZ0rXEB9HMGG8pPOYa3n" Name="Input" Kind="StateInputPin" />
+            <Pin Id="B9pCG22mJVhMfLgla8h9CA" Name="Item" Kind="InputPin" />
+            <Pin Id="Jh33bLOz5iGPGBlTF25kZZ" Name="Result" Kind="OutputPin" />
+          </Node>
+          <Pad Id="JrFECYK1y1qPtLPfk0ZBcQ" Comment="" Bounds="323,1032,35,35" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="320,925,47,19" Id="Ip88X2KLB1tL1hcHeSlmzW">
+            <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="4026531840" Name="Spread" NeedsToBeDirectParent="true" />
+              <Choice Kind="OperationCallFlag" Name="Flatten" />
+            </p:NodeReference>
+            <Pin Id="GrW85ZZp7UYQFEJSRPpWwW" Name="Input" Kind="StateInputPin" />
+            <Pin Id="VmPXmw8f2G0NT7om1Rrtfb" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Pad Id="MoLA6yR2URzO5F4T7RLLMT" Comment="Item" Bounds="419,947,115,20" ShowValueBox="true" isIOBox="true" Value="Thumb_Up">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="EDxTQaPjCM9P726FPP8mgC" Bounds="565,945,233,52" ShowValueBox="true" isIOBox="true" Value="&lt; enter the string of the Gesture you want to detect">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="RJ9crX9vFMPO240vT02O7k" Comment="Max Number of Hands" Bounds="130,537,35,15" ShowValueBox="true" isIOBox="true" Value="2">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Integer32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="EdPMvQwO5MsQPmTwTBVTcp" Bounds="313,539,248,38" ShowValueBox="true" isIOBox="true" Value="&lt;- DO NOT WORK AS EXPECTED, you may need to restart the patch ">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="EzejP73qecJPzO7s9GgHav" Comment="Max Number of Gestures" Bounds="143,565,35,15" ShowValueBox="true" isIOBox="true" Value="2">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Integer32" />
+            </p:TypeAnnotation>
+          </Pad>
+        </Canvas>
+        <Patch Id="NnQxyM64wAjMFnS799ZJfW" Name="Create" />
+        <Patch Id="HlMT1WaS0ehPS9K2fCBqxG" Name="Update" />
+        <ProcessDefinition Id="JW4SIy1aFxYPKEawfOXhcq">
+          <Fragment Id="DuxtoAMZ3tTPHCJk3fWjpS" Patch="NnQxyM64wAjMFnS799ZJfW" Enabled="true" />
+          <Fragment Id="NfWUSkhDXo8N3tjGe4chZL" Patch="HlMT1WaS0ehPS9K2fCBqxG" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="LMsEdguCoKqP3mpi8KCyN1" Ids="SVGaxn1MF1QOmovm0LVVth,LzlPW6IcAYbOW0sKqzqQvs" />
+        <Link Id="RsI50N2k2BWPRlB1MYRVFX" Ids="TkXR5VkVcI2NpVEaE3XDXt,RzJlP9ULamlLwJQl4zpEEd" />
+        <Link Id="QCUTOGeLOuhPWj8iNe0XJy" Ids="Rl6H1fA5L95MB7LiXYxnuK,SfPjXVj05ZiQI6muvE1PL1" />
+        <Link Id="VQUoUnspXaIQYLhwkPcuKH" Ids="UIFsqYAsK50NnfoQaJA6Yr,PPLupqHmGcmNJKdYNQfljU" />
+        <Link Id="LoAziW3GVB8O9VHveoVNkD" Ids="ORkK4fGNW04PteM5lHudek,SDEkpvLrLWTNClDxgEmgXc" />
+        <Link Id="VPKZzUDxF0sPu6n5M08N3u" Ids="DxARM8Wx9atLEjJsYCrZKI,FFumYZ5uJI7Mc5uwcBepsZ" />
+        <Link Id="OnvKOtYovm9MBuDdeKKgQe" Ids="GQ9isDNWSFRNmCKwVaPJW1,VqgNx2JCOW9MuNbiPUPkUA" />
+        <Link Id="ITz5z7pfNfZMDepwr8KOOa" Ids="FZPfk5VDA4kLDspyLV1yD5,M5FefWIqEAGQWHUDbFx0TI" />
+        <Link Id="ArHTtOd0NtFMRu2ZzJ73bb" Ids="M5FefWIqEAGQWHUDbFx0TI,DJUogMdewRMLApwsybNNHb" />
+        <Link Id="H3aTY9PJkuSMZHFfrVvcOf" Ids="DJUogMdewRMLApwsybNNHb,GWtBUpSRwXFOe2sjKAljKc" />
+        <Link Id="OkvENmIvLGZLY9XJmmgAhE" Ids="Qnqq8deL9elMX7XyOiIvqo,F3r6ZPrpucGLPagUDOSioy" />
+        <Link Id="EBXwNzj5LkiPb3C6zPQkS6" Ids="F3r6ZPrpucGLPagUDOSioy,BF0iFEMuRUcPz0YKtRH84x" />
+        <Link Id="TayylWcazU2PsNhRwHjIiI" Ids="QzImZj9nVe0MUwqLNVkjMZ,Qnqq8deL9elMX7XyOiIvqo" />
+        <Link Id="F4jIq9wlWqGMORZQjgyXDB" Ids="DJUogMdewRMLApwsybNNHb,Jebodau3uSTQFr0OIJKMsN" />
+        <Link Id="IzYlCc4AXIDMSAEesbtPXX" Ids="Ua4JltJlKXINjQzfdsNlug,PFyQhsfp5UcP56yjlisOjV" />
+        <Link Id="Tb8zbkJ8oJNMWVmpQZq9Od" Ids="PFyQhsfp5UcP56yjlisOjV,IWlG1TtxGUzNVBaDbtOWtH" />
+        <Link Id="Hg3PUWRN5EGNyVQHTFoHRk" Ids="IWlG1TtxGUzNVBaDbtOWtH,LgZY2Qu33gEPFGsvc2zJdx" />
+        <Link Id="CvGHpiXnwgTNRtnR2i5crK" Ids="DJUogMdewRMLApwsybNNHb,MhjVajQFCwjLVRmkKyWRRP" />
+        <Link Id="DiL1GSZPMZxLhWuBSEBEQ8" Ids="R9r1XrwWzmXONpmDMuQ9pO,ORhw4NHhbxuO7K1BuX1NyE" />
+        <Link Id="OFNVEbhYg3FPbKOHXH86QJ" Ids="ORhw4NHhbxuO7K1BuX1NyE,Cz0RVDEuvilL5VMRBUKFnS" />
+        <Link Id="MZ2Ms973MwdLaVnmHed5yd" Ids="Cz0RVDEuvilL5VMRBUKFnS,VseNMJpyTKsPgLF7VhrKGM" />
+        <Link Id="SQW4pdz6sOzLfyMMaTwq7F" Ids="BF0iFEMuRUcPz0YKtRH84x,GrW85ZZp7UYQFEJSRPpWwW" />
+        <Link Id="BEMxRubfC73QA4uTcsR3Po" Ids="Jh33bLOz5iGPGBlTF25kZZ,JrFECYK1y1qPtLPfk0ZBcQ" />
+        <Link Id="AuFh8uLVs9MMu5YXqiPCOC" Ids="VmPXmw8f2G0NT7om1Rrtfb,BCuZ0rXEB9HMGG8pPOYa3n" />
+        <Link Id="DFLyPWvSpRqQOP1AXUZDMq" Ids="MoLA6yR2URzO5F4T7RLLMT,B9pCG22mJVhMfLgla8h9CA" />
+        <Link Id="GqkgzltqGW7OijfnHRmHIv" Ids="RJ9crX9vFMPO240vT02O7k,Dm4TOkE93bJPtVK9VdTgMp" />
+        <Link Id="NIjUc6UGq44O2lQ6Anjl8P" Ids="EzejP73qecJPzO7s9GgHav,N51Zxmojnd6MsDHiGZe7yY" />
+      </Patch>
+    </Node>
+  </Patch>
+  <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.5.5" />
+  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2024.6.7" />
+  <NugetDependency Id="LVi6AOgIWYkNdVDA5if0rq" Location="VL.MediaPipe" Version="0.5.2-alpha" />
+</Document>
