@@ -57,7 +57,7 @@
               <Choice Kind="ProcessAppFlag" Name="RenderWindow" />
             </p:NodeReference>
             <Pin Id="Ra9VWzaj8p6McFi2EH5BfU" Name="Node Context" Kind="InputPin" IsHidden="true" />
-            <Pin Id="NyfBMSSSnkjM3aYYF8r97A" Name="Bounds" Kind="InputPin" DefaultValue="1156, 90.666664, 640.6667, 360" IsHidden="true" />
+            <Pin Id="NyfBMSSSnkjM3aYYF8r97A" Name="Bounds" Kind="InputPin" DefaultValue="1156, 90.666664, 426, 241.33333" IsHidden="true" />
             <Pin Id="Q40I4RjRzUVNq3G8Ieqcje" Name="Bound to Document" Kind="InputPin" IsHidden="true" />
             <Pin Id="He2hbK6oDs7MlCcLoXHGTu" Name="Dialog If Document Changed" Kind="InputPin" IsHidden="true" />
             <Pin Id="SI0HYnfhKKpMVm2GynbzCG" Name="Save Bounds" Kind="InputPin" IsHidden="true" />
@@ -137,7 +137,7 @@
             <Pin Id="GLNGBg4v1uCN2vvO6KGuLU" Name="Output" Kind="OutputPin" />
             <Pin Id="UtUs1kp44oiOO7LN87Et2b" Name="Input 3" Kind="InputPin" />
           </Node>
-          <Node Bounds="485,371,67,19" Id="Lni7NctMH7vORlCQ2yLYWB">
+          <Node Bounds="781,390,67,19" Id="Lni7NctMH7vORlCQ2yLYWB">
             <p:NodeReference LastCategoryFullName="MediaPipe.HandDetector" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="SelectHand" />
@@ -209,7 +209,7 @@
               <Choice Kind="OperationCallFlag" Name="UniformScale" />
             </p:NodeReference>
             <Pin Id="MEaS5dvYXZNPaZhJtRuq5P" Name="Input" Kind="InputPin" />
-            <Pin Id="V6L3NaLtn1VLnQq83ODCa6" Name="Scaling" Kind="InputPin" DefaultValue="0.05" />
+            <Pin Id="V6L3NaLtn1VLnQq83ODCa6" Name="Scaling" Kind="InputPin" DefaultValue="0.14" />
             <Pin Id="FkOAjtatDMDPAin6FWPPFH" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="SwOk8jlmRRfOMRHhJYZGWp" Comment="Color" Bounds="824,713,20,15" ShowValueBox="true" isIOBox="true" Value="0.28663215, 0.54000014, 0.16740018, 1">
@@ -222,7 +222,7 @@
               <Choice Kind="TypeFlag" Name="FingerJoints" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="OmX9XPSg4xOPJyygpj3fSd" Comment="Hand" Bounds="550,340,53,15" ShowValueBox="true" isIOBox="true" Value="Right">
+          <Pad Id="OmX9XPSg4xOPJyygpj3fSd" Comment="Hand" Bounds="846,359,53,15" ShowValueBox="true" isIOBox="true" Value="Right">
             <p:TypeAnnotation LastCategoryFullName="MediaPipe.HandResults" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="TypeFlag" Name="Hand" />
             </p:TypeAnnotation>
