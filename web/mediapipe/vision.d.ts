@@ -21,10 +21,10 @@ declare interface BaseOptions_2 {
      */
     modelAssetPath?: string | undefined;
     /**
-     * A buffer containing the model aaset. Only one of `modelAssetPath` or
-     * `modelAssetBuffer` can be set.
+     * A buffer or stream reader containing the model asset. Only one of
+     * `modelAssetPath` or `modelAssetBuffer` can be set.
      */
-    modelAssetBuffer?: Uint8Array | undefined;
+    modelAssetBuffer?: Uint8Array | ReadableStreamDefaultReader | undefined;
     /** Overrides the default backend to use for the provided model. */
     delegate?: "CPU" | "GPU" | undefined;
 }
@@ -326,6 +326,23 @@ export declare class DrawingUtils {
      */
     drawCategoryMask(mask: MPMask, categoryToColorMap: RGBAColor[], background?: RGBAColor | ImageSource): void;
     /**
+     * Blends two images using the provided confidence mask.
+     *
+     * If you are using an `ImageData` or `HTMLImageElement` as your data source
+     * and drawing the result onto a `WebGL2RenderingContext`, this method uploads
+     * the image data to the GPU. For still image input that gets re-used every
+     * frame, you can reduce the cost of re-uploading these images by passing a
+     * `HTMLCanvasElement` instead.
+     *
+     * @export
+     * @param mask A confidence mask that was returned from a segmentation task.
+     * @param defaultTexture An image or a four-channel color that will be used
+     *     when confidence values are low.
+     * @param overlayTexture An image or four-channel color that will be used when
+     *     confidence values are high.
+     */
+    drawConfidenceMask(mask: MPMask, defaultTexture: RGBAColor | ImageSource, overlayTexture: RGBAColor | ImageSource): void;
+    /**
      * Frees all WebGL resources held by this class.
      * @export
      */
@@ -431,9 +448,10 @@ export declare class FaceDetector extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of the
      *     Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<FaceDetector>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<FaceDetector>;
     /**
      * Initializes the Wasm runtime and creates a new face detector based on the
      * path to the model asset.
@@ -520,9 +538,10 @@ export declare class FaceLandmarker extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of the
      *     Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<FaceLandmarker>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<FaceLandmarker>;
     /**
      * Initializes the Wasm runtime and creates a new `FaceLandmarker` based on
      * the path to the model asset.
@@ -699,9 +718,10 @@ export declare class FaceStylizer extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of
      *     the Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<FaceStylizer>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<FaceStylizer>;
     /**
      * Initializes the Wasm runtime and creates a new Face Stylizer based on
      * the path to the model asset.
@@ -839,6 +859,28 @@ export declare class FilesetResolver {
      */
     static forAudioTasks(basePath?: string): Promise<WasmFileset>;
     /**
+     * Creates a fileset for the MediaPipe GenAI tasks.
+     *
+     * @export
+     * @param basePath An optional base path to specify the directory the Wasm
+     *    files should be loaded from. If not specified, the Wasm files are
+     *    loaded from the host's root directory.
+     * @return A `WasmFileset` that can be used to initialize MediaPipe GenAI
+     *    tasks.
+     */
+    static forGenAiTasks(basePath?: string): Promise<WasmFileset>;
+    /**
+     * Creates a fileset for the MediaPipe GenAI Experimental tasks.
+     *
+     * @export
+     * @param basePath An optional base path to specify the directory the Wasm
+     *    files should be loaded from. If not specified, the Wasm files are
+     *    loaded from the host's root directory.
+     * @return A `WasmFileset` that can be used to initialize MediaPipe GenAI
+     *    tasks.
+     */
+    static forGenAiExperimentalTasks(basePath?: string): Promise<WasmFileset>;
+    /**
      * Creates a fileset for the MediaPipe Text tasks.
      *
      * @export
@@ -888,9 +930,10 @@ export declare class GestureRecognizer extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of the
      *     Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<GestureRecognizer>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<GestureRecognizer>;
     /**
      * Initializes the Wasm runtime and creates a new gesture recognizer based on
      * the path to the model asset.
@@ -1025,9 +1068,10 @@ export declare class HandLandmarker extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of the
      *     Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<HandLandmarker>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<HandLandmarker>;
     /**
      * Initializes the Wasm runtime and creates a new `HandLandmarker` based on
      * the path to the model asset.
@@ -1117,6 +1161,318 @@ export declare interface HandLandmarkerResult {
     handedness: Category[][];
 }
 
+/** Performs holistic landmarks detection on images. */
+export declare class HolisticLandmarker extends VisionTaskRunner {
+    /**
+     * An array containing the pairs of hand landmark indices to be rendered with
+     * connections.
+     * @export
+     * @nocollapse
+     */
+    static HAND_CONNECTIONS: Connection[];
+    /**
+     * An array containing the pairs of pose landmark indices to be rendered with
+     * connections.
+     * @export
+     * @nocollapse
+     */
+    static POSE_CONNECTIONS: Connection[];
+    /**
+     * Landmark connections to draw the connection between a face's lips.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_LIPS: Connection[];
+    /**
+     * Landmark connections to draw the connection between a face's left eye.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_LEFT_EYE: Connection[];
+    /**
+     * Landmark connections to draw the connection between a face's left eyebrow.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_LEFT_EYEBROW: Connection[];
+    /**
+     * Landmark connections to draw the connection between a face's left iris.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_LEFT_IRIS: Connection[];
+    /**
+     * Landmark connections to draw the connection between a face's right eye.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_RIGHT_EYE: Connection[];
+    /**
+     * Landmark connections to draw the connection between a face's right
+     * eyebrow.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_RIGHT_EYEBROW: Connection[];
+    /**
+     * Landmark connections to draw the connection between a face's right iris.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_RIGHT_IRIS: Connection[];
+    /**
+     * Landmark connections to draw the face's oval.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_FACE_OVAL: Connection[];
+    /**
+     * Landmark connections to draw the face's contour.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_CONTOURS: Connection[];
+    /**
+     * Landmark connections to draw the face's tesselation.
+     * @export
+     * @nocollapse
+     */
+    static FACE_LANDMARKS_TESSELATION: Connection[];
+    /**
+     * Initializes the Wasm runtime and creates a new `HolisticLandmarker` from
+     * the provided options.
+     * @export
+     * @param wasmFileset A configuration object that provides the location of the
+     *     Wasm binary and its loader.
+     * @param holisticLandmarkerOptions The options for the HolisticLandmarker.
+     *     Note that either a path to the model asset or a model buffer needs to
+     *     be provided (via `baseOptions`).
+     */
+    static createFromOptions(wasmFileset: WasmFileset, holisticLandmarkerOptions: HolisticLandmarkerOptions): Promise<HolisticLandmarker>;
+    /**
+     * Initializes the Wasm runtime and creates a new `HolisticLandmarker` based
+     * on the provided model asset buffer.
+     * @export
+     * @param wasmFileset A configuration object that provides the location of the
+     *     Wasm binary and its loader.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
+     */
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<HolisticLandmarker>;
+    /**
+     * Initializes the Wasm runtime and creates a new `HolisticLandmarker` based
+     * on the path to the model asset.
+     * @export
+     * @param wasmFileset A configuration object that provides the location of the
+     *     Wasm binary and its loader.
+     * @param modelAssetPath The path to the model asset.
+     */
+    static createFromModelPath(wasmFileset: WasmFileset, modelAssetPath: string): Promise<HolisticLandmarker>;
+    private constructor();
+    /**
+     * Sets new options for this `HolisticLandmarker`.
+     *
+     * Calling `setOptions()` with a subset of options only affects those options.
+     * You can reset an option back to its default value by explicitly setting it
+     * to `undefined`.
+     *
+     * @export
+     * @param options The options for the holistic landmarker.
+     */
+    setOptions(options: HolisticLandmarkerOptions): Promise<void>;
+    /**
+     * Performs holistic landmarks detection on the provided single image and
+     * invokes the callback with the response. The method returns synchronously
+     * once the callback returns. Only use this method when the HolisticLandmarker
+     * is created with running mode `image`.
+     *
+     * @export
+     * @param image An image to process.
+     * @param callback The callback that is invoked with the result. The
+     *    lifetime of the returned masks is only guaranteed for the duration of
+     *    the callback.
+     */
+    detect(image: ImageSource, callback: HolisticLandmarkerCallback): void;
+    /**
+     * Performs holistic landmarks detection on the provided single image and
+     * invokes the callback with the response. The method returns synchronously
+     * once the callback returns. Only use this method when the HolisticLandmarker
+     * is created with running mode `image`.
+     *
+     * @export
+     * @param image An image to process.
+     * @param imageProcessingOptions the `ImageProcessingOptions` specifying how
+     *    to process the input image before running inference.
+     * @param callback The callback that is invoked with the result. The
+     *    lifetime of the returned masks is only guaranteed for the duration of
+     *    the callback.
+     */
+    detect(image: ImageSource, imageProcessingOptions: ImageProcessingOptions, callback: HolisticLandmarkerCallback): void;
+    /**
+     * Performs holistic landmarks detection on the provided single image and
+     * waits synchronously for the response. This method creates a copy of the
+     * resulting masks and should not be used in high-throughput applications.
+     * Only use this method when the HolisticLandmarker is created with running
+     * mode `image`.
+     *
+     * @export
+     * @param image An image to process.
+     * @return The landmarker result. Any masks are copied to avoid lifetime
+     *     limits.
+     * @return The detected pose landmarks.
+     */
+    detect(image: ImageSource): HolisticLandmarkerResult;
+    /**
+     * Performs holistic landmarks detection on the provided single image and
+     * waits synchronously for the response. This method creates a copy of the
+     * resulting masks and should not be used in high-throughput applications.
+     * Only use this method when the HolisticLandmarker is created with running
+     * mode `image`.
+     *
+     * @export
+     * @param image An image to process.
+     * @return The landmarker result. Any masks are copied to avoid lifetime
+     *     limits.
+     * @return The detected pose landmarks.
+     */
+    detect(image: ImageSource, imageProcessingOptions: ImageProcessingOptions): HolisticLandmarkerResult;
+    /**
+     * Performs holistic landmarks detection on the provided video frame and
+     * invokes the callback with the response. The method returns synchronously
+     * once the callback returns. Only use this method when the HolisticLandmarker
+     * is created with running mode `video`.
+     *
+     * @export
+     * @param videoFrame A video frame to process.
+     * @param timestamp The timestamp of the current frame, in ms.
+     * @param callback The callback that is invoked with the result. The
+     *    lifetime of the returned masks is only guaranteed for the duration of
+     *    the callback.
+     */
+    detectForVideo(videoFrame: ImageSource, timestamp: number, callback: HolisticLandmarkerCallback): void;
+    /**
+     * Performs holistic landmarks detection on the provided video frame and
+     * invokes the callback with the response. The method returns synchronously
+     * once the callback returns. Only use this method when the holisticLandmarker
+     * is created with running mode `video`.
+     *
+     * @export
+     * @param videoFrame A video frame to process.
+     * @param timestamp The timestamp of the current frame, in ms.
+     * @param imageProcessingOptions the `ImageProcessingOptions` specifying how
+     *    to process the input image before running inference.
+     * @param callback The callback that is invoked with the result. The
+     *    lifetime of the returned masks is only guaranteed for the duration of
+     *    the callback.
+     */
+    detectForVideo(videoFrame: ImageSource, timestamp: number, imageProcessingOptions: ImageProcessingOptions, callback: HolisticLandmarkerCallback): void;
+    /**
+     * Performs holistic landmarks detection on the provided video frame and
+     * returns the result. This method creates a copy of the resulting masks and
+     * should not be used in high-throughput applications. Only use this method
+     * when the HolisticLandmarker is created with running mode `video`.
+     *
+     * @export
+     * @param videoFrame A video frame to process.
+     * @param timestamp The timestamp of the current frame, in ms.
+     * @return The landmarker result. Any masks are copied to extend the
+     *     lifetime of the returned data.
+     */
+    detectForVideo(videoFrame: ImageSource, timestamp: number): HolisticLandmarkerResult;
+    /**
+     * Performs holistic landmarks detection on the provided video frame and waits
+     * synchronously for the response. Only use this method when the
+     * HolisticLandmarker is created with running mode `video`.
+     *
+     * @export
+     * @param videoFrame A video frame to process.
+     * @param timestamp The timestamp of the current frame, in ms.
+     * @param imageProcessingOptions the `ImageProcessingOptions` specifying how
+     *    to process the input image before running inference.
+     * @return The detected holistic landmarks.
+     */
+    detectForVideo(videoFrame: ImageSource, timestamp: number, imageProcessingOptions: ImageProcessingOptions): HolisticLandmarkerResult;
+}
+
+/**
+ * A callback that receives the result from the holistic landmarker detection.
+ * The returned result are only valid for the duration of the callback. If
+ * asynchronous processing is needed, the masks need to be copied before the
+ * callback returns.
+ */
+export declare type HolisticLandmarkerCallback = (result: HolisticLandmarkerResult) => void;
+
+/** Options to configure the MediaPipe HolisticLandmarker Task */
+export declare interface HolisticLandmarkerOptions extends VisionTaskOptions {
+    /**
+     * The minimum confidence score for the face detection to be considered
+     * successful. Defaults to 0.5.
+     */
+    minFaceDetectionConfidence?: number | undefined;
+    /**
+     * The minimum non-maximum-suppression threshold for face detection to be
+     * considered overlapped. Defaults to 0.3.
+     */
+    minFaceSuppressionThreshold?: number | undefined;
+    /**
+     * The minimum confidence score of face presence score in the face landmarks
+     * detection. Defaults to 0.5.
+     */
+    minFacePresenceConfidence?: number | undefined;
+    /**
+     * Whether FaceLandmarker outputs face blendshapes classification. Face
+     * blendshapes are used for rendering the 3D face model.
+     */
+    outputFaceBlendshapes?: boolean | undefined;
+    /**
+     * The minimum confidence score for the pose detection to be considered
+     * successful. Defaults to 0.5.
+     */
+    minPoseDetectionConfidence?: number | undefined;
+    /**
+     * The minimum non-maximum-suppression threshold for pose detection to be
+     * considered overlapped. Defaults to 0.3.
+     */
+    minPoseSuppressionThreshold?: number | undefined;
+    /**
+     * The minimum confidence score of pose presence score in the pose landmarks
+     * detection. Defaults to 0.5.
+     */
+    minPosePresenceConfidence?: number | undefined;
+    /** Whether to output segmentation masks. Defaults to false. */
+    outputPoseSegmentationMasks?: boolean | undefined;
+    /**
+     * The minimum confidence score of hand presence score in the hand landmarks
+     * detection. Defaults to 0.5.
+     */
+    minHandLandmarksConfidence?: number | undefined;
+}
+
+/**
+ * Represents the holistic landmarks detection results generated by
+ * `HolisticLandmarker`.
+ */
+export declare interface HolisticLandmarkerResult {
+    /** Detected face landmarks in normalized image coordinates. */
+    faceLandmarks: NormalizedLandmark[][];
+    /** Optional face blendshapes results. */
+    faceBlendshapes: Classifications[];
+    /** Detected pose landmarks in normalized image coordinates. */
+    poseLandmarks: NormalizedLandmark[][];
+    /** Pose landmarks in world coordinates of detected poses. */
+    poseWorldLandmarks: Landmark[][];
+    /** Optional segmentation mask for the detected pose. */
+    poseSegmentationMasks: MPMask[];
+    /** Left hand landmarks of detected left hands. */
+    leftHandLandmarks: NormalizedLandmark[][];
+    /** Left hand landmarks in world coordinates of detected left hands. */
+    leftHandWorldLandmarks: Landmark[][];
+    /** Right hand landmarks of detected right hands. */
+    rightHandLandmarks: NormalizedLandmark[][];
+    /** Right hand landmarks in world coordinates of detected right hands. */
+    rightHandWorldLandmarks: Landmark[][];
+}
+
 /** Performs classification on images. */
 export declare class ImageClassifier extends VisionTaskRunner {
     /**
@@ -1136,9 +1492,10 @@ export declare class ImageClassifier extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of the
      *     Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<ImageClassifier>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<ImageClassifier>;
     /**
      * Initializes the Wasm runtime and creates a new image classifier based on
      * the path to the model asset.
@@ -1226,9 +1583,10 @@ export declare class ImageEmbedder extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of the
      *     Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the TFLite model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<ImageEmbedder>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<ImageEmbedder>;
     /**
      * Initializes the Wasm runtime and creates a new image embedder based on the
      * path to the model asset.
@@ -1353,9 +1711,10 @@ export declare class ImageSegmenter extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of
      *     the Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<ImageSegmenter>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<ImageSegmenter>;
     /**
      * Initializes the Wasm runtime and creates a new image segmenter based on
      * the path to the model asset.
@@ -1570,8 +1929,10 @@ export declare class ImageSegmenterResult {
 
 /**
  * Valid types of image sources which we can run our GraphRunner over.
+ *
+ * @deprecated Use TexImageSource instead.
  */
-export declare type ImageSource = HTMLCanvasElement | HTMLVideoElement | HTMLImageElement | ImageData | ImageBitmap;
+export declare type ImageSource = TexImageSource;
 
 /**
  * Performs interactive segmentation on images.
@@ -1616,10 +1977,11 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of
      *     the Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      * @return A new `InteractiveSegmenter`.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<InteractiveSegmenter>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<InteractiveSegmenter>;
     /**
      * Initializes the Wasm runtime and creates a new interactive segmenter based
      * on the path to the model asset.
@@ -1662,11 +2024,10 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      * callback returns. The `roi` parameter is used to represent a user's region
      * of interest for segmentation.
      *
-     * The 'image_processing_options' parameter can be used to specify the
-     * rotation to apply to the image before performing segmentation, by setting
-     * its 'rotationDegrees' field. Note that specifying a region-of-interest
-     * using the 'regionOfInterest' field is NOT supported and will result in an
-     * error.
+     * The 'imageProcessingOptions' parameter can be used to specify the rotation
+     * to apply to the image before performing segmentation, by setting its
+     * 'rotationDegrees' field. Note that specifying a region-of-interest using
+     * the 'regionOfInterest' field is NOT supported and will result in an error.
      *
      * @param image An image to process.
      * @param roi The region of interest for segmentation.
@@ -1695,11 +2056,10 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      * and should not be used in high-throughput applications. The `roi` parameter
      * is used to represent a user's region of interest for segmentation.
      *
-     * The 'image_processing_options' parameter can be used to specify the
-     * rotation to apply to the image before performing segmentation, by setting
-     * its 'rotationDegrees' field. Note that specifying a region-of-interest
-     * using the 'regionOfInterest' field is NOT supported and will result in an
-     * error.
+     * The 'imageProcessingOptions' parameter can be used to specify the rotation
+     * to apply to the image before performing segmentation, by setting its
+     * 'rotationDegrees' field. Note that specifying a region-of-interest using
+     * the 'regionOfInterest' field is NOT supported and will result in an error.
      *
      * @param image An image to process.
      * @param roi The region of interest for segmentation.
@@ -1791,6 +2151,8 @@ export declare interface Landmark {
     y: number;
     /** The z coordinates of the landmark. */
     z: number;
+    /** The likelihood of the landmark being visible within the image. */
+    visibility: number;
 }
 
 /** Data that a user can use to specialize drawing options. */
@@ -1816,7 +2178,7 @@ export declare interface LandmarkData {
  * limitations under the License.
  */
 /** A two-dimensional matrix. */
-declare interface Matrix {
+export declare interface Matrix {
     /** The number of rows. */
     rows: number;
     /** The number of columns. */
@@ -1940,6 +2302,7 @@ export declare class MPImage {
  * `close()` on the `MPMask` instance.
  */
 export declare class MPMask {
+    readonly interpolateValues: boolean;
     /** Returns the canvas element that the mask is bound to. */
     readonly canvas: HTMLCanvasElement | OffscreenCanvas | undefined;
     /** Returns the width of the mask. */
@@ -2072,6 +2435,8 @@ export declare interface NormalizedLandmark {
     y: number;
     /** The z coordinates of the normalized landmark. */
     z: number;
+    /** The likelihood of the landmark being visible within the image. */
+    visibility: number;
 }
 
 /**
@@ -2095,9 +2460,10 @@ export declare class ObjectDetector extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of the
      *     Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<ObjectDetector>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<ObjectDetector>;
     /**
      * Initializes the Wasm runtime and creates a new object detector based on the
      * path to the model asset.
@@ -2176,9 +2542,10 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * @export
      * @param wasmFileset A configuration object that provides the location of the
      *     Wasm binary and its loader.
-     * @param modelAssetBuffer A binary representation of the model.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array): Promise<PoseLandmarker>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<PoseLandmarker>;
     /**
      * Initializes the Wasm runtime and creates a new `PoseLandmarker` based on
      * the path to the model asset.
@@ -2206,6 +2573,7 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * callback returns. Only use this method when the PoseLandmarker is created
      * with running mode `image`.
      *
+     * @export
      * @param image An image to process.
      * @param callback The callback that is invoked with the result. The
      *    lifetime of the returned masks is only guaranteed for the duration of
@@ -2218,6 +2586,7 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * callback returns. Only use this method when the PoseLandmarker is created
      * with running mode `image`.
      *
+     * @export
      * @param image An image to process.
      * @param imageProcessingOptions the `ImageProcessingOptions` specifying how
      *    to process the input image before running inference.
@@ -2233,6 +2602,7 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * use this method when the PoseLandmarker is created with running mode
      * `image`.
      *
+     * @export
      * @param image An image to process.
      * @return The landmarker result. Any masks are copied to avoid lifetime
      *     limits.
@@ -2246,6 +2616,7 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * use this method when the PoseLandmarker is created with running mode
      * `image`.
      *
+     * @export
      * @param image An image to process.
      * @return The landmarker result. Any masks are copied to avoid lifetime
      *     limits.
@@ -2258,6 +2629,7 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * callback returns. Only use this method when the PoseLandmarker is created
      * with running mode `video`.
      *
+     * @export
      * @param videoFrame A video frame to process.
      * @param timestamp The timestamp of the current frame, in ms.
      * @param callback The callback that is invoked with the result. The
@@ -2271,6 +2643,7 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * callback returns. Only use this method when the PoseLandmarker is created
      * with running mode `video`.
      *
+     * @export
      * @param videoFrame A video frame to process.
      * @param timestamp The timestamp of the current frame, in ms.
      * @param imageProcessingOptions the `ImageProcessingOptions` specifying how
@@ -2286,6 +2659,7 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * in high-throughput applications. Only use this method when the
      * PoseLandmarker is created with running mode `video`.
      *
+     * @export
      * @param videoFrame A video frame to process.
      * @param timestamp The timestamp of the current frame, in ms.
      * @return The landmarker result. Any masks are copied to extend the
@@ -2299,6 +2673,7 @@ export declare class PoseLandmarker extends VisionTaskRunner {
      * callback returns. Only use this method when the PoseLandmarker is created
      * with running mode `video`.
      *
+     * @export
      * @param videoFrame A video frame to process.
      * @param timestamp The timestamp of the current frame, in ms.
      * @param imageProcessingOptions the `ImageProcessingOptions` specifying how
@@ -2348,17 +2723,41 @@ export declare interface PoseLandmarkerOptions extends VisionTaskOptions {
  * Each vector element represents a single pose detected in the image.
  */
 export declare class PoseLandmarkerResult {
+    /**
+     * Pose landmarks of detected poses.
+     * @export
+     */
     readonly landmarks: NormalizedLandmark[][];
-    /** Pose landmarks in world coordinates of detected poses. */
+    /**
+     * Pose landmarks in world coordinates of detected poses.
+     * @export
+     */
     readonly worldLandmarks: Landmark[][];
-    /** Segmentation mask for the detected pose. */
+    /**
+     * Segmentation mask for the detected pose.
+     * @export
+     */
     readonly segmentationMasks?: MPMask[] | undefined;
-    constructor(/** Pose landmarks of detected poses. */ landmarks: NormalizedLandmark[][], 
-    /** Pose landmarks in world coordinates of detected poses. */
+    constructor(
+    /**
+     * Pose landmarks of detected poses.
+     * @export
+     */
+    landmarks: NormalizedLandmark[][], 
+    /**
+     * Pose landmarks in world coordinates of detected poses.
+     * @export
+     */
     worldLandmarks: Landmark[][], 
-    /** Segmentation mask for the detected pose. */
+    /**
+     * Segmentation mask for the detected pose.
+     * @export
+     */
     segmentationMasks?: MPMask[] | undefined);
-    /** Frees the resources held by the segmentation masks. */
+    /**
+     * Frees the resources held by the segmentation masks.
+     * @export
+     */
     close(): void;
 }
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="G0wmIp2csZiMopdDu9Z8gi" LanguageVersion="2024.6.7" Version="0.128">
-  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2024.6.7" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="G0wmIp2csZiMopdDu9Z8gi" LanguageVersion="2025.7.0" Version="0.128">
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2025.7.0" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -904,6 +904,7 @@
             <Pin Id="MwwLE74UjoFM4rkqI1iYG2" Name="Back Buffer Format" Kind="InputPin" IsHidden="true" />
             <Pin Id="TUYat10Xuq6OvcleVm7r3C" Name="Depth Buffer Format" Kind="InputPin" IsHidden="true" />
             <Pin Id="Mh3cu7h2FoAOuCOgS984Mc" Name="Multisample Count" Kind="InputPin" IsHidden="true" />
+            <Pin Id="NTviwJecNdzPc05Gjfa64M" Name="Input Priority" Kind="InputPin" IsHidden="true" />
             <Pin Id="VqgNx2JCOW9MuNbiPUPkUA" Name="Input" Kind="InputPin" />
             <Pin Id="DO0xJMnPlawNPrtQkMPJ1A" Name="Render View" Kind="InputPin" />
             <Pin Id="HgidKSUhgLgNpDruqSDTiI" Name="Title" Kind="InputPin" />
@@ -922,8 +923,9 @@
             <Pin Id="BDAcL8JU02zLO7kFmvxT4p" Name="Input Source" Kind="OutputPin" />
             <Pin Id="Jlx05uq9lGAM9cbxKzzVxI" Name="Back Buffer" Kind="OutputPin" />
             <Pin Id="LfMVd40pUqULd5zu3hH8WQ" Name="Depth Buffer" Kind="OutputPin" />
+            <Pin Id="Pv9AvwZARsRPtoteTwroRK" Name="Present Call Intercept" Kind="InputPin" IsHidden="true" />
           </Node>
-          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="407,117,199,15" ShowValueBox="true" isIOBox="true" Value="Integrated Camera (04f2:b614)">
+          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="407,117,199,15" ShowValueBox="true" isIOBox="true" Value="ASUS FHD webcam (3277:0059)">
             <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="TypeFlag" Name="CamerasEnum" />
             </p:TypeAnnotation>
@@ -953,7 +955,7 @@
             <Pin Id="PQhvElc6wTlQR7hVYHA9gs" Name="Min Overlap Suppression" Kind="InputPin" />
             <Pin Id="Mpxcs1csYhlLeeZ92oNNTy" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="KIeP736NophNiCLnVYSvMg" Bounds="216,418,165,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_detector">
+          <Pad Id="KIeP736NophNiCLnVYSvMg" Bounds="216,418,207,19" ShowValueBox="true" isIOBox="true" Value="https://developers.google.com/mediapipe/solutions/vision/face_detector">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -962,7 +964,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="F0uT5oO0CJXPDYcFzjbykO" Comment="Detect faces" Bounds="207,201,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="F0uT5oO0CJXPDYcFzjbykO" Comment="Detect faces" Bounds="207,171,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -1093,6 +1095,39 @@
               <Choice Kind="TypeFlag" Name="Int2" />
             </p:TypeAnnotation>
           </Pad>
+          <Pad Id="BB6xOzJCMD3OIGO4gjWojF" Comment="Shared Texture Enabled" Bounds="566,201,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="S1Z00piWf75PgdEramyfPM" Comment="Reset" Bounds="565,241,35,35" ShowValueBox="true" isIOBox="true" Value="false">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="ExwjVL84X76LltCg8x0Xsg" Comment="Show overlays" Bounds="266,201,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="I1NYgebyXSwMS4rKNBoqjb" Bounds="427,355,279,63" ShowValueBox="true" isIOBox="true" Value="⚠️ Changing any input of the GestureDetector requires a manual trigger of the Reset input of the MediaPipe node!">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="NnQxyM64wAjMFnS799ZJfW" Name="Create" />
         <Patch Id="HlMT1WaS0ehPS9K2fCBqxG" Name="Update" />
@@ -1125,12 +1160,15 @@
         <Link Id="OGq1Sk5e566MqXDkh0tZwD" Ids="Guu0p4ZLxQrPYaemslp9A0,R4fQl4PVohkNzK4ONBYvD4" />
         <Link Id="InK13bYRgYbO0d3qIiW6yh" Ids="Guu0p4ZLxQrPYaemslp9A0,HRNTFkjiNTXLfsfXQgZaPC" />
         <Link Id="NYnxk7PMN3MOM72pAbOeZF" Ids="Guu0p4ZLxQrPYaemslp9A0,U1r3AmvuOcMLAOtKJ9xh7t" />
+        <Link Id="VhupXdgXGyvLCvjZvC4cPV" Ids="BB6xOzJCMD3OIGO4gjWojF,JTb2F4Pim8DLJPYBoTh86h" />
+        <Link Id="InnEbDusX58NFkxvMijTmA" Ids="S1Z00piWf75PgdEramyfPM,OJ7OnLos1QTMR3Mj3PreCP" />
+        <Link Id="VAdzqqLgcBvOOTg353ODln" Ids="ExwjVL84X76LltCg8x0Xsg,RzJlP9ULamlLwJQl4zpEEd" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.5.5" />
-  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2024.6.7" />
+  <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.7.2" />
+  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2025.7.0" />
   <NugetDependency Id="LVi6AOgIWYkNdVDA5if0rq" Location="VL.MediaPipe" Version="0.0.0" />
-  <NugetDependency Id="EhzgeHRNcOtOgE9SGiOXUM" Location="VL.Stride.Runtime" Version="2024.6.7" />
-  <NugetDependency Id="SLGCs5QGOODMUURcc2UeX5" Location="Stride.Core.Mathematics" Version="4.2.0.2121" />
+  <NugetDependency Id="EhzgeHRNcOtOgE9SGiOXUM" Location="VL.Stride.Runtime" Version="2025.7.0" />
+  <PlatformDependency Id="DX4iYCBdWtcOd6Elk9qJsS" Location="Stride.Core.Mathematics.dll" />
 </Document>
