@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="Nok3gNLoMHQQLnQxKlRlRD" LanguageVersion="2025.7.0" Version="0.128">
-  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2025.7.0" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="UM2fAJlK41rPE9tsLWqorR" LanguageVersion="2025.7.1" Version="0.128">
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2025.7.1" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="Main" CanvasType="FullCategory" />
     <!--
@@ -58,10 +58,12 @@
               <Choice Kind="ProcessAppFlag" Name="RenderWindow" />
             </p:NodeReference>
             <Pin Id="Ra9VWzaj8p6McFi2EH5BfU" Name="Node Context" Kind="InputPin" IsHidden="true" />
-            <Pin Id="NyfBMSSSnkjM3aYYF8r97A" Name="Bounds" Kind="InputPin" DefaultValue="1156, 90.666664, 640.6667, 360" IsHidden="true" />
+            <Pin Id="NyfBMSSSnkjM3aYYF8r97A" Name="Bounds" Kind="InputPin" DefaultValue="1248, 58.666668, 446, 306" IsHidden="true" />
             <Pin Id="Q40I4RjRzUVNq3G8Ieqcje" Name="Bound to Document" Kind="InputPin" IsHidden="true" />
             <Pin Id="He2hbK6oDs7MlCcLoXHGTu" Name="Dialog If Document Changed" Kind="InputPin" IsHidden="true" />
             <Pin Id="SI0HYnfhKKpMVm2GynbzCG" Name="Save Bounds" Kind="InputPin" IsHidden="true" />
+            <Pin Id="DfblBCBjQCONfSuDzR8Qt5" Name="Always On Top" Kind="InputPin" IsHidden="true" />
+            <Pin Id="DEYt2vyHSQWPy4LkDLBmm9" Name="Extend Into Title Bar" Kind="InputPin" IsHidden="true" />
             <Pin Id="MwwLE74UjoFM4rkqI1iYG2" Name="Back Buffer Format" Kind="InputPin" IsHidden="true" />
             <Pin Id="TUYat10Xuq6OvcleVm7r3C" Name="Depth Buffer Format" Kind="InputPin" IsHidden="true" />
             <Pin Id="Mh3cu7h2FoAOuCOgS984Mc" Name="Multisample Count" Kind="InputPin" IsHidden="true" />
@@ -69,6 +71,7 @@
             <Pin Id="VqgNx2JCOW9MuNbiPUPkUA" Name="Input" Kind="InputPin" />
             <Pin Id="DO0xJMnPlawNPrtQkMPJ1A" Name="Render View" Kind="InputPin" />
             <Pin Id="HgidKSUhgLgNpDruqSDTiI" Name="Title" Kind="InputPin" />
+            <Pin Id="SML0GjJnvQ1M4mzSQGoGfX" Name="Title Bar Interaction Width" Kind="InputPin" IsHidden="true" />
             <Pin Id="Qdkk5Aj05riQEiR3Kpd1tt" Name="Clear Flags" Kind="InputPin" IsHidden="true" />
             <Pin Id="TSkiv7kuy28LcBfsuQ5ckN" Name="Clear Color" Kind="InputPin" DefaultValue="0.22999997, 0.22999997, 0.22999997, 1" />
             <Pin Id="T5bTREQicsHMbvOqmZjSvS" Name="Clear Depth" Kind="InputPin" IsHidden="true" />
@@ -85,6 +88,8 @@
             <Pin Id="Jlx05uq9lGAM9cbxKzzVxI" Name="Back Buffer" Kind="OutputPin" />
             <Pin Id="LfMVd40pUqULd5zu3hH8WQ" Name="Depth Buffer" Kind="OutputPin" />
             <Pin Id="OBSBW8hiM0EPD2kSyh862h" Name="Present Call Intercept" Kind="InputPin" IsHidden="true" />
+            <Pin Id="C0HkphFUTZiNJnlFVPXXFB" Name="Output Color Space" Kind="InputPin" IsHidden="true" />
+            <Pin Id="RItfgo4fjwVMSU4wIkVyma" Name="Backbuffer Format" Kind="InputPin" IsHidden="true" />
           </Node>
           <Pad Id="LJMquxkmM4RMIBAMmcfYOc" Comment="Enabled" Bounds="416,451,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
@@ -126,11 +131,10 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="FaceLandmarksDetector" />
             </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="FbbOd0YqDmTQSSqkPt1kLR" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="Dl0vwzSZWKFQaHzPeHV8WU" Name="Input" Kind="InputPin" />
-            <Pin Id="I9GUA140jSlPenzpMyxif7" Name="Max Number of Faces" Kind="InputPin" />
-            <Pin Id="MGj0ijwVAP1PO7RtvpgFEL" Name="Output Blend Shapes" Kind="InputPin" />
+            <Pin Id="I9GUA140jSlPenzpMyxif7" Name="Max Number of Faces" Kind="InputPin" DefaultValue="1" />
+            <Pin Id="MGj0ijwVAP1PO7RtvpgFEL" Name="Output Blend Shapes" Kind="InputPin" DefaultValue="True" />
             <Pin Id="IkVTcDXawXuMreEnfj337Z" Name="Output Transformation Matrices" Kind="InputPin" />
             <Pin Id="NSCnq7IaNDCO6T71lbuflq" Name="Min Detection Confidence" Kind="InputPin" />
             <Pin Id="QHWW3wIoDNcPmVFk7XHdKU" Name="Min Presence Confidence" Kind="InputPin" />
@@ -155,7 +159,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="316,510,182,15" ShowValueBox="true" isIOBox="true" Value="ASUS FHD webcam (3277:0059)">
+          <Pad Id="Rl6H1fA5L95MB7LiXYxnuK" Comment="Camera" Bounds="316,510,182,15" ShowValueBox="true" isIOBox="true" Value="HD Pro Webcam C920 (046d:082d)">
             <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
               <Choice Kind="TypeFlag" Name="CamerasEnum" />
             </p:TypeAnnotation>
@@ -499,6 +503,7 @@
     </Node>
   </Patch>
   <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.7.3" />
-  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2025.7.0" />
+  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2025.7.1" />
   <NugetDependency Id="LVi6AOgIWYkNdVDA5if0rq" Location="VL.MediaPipe" Version="0.0.0" />
+  <NugetDependency Id="VswMGsckNm7MdIGTdxknDf" Location="VL.Skia" Version="2025.7.1" />
 </Document>
