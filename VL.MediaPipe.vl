@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="M2aPRBXAePbOKHj546pVLK" LanguageVersion="2025.7.1" Version="0.128">
-  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2025.7.1" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="M2aPRBXAePbOKHj546pVLK" LanguageVersion="2025.7.4" Version="0.128">
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2025.7.4" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="MediaPipe" CanvasType="FullCategory">
       <!--
@@ -2140,7 +2140,7 @@
         <Patch Id="EbYALqebF4fNMix448h3Dx">
           <Canvas Id="HlDzd6o2VbgMJXMAhkYDu3" CanvasType="Group">
             <ControlPoint Id="Abmnq1z688JL5hImHJ6Ccn" Bounds="204,145" />
-            <Node Bounds="190,215,384,295" Id="HPPjxxvmpFUMKSOsn7tH3U">
+            <Node Bounds="190,133,460,377" Id="HPPjxxvmpFUMKSOsn7tH3U">
               <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
                 <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Primitive" />
@@ -2148,16 +2148,16 @@
               </p:NodeReference>
               <Pin Id="QWSEmSgm5JlPuOKV5hi2mq" Name="Condition" Kind="InputPin" />
               <ControlPoint Id="HTC1uJ4OjYCPveYami3kv4" Bounds="255,504" Alignment="Bottom" />
-              <ControlPoint Id="AcfzL6W2kAHM2HTVlLYvga" Bounds="259,221" Alignment="Top" />
+              <ControlPoint Id="AcfzL6W2kAHM2HTVlLYvga" Bounds="259,139" Alignment="Top" />
               <Patch Id="Du9aqxBJM1dLbeg24GiUF4" ManuallySortedPins="true">
                 <Patch Id="J1P4btsuUKgN4IWyKJlcaT" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="OxmsMXA5YrqQJbEQEhBTZF" Name="Then" ManuallySortedPins="true" />
-                <Pad Id="LB8YxTdL85vO7ZHkOIjemY" Comment="Name" Bounds="454,261,60,15" ShowValueBox="true" isIOBox="true" Value="Fdminconf">
+                <Pad Id="LB8YxTdL85vO7ZHkOIjemY" Comment="Name" Bounds="452,316,60,15" ShowValueBox="true" isIOBox="true" Value="Fdminconf">
                   <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                     <Choice Kind="TypeFlag" Name="String" />
                   </p:TypeAnnotation>
                 </Pad>
-                <Node Bounds="420,300,85,19" Id="EbFIAk2d2zcP5nKqAEHtfp">
+                <Node Bounds="418,355,85,19" Id="EbFIAk2d2zcP5nKqAEHtfp">
                   <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="ProcessNode" Name="NumberSender" />
@@ -2168,7 +2168,7 @@
                   <Pin Id="BQ3v80oMSs9QLnC2CMf1pI" Name="Value" Kind="InputPin" />
                   <Pin Id="G5LrinaPu66NskH3Wxb51E" Name="Update" Kind="ApplyPin" />
                 </Node>
-                <Node Bounds="410,399,85,19" Id="G7KeNRNApPZLq4XkV6qrCA">
+                <Node Bounds="408,454,85,19" Id="G7KeNRNApPZLq4XkV6qrCA">
                   <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="ProcessNode" Name="NumberSender" />
@@ -2179,7 +2179,7 @@
                   <Pin Id="IeK6JQzusnfNquYfxzwAI5" Name="Value" Kind="InputPin" />
                   <Pin Id="S9jxt8PQWdzOtJU3GhlsvU" Name="Update" Kind="ApplyPin" />
                 </Node>
-                <Pad Id="TYX29xnNmKgPfRpAYnDfRZ" Comment="Name" Bounds="438,362,60,15" ShowValueBox="true" isIOBox="true" Value="Fdminsuppression">
+                <Pad Id="TYX29xnNmKgPfRpAYnDfRZ" Comment="Name" Bounds="436,417,60,15" ShowValueBox="true" isIOBox="true" Value="Fdminsuppression">
                   <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                     <Choice Kind="TypeFlag" Name="String" />
                   </p:TypeAnnotation>
@@ -2225,6 +2225,38 @@
                   <Pin Id="DELGsqwpN8NQagiRLHi5Nm" Name="Result" Kind="OutputPin" />
                   <Pin Id="S7gCTVTC0ZpORBnm07pQvP" Name="Not Assigned" Kind="OutputPin" />
                 </Node>
+                <Node Bounds="418,261,74,19" Id="N1mMdXevyoOOxIcjXP3Jk3">
+                  <p:NodeReference LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <Choice Kind="ProcessAppFlag" Name="StringSender" />
+                  </p:NodeReference>
+                  <Pin Id="ICCgfaJxOSkOcXZ2B7M8Jc" Name="Node Context" Kind="InputPin" IsHidden="true" />
+                  <Pin Id="PysGfLt1YzDL0iCZaiMKtU" Name="Input" Kind="InputPin" />
+                  <Pin Id="CDifBSmd6iuNhoqA5xY3FM" Name="Name" Kind="InputPin" />
+                  <Pin Id="VoneJnqEI21OC0zTZnVoUS" Name="Value" Kind="InputPin" />
+                </Node>
+                <Pad Id="BlWz3XZvpAlNBzvWGRiYEj" Comment="Name" Bounds="454,240,69,15" ShowValueBox="true" isIOBox="true" Value="Fdmodeltype">
+                  <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="TypeFlag" Name="String" />
+                  </p:TypeAnnotation>
+                </Pad>
+                <Node Bounds="583,170,55,19" Id="NnvCU5pJEdHNsi0ngnJIKq">
+                  <p:NodeReference LastCategoryFullName="System.Conversion" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <Choice Kind="OperationCallFlag" Name="ToString" />
+                  </p:NodeReference>
+                  <Pin Id="GavlYJJC24CMXlgXQQRBIp" Name="Input" Kind="InputPin" />
+                  <Pin Id="NA8YOSGWNI6PXlAZnY8DAn" Name="Result" Kind="OutputPin" />
+                </Node>
+                <Node Bounds="583,210,55,26" Id="RJ1bnV5DMQgPLUe9v8ODGS">
+                  <p:NodeReference LastCategoryFullName="Primitive.String" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <CategoryReference Kind="StringType" Name="String" NeedsToBeDirectParent="true" />
+                    <Choice Kind="OperationCallFlag" Name="ToLower" />
+                  </p:NodeReference>
+                  <Pin Id="OPpX9SX0mzEO7sNMpYOvIz" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="Vzfr9Tdj7iJQHTbaSaXJ44" Name="Output" Kind="StateOutputPin" />
+                </Node>
               </Patch>
             </Node>
             <Node Bounds="190,176,65,19" Id="PQ1QKAykgqhNxQF4Ew1G4B">
@@ -2236,8 +2268,8 @@
               <Pin Id="DmBhX1mu7gMMySPZC5De3z" Name="Result" Kind="OutputPin" />
               <Pin Id="Vdunrk32nuOQAgaon85Z96" Name="Not Assigned" Kind="OutputPin" />
             </Node>
-            <ControlPoint Id="SP7r3X4917yOHu8I7WT6Rt" Bounds="590,265" />
-            <ControlPoint Id="Pb1byGKZXkaLa7YihF9kpL" Bounds="600,354" />
+            <ControlPoint Id="SP7r3X4917yOHu8I7WT6Rt" Bounds="588,320" />
+            <ControlPoint Id="Pb1byGKZXkaLa7YihF9kpL" Bounds="598,409" />
             <ControlPoint Id="KVmta8BULVPORgmYTvpxno" Bounds="255,522" />
             <!--
 
@@ -2293,6 +2325,7 @@
                 <ProcessDefinition Id="VTmvaYhCMVDMfPJCBkN3SV" IsHidden="true" />
               </Patch>
             </Node>
+            <ControlPoint Id="JHOZvk3xhVMMTf262HE77V" Bounds="675,112" />
           </Canvas>
           <ProcessDefinition Id="JJ70Cx3lqD4ONMdm3LqaYT">
             <Fragment Id="NgZXJ7SGBtNLKs2tMCVGTc" Patch="D6cAA9IBAi5QPfBp2TSIzB" Enabled="true" />
@@ -2320,6 +2353,11 @@
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="HHmImuyqIS1M1ssW55aoSX" Name="Output" Kind="OutputPin" Bounds="347,658" />
+            <Pin Id="P0hZcWF54Q4LQ3YZ94yWC4" Name="Face Model Type" Kind="InputPin" Bounds="802,324" DefaultValue="">
+              <p:TypeAnnotation LastCategoryFullName="MediaPipe" LastDependency="VL.MediaPipe.dll">
+                <Choice Kind="TypeFlag" Name="FaceDetectionModels" />
+              </p:TypeAnnotation>
+            </Pin>
           </Patch>
           <Link Id="TKOnwKA4NnjPNP8tyQVxPE" Ids="TYX29xnNmKgPfRpAYnDfRZ,HaSDXuM9quhNC5Vxpfzw2o" />
           <Link Id="R09cIzuNdkGLmMwMAQ1YRw" Ids="KVmta8BULVPORgmYTvpxno,HHmImuyqIS1M1ssW55aoSX" IsHidden="true" />
@@ -2334,6 +2372,12 @@
           <Link Id="IM7nyTmkrHGNRLI2H4I9BJ" Ids="EhbSBxPcXC9MJZoqKUhuJ6,HTC1uJ4OjYCPveYami3kv4" />
           <Link Id="Up9CVzMtiOkMzq2ZIHUuaU" Ids="Mjmvc18pFPyPscg76jY9b8,EFKj9XqqxqgLlS949sjHGq" />
           <Link Id="SnpQVkOkO4FLvm3MLSpbLh" Ids="DELGsqwpN8NQagiRLHi5Nm,CJcFi0wtwi1QCPjfuX52nV" />
+          <Link Id="Oaa9k0G3FCMQEUDWDmdWfS" Ids="UYpmp3dcYTBMJHQjVKMSvy,PysGfLt1YzDL0iCZaiMKtU" />
+          <Link Id="TVWikXFofbKMl5aQgIGxDt" Ids="BlWz3XZvpAlNBzvWGRiYEj,CDifBSmd6iuNhoqA5xY3FM" />
+          <Link Id="BUh29FNUfQcMfZbxkFFwxT" Ids="JHOZvk3xhVMMTf262HE77V,GavlYJJC24CMXlgXQQRBIp" />
+          <Link Id="L3Bz0oW5dC6PQPSP57WcYY" Ids="NA8YOSGWNI6PXlAZnY8DAn,OPpX9SX0mzEO7sNMpYOvIz" />
+          <Link Id="V7Rp4BOYztaOD9Uw0XQoeN" Ids="P0hZcWF54Q4LQ3YZ94yWC4,JHOZvk3xhVMMTf262HE77V" IsHidden="true" />
+          <Link Id="JWGaBJr33yxQHig6i7V5ee" Ids="Vzfr9Tdj7iJQHTbaSaXJ44,VoneJnqEI21OC0zTZnVoUS" />
         </Patch>
       </Node>
       <!--
@@ -6657,6 +6701,6 @@
   <NugetDependency Id="SsBopOnOI8iPyzbxPdbPCd" Location="VL.IO.WebSocket" Version="1.1.0" />
   <PlatformDependency Id="GX4pa4iUeRqMYAqu2F7GiM" Location="VL.MediaPipe.dll" />
   <PlatformDependency Id="SO0763KgsPyN7d2jHLPUZ6" Location="System.Text.Json" />
-  <NugetDependency Id="G3a6CNjID7kOWzilC83hEQ" Location="VL.CEF" Version="0.8.2" />
+  <NugetDependency Id="G3a6CNjID7kOWzilC83hEQ" Location="VL.CEF" Version="0.8.3" />
   <NugetDependency Id="NUSiv3FPG3gMWwRu79ffAI" Location="VL.IO.WebServer" Version="1.0.1" />
 </Document>

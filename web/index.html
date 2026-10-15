@@ -19,17 +19,18 @@ limitations under the License. -->
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script type="module" crossorigin src="/assets/index-DS3gr1CQ.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Bx2hlCRs.css">
+  <script type="module" crossorigin src="/assets/index-BJHFwZaD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-IdO5JGXW.css">
 </head>
 
 <body>
-  <video id="webcam" style="position: absolute; left: 0px; top: 0px" autoplay playsinline></video>
+  <video id="webcam" style="position: absolute; left: 0px; top: 0px;" autoplay playsinline></video>
+  <canvas id="webcam_canvas" aria-hidden="true"></canvas>
   <div class="objects" id="objects" style="position: absolute; left: 0px; top: 0px;"></div>
   <div class="faces" id="faces" style="position: absolute; left: 0px; top: 0px;"></div>
-  <canvas class="segmentation" id="segmentation" style="position: absolute; left: 0px; top: 0px;"></canvas>
-  <canvas class="output_canvas" id="output_canvas" style="position: absolute; left: 0px; top: 0px">
+  <canvas class="output_canvas" id="output_canvas" style="position: absolute; left: 0px; top: 0px;">
   </canvas>
+  <canvas id="frame_marker" width="1" height="1" aria-hidden="true"></canvas>
 </body>
 
 </html>

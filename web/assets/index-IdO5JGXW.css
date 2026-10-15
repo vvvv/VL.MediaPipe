@@ -1,0 +1,65 @@
+html, body {
+  background-color: rgba(0, 255, 0, 0); /* Transparent background */
+  margin: 0;
+  overflow: hidden; /* Hide scrollbars */
+}
+video {
+  /* Keep the MediaStream playing, but expose only the frame snapshots whose
+     pixels are atomically paired with the bottom-left frame marker. */
+  opacity: 0;
+  pointer-events: none;
+}
+.highlighter {
+  background: rgba(0, 255, 0, 0);
+  border: 5px solid #9D44F8;
+  z-index: 1;
+  position: absolute;
+}
+.objects p, .faces p {
+  /* display: block; */
+  white-space: nowrap;
+  position: absolute;
+  background-color: #9D44F8;
+  color: #fff;
+  /* border: 5px solid rgba(255, 255, 255, 0.7); */
+  z-index: 2;
+  font-family: Roboto;
+  font-size: 24px;
+  margin: 5px;
+  padding: 0px 10px 5px 5px 
+}
+
+video, canvas, .objects, .faces {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;   /* Fill the viewport width */
+  height: 100vh;  /* Fill the viewport height */
+  object-fit: cover; /* Crop to fill */
+}
+
+/* The frame marker is the topmost pixel at the viewport's bottom-left corner,
+   where TouchDesigner samples it, so overlays can never cover it and output
+   sizes that crop the webcam canvas cannot move it. */
+#frame_marker {
+  position: fixed;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  z-index: 2147483647;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.key-point {
+  position: absolute;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  /* border: 1px solid #ffffff; */
+  border-radius: 50%;
+  /* display: block; */
+}

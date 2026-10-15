@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /** Options to configure MediaPipe model loading and processing. */
-declare interface BaseOptions_2 {
+declare interface BaseOptions {
     /**
      * The model path to the model asset file. Only one of `modelAssetPath` or
      * `modelAssetBuffer` can be set.
@@ -60,6 +60,18 @@ export declare interface BoundingBox {
      * horizontal.
      */
     angle: number;
+}
+
+/**
+ * Specifies the polarity or mode of a brush stroke.
+ * Represents whether the brush stroke is meant to add, subtract, or lasso
+ * from the selection.
+ */
+export declare enum BrushMode {
+    UNSPECIFIED = 0,
+    POSITIVE = 1,
+    NEGATIVE = 2,
+    LASSO = 3
 }
 
 /**
@@ -299,7 +311,7 @@ export declare class DrawingUtils {
      *
      * @export
      * @param boundingBox The bounding box to draw.
-     * @param style The style to visualize the boundin box.
+     * @param style The style to visualize the bounding box.
      */
     drawBoundingBox(boundingBox: BoundingBox, style?: DrawingOptions): void;
     /**
@@ -426,6 +438,15 @@ export declare interface Embedding {
      */
     headName: string;
 }
+
+/**
+ * A listener that receives the current MediaPipe packet timestamp. This is
+ * invoked even for empty packet.
+ */
+declare type EmptyPacketListener = (timestamp: number) => void;
+
+/** A listener that will be invoked with an absl::StatusCode and message. */
+declare type ErrorListener = (code: number, message: string) => void;
 
 /** Performs face detection on images. */
 export declare class FaceDetector extends VisionTaskRunner {
@@ -699,133 +720,6 @@ export declare interface FaceLandmarkerResult {
     facialTransformationMatrixes: Matrix[];
 }
 
-/** Performs face stylization on images. */
-export declare class FaceStylizer extends VisionTaskRunner {
-    /**
-     * Initializes the Wasm runtime and creates a new Face Stylizer from the
-     * provided options.
-     * @export
-     * @param wasmFileset A configuration object that provides the location of
-     *     the Wasm binary and its loader.
-     * @param faceStylizerOptions The options for the Face Stylizer. Note
-     *     that either a path to the model asset or a model buffer needs to be
-     *     provided (via `baseOptions`).
-     */
-    static createFromOptions(wasmFileset: WasmFileset, faceStylizerOptions: FaceStylizerOptions): Promise<FaceStylizer>;
-    /**
-     * Initializes the Wasm runtime and creates a new Face Stylizer based on
-     * the provided model asset buffer.
-     * @export
-     * @param wasmFileset A configuration object that provides the location of
-     *     the Wasm binary and its loader.
-     * @param modelAssetBuffer An array or a stream containing a binary
-     *    representation of the model.
-     */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<FaceStylizer>;
-    /**
-     * Initializes the Wasm runtime and creates a new Face Stylizer based on
-     * the path to the model asset.
-     * @export
-     * @param wasmFileset A configuration object that provides the location of
-     *     the Wasm binary and its loader.
-     * @param modelAssetPath The path to the model asset.
-     */
-    static createFromModelPath(wasmFileset: WasmFileset, modelAssetPath: string): Promise<FaceStylizer>;
-    private constructor();
-    /**
-     * Sets new options for the Face Stylizer.
-     *
-     * Calling `setOptions()` with a subset of options only affects those
-     * options. You can reset an option back to its default value by
-     * explicitly setting it to `undefined`.
-     *
-     * @export
-     * @param options The options for the Face Stylizer.
-     */
-    setOptions(options: FaceStylizerOptions): Promise<void>;
-    /**
-     * Performs face stylization on the provided single image and invokes the
-     * callback with result. The method returns synchronously once the callback
-     * returns. Only use this method when the FaceStylizer is created with the
-     * image running mode.
-     *
-     * @param image An image to process.
-     * @param callback The callback that is invoked with the stylized image or
-     *    `null` if no face was detected. The lifetime of the returned data is
-     *     only guaranteed for the duration of the callback.
-     */
-    stylize(image: ImageSource, callback: FaceStylizerCallback): void;
-    /**
-     * Performs face stylization on the provided single image and invokes the
-     * callback with result. The method returns synchronously once the callback
-     * returns. Only use this method when the FaceStylizer is created with the
-     * image running mode.
-     *
-     * The 'imageProcessingOptions' parameter can be used to specify one or all
-     * of:
-     *  - the rotation to apply to the image before performing stylization, by
-     *    setting its 'rotationDegrees' property.
-     *  - the region-of-interest on which to perform stylization, by setting its
-     *   'regionOfInterest' property. If not specified, the full image is used.
-     *  If both are specified, the crop around the region-of-interest is extracted
-     *  first, then the specified rotation is applied to the crop.
-     *
-     * @param image An image to process.
-     * @param imageProcessingOptions the `ImageProcessingOptions` specifying how
-     *    to process the input image before running inference.
-     * @param callback The callback that is invoked with the stylized image or
-     *    `null` if no face was detected. The lifetime of the returned data is
-     *    only guaranteed for the duration of the callback.
-     */
-    stylize(image: ImageSource, imageProcessingOptions: ImageProcessingOptions, callback: FaceStylizerCallback): void;
-    /**
-     * Performs face stylization on the provided single image and returns the
-     * result. This method creates a copy of the resulting image and should not be
-     * used in high-throughput applications. Only use this method when the
-     * FaceStylizer is created with the image running mode.
-     *
-     * @param image An image to process.
-     * @return A stylized face or `null` if no face was detected. The result is
-     *     copied to avoid lifetime issues.
-     */
-    stylize(image: ImageSource): MPImage | null;
-    /**
-     * Performs face stylization on the provided single image and returns the
-     * result. This method creates a copy of the resulting image and should not be
-     * used in high-throughput applications. Only use this method when the
-     * FaceStylizer is created with the image running mode.
-     *
-     * The 'imageProcessingOptions' parameter can be used to specify one or all
-     * of:
-     *  - the rotation to apply to the image before performing stylization, by
-     *    setting its 'rotationDegrees' property.
-     *  - the region-of-interest on which to perform stylization, by setting its
-     *   'regionOfInterest' property. If not specified, the full image is used.
-     *  If both are specified, the crop around the region-of-interest is extracted
-     *  first, then the specified rotation is applied to the crop.
-     *
-     * @param image An image to process.
-     * @param imageProcessingOptions the `ImageProcessingOptions` specifying how
-     *    to process the input image before running inference.
-     * @return A stylized face or `null` if no face was detected. The result is
-     *     copied to avoid lifetime issues.
-     */
-    stylize(image: ImageSource, imageProcessingOptions: ImageProcessingOptions): MPImage | null;
-}
-
-/**
- * A callback that receives an `MPImage` object from the face stylizer, or
- * `null` if no face was detected. The lifetime of the underlying data is
- * limited to the duration of the callback. If asynchronous processing is
- * needed, all data needs to be copied before the callback returns (via
- * `image.clone()`).
- */
-export declare type FaceStylizerCallback = (image: MPImage | null) => void;
-
-/** Options to configure the MediaPipe Face Stylizer Task */
-export declare interface FaceStylizerOptions extends VisionTaskOptions {
-}
-
 /**
  * Resolves the files required for the MediaPipe Task APIs.
  *
@@ -841,12 +735,13 @@ export declare class FilesetResolver {
      *
      * If your environment requires custom locations for the MediaPipe Wasm files,
      * you can use `isSimdSupported()` to decide whether to load the SIMD-based
-     * assets.
+     * assets. Note that for ES6 Modules, SIMD is assumed to be always supported.
      *
+     * @param useModule Whether to use ES6 Modules for the Wasm files.
      * @export
      * @return Whether SIMD support was detected in the current environment.
      */
-    static isSimdSupported(): Promise<boolean>;
+    static isSimdSupported(useModule?: boolean): Promise<boolean>;
     /**
      * Creates a fileset for the MediaPipe Audio tasks.
      *
@@ -854,10 +749,11 @@ export declare class FilesetResolver {
      * @param basePath An optional base path to specify the directory the Wasm
      *    files should be loaded from. If not specified, the Wasm files are
      *    loaded from the host's root directory.
+     * @param useModule Whether to use ES6 Modules for the Wasm files.
      * @return A `WasmFileset` that can be used to initialize MediaPipe Audio
      *    tasks.
      */
-    static forAudioTasks(basePath?: string): Promise<WasmFileset>;
+    static forAudioTasks(basePath?: string, useModule?: boolean): Promise<WasmFileset>;
     /**
      * Creates a fileset for the MediaPipe GenAI tasks.
      *
@@ -865,21 +761,11 @@ export declare class FilesetResolver {
      * @param basePath An optional base path to specify the directory the Wasm
      *    files should be loaded from. If not specified, the Wasm files are
      *    loaded from the host's root directory.
+     * @param useModule Whether to use ES6 Modules for the Wasm files.
      * @return A `WasmFileset` that can be used to initialize MediaPipe GenAI
      *    tasks.
      */
-    static forGenAiTasks(basePath?: string): Promise<WasmFileset>;
-    /**
-     * Creates a fileset for the MediaPipe GenAI Experimental tasks.
-     *
-     * @export
-     * @param basePath An optional base path to specify the directory the Wasm
-     *    files should be loaded from. If not specified, the Wasm files are
-     *    loaded from the host's root directory.
-     * @return A `WasmFileset` that can be used to initialize MediaPipe GenAI
-     *    tasks.
-     */
-    static forGenAiExperimentalTasks(basePath?: string): Promise<WasmFileset>;
+    static forGenAiTasks(basePath?: string, useModule?: boolean): Promise<WasmFileset>;
     /**
      * Creates a fileset for the MediaPipe Text tasks.
      *
@@ -887,10 +773,11 @@ export declare class FilesetResolver {
      * @param basePath An optional base path to specify the directory the Wasm
      *    files should be loaded from. If not specified, the Wasm files are
      *    loaded from the host's root directory.
+     * @param useModule Whether to use ES6 Modules for the Wasm files.
      * @return A `WasmFileset` that can be used to initialize MediaPipe Text
      *    tasks.
      */
-    static forTextTasks(basePath?: string): Promise<WasmFileset>;
+    static forTextTasks(basePath?: string, useModule?: boolean): Promise<WasmFileset>;
     /**
      * Creates a fileset for the MediaPipe Vision tasks.
      *
@@ -898,10 +785,11 @@ export declare class FilesetResolver {
      * @param basePath An optional base path to specify the directory the Wasm
      *    files should be loaded from. If not specified, the Wasm files are
      *    loaded from the host's root directory.
+     * @param useModule Whether to use ES6 Modules for the Wasm files.
      * @return A `WasmFileset` that can be used to initialize MediaPipe Vision
      *    tasks.
      */
-    static forVisionTasks(basePath?: string): Promise<WasmFileset>;
+    static forVisionTasks(basePath?: string, useModule?: boolean): Promise<WasmFileset>;
 }
 
 /** Performs hand gesture recognition on images. */
@@ -1935,10 +1823,92 @@ export declare class ImageSegmenterResult {
 export declare type ImageSource = TexImageSource;
 
 /**
+ * Performs interactive segmentation on images using split mode architecture.
+ *
+ * Interactive Segmenter splits segmentation into two distinct steps:
+ * 1. Set an image with `setImage()` (executes heavy feature extraction once).
+ * 2. Segment with `segment()` one or more times efficiently providing strokes,
+ *    allowing the user to fine tune the produced segmentation mask.
+ */
+export declare class InteractiveSegmenter extends TaskRunner {
+    /**
+     * Initializes the Wasm runtime and creates a new interactive segmenter
+     * from the provided options.
+     * @export
+     * @param wasmFileset A configuration object that provides the location of
+     *     the Wasm binary and its loader.
+     * @param options The options for the Interactive Segmenter. Note that
+     *     either a path to the model asset or a model buffer needs to be
+     *     provided (via `baseOptions`).
+     * @return A new `InteractiveSegmenter`.
+     */
+    static createFromOptions(wasmFileset: WasmFileset, options: InteractiveSegmenterOptions): Promise<InteractiveSegmenter>;
+    /**
+     * Initializes the Wasm runtime and creates a new interactive segmenter
+     * based on the provided model asset buffer.
+     * @export
+     * @param wasmFileset A configuration object that provides the location of
+     *     the Wasm binary and its loader.
+     * @param modelAssetBuffer An array or a stream containing a binary
+     *    representation of the model.
+     * @return A new `InteractiveSegmenter`.
+     */
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<InteractiveSegmenter>;
+    /**
+     * Initializes the Wasm runtime and creates a new interactive segmenter
+     * based on the path to the model asset.
+     * @export
+     * @param wasmFileset A configuration object that provides the location of
+     *     the Wasm binary and its loader.
+     * @param modelAssetPath The path to the model asset.
+     * @return A new `InteractiveSegmenter`.
+     */
+    static createFromModelPath(wasmFileset: WasmFileset, modelAssetPath: string): Promise<InteractiveSegmenter>;
+    private constructor();
+    /**
+     * Sets new options for the interactive segmenter.
+     *
+     * Calling `setOptions()` with a subset of options only affects those
+     * options.
+     *
+     * @export
+     * @param options The options for the interactive segmenter.
+     * @return A Promise that resolves when the settings have been applied.
+     */
+    setOptions(options: InteractiveSegmenterOptions): Promise<void>;
+    /**
+     * Sets the input image for segmentation, executing the encoder model once.
+     * Extracts raw pixel bytes across diverse sources (Canvas, ImageData,
+     * TexImageSource, DOM elements) and copies them across Wasm heap memory into the
+     * native C++ engine.
+     *
+     * @export
+     * @param image An image to process.
+     */
+    setImage(image: TexImageSource): void;
+    /**
+     * Performs segmentation using the provided strokes, executing the
+     * lightweight decoder model. Serializes user strokes to protocol buffers,
+     * invokes native inference, and creates a deep copy of the resulting Wasm
+     * heap mask data to safeguard against native buffer deallocation.
+     *
+     * @export
+     * @param strokes The sequence of user strokes.
+     * @return The segmentation mask as an `MPMask`.
+     */
+    segment(strokes: readonly Stroke[]): MPMask;
+    /**
+     * Closes and cleans up the resources held by this task.
+     * @export
+     */
+    close(): void;
+}
+
+/**
  * Performs interactive segmentation on images.
  *
  * Users can represent user interaction through `RegionOfInterest`, which gives
- * a hint to InteractiveSegmenter to perform segmentation focusing on the given
+ * a hint to InteractiveSegmenterLegacy to perform segmentation focusing on the given
  * region of interest.
  *
  * The API expects a TFLite model with mandatory TFLite Model Metadata.
@@ -1958,19 +1928,19 @@ export declare type ImageSource = TexImageSource;
  *     `channels`.
  *   - batch is always 1
  */
-export declare class InteractiveSegmenter extends VisionTaskRunner {
+export declare class InteractiveSegmenterLegacy extends VisionTaskRunner {
     /**
      * Initializes the Wasm runtime and creates a new interactive segmenter from
      * the provided options.
      * @export
      * @param wasmFileset A configuration object that provides the location of
      *     the Wasm binary and its loader.
-     * @param interactiveSegmenterOptions The options for the Interactive
+     * @param interactiveSegmenterLegacyOptions The options for the Interactive
      *     Segmenter. Note that either a path to the model asset or a model buffer
      *     needs to be provided (via `baseOptions`).
-     * @return A new `InteractiveSegmenter`.
+     * @return A new `InteractiveSegmenterLegacy`.
      */
-    static createFromOptions(wasmFileset: WasmFileset, interactiveSegmenterOptions: InteractiveSegmenterOptions): Promise<InteractiveSegmenter>;
+    static createFromOptions(wasmFileset: WasmFileset, interactiveSegmenterLegacyOptions: InteractiveSegmenterLegacyOptions): Promise<InteractiveSegmenterLegacy>;
     /**
      * Initializes the Wasm runtime and creates a new interactive segmenter based
      * on the provided model asset buffer.
@@ -1979,9 +1949,9 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      *     the Wasm binary and its loader.
      * @param modelAssetBuffer An array or a stream containing a binary
      *    representation of the model.
-     * @return A new `InteractiveSegmenter`.
+     * @return A new `InteractiveSegmenterLegacy`.
      */
-    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<InteractiveSegmenter>;
+    static createFromModelBuffer(wasmFileset: WasmFileset, modelAssetBuffer: Uint8Array | ReadableStreamDefaultReader): Promise<InteractiveSegmenterLegacy>;
     /**
      * Initializes the Wasm runtime and creates a new interactive segmenter based
      * on the path to the model asset.
@@ -1989,9 +1959,9 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      * @param wasmFileset A configuration object that provides the location of
      *     the Wasm binary and its loader.
      * @param modelAssetPath The path to the model asset.
-     * @return A new `InteractiveSegmenter`.
+     * @return A new `InteractiveSegmenterLegacy`.
      */
-    static createFromModelPath(wasmFileset: WasmFileset, modelAssetPath: string): Promise<InteractiveSegmenter>;
+    static createFromModelPath(wasmFileset: WasmFileset, modelAssetPath: string): Promise<InteractiveSegmenterLegacy>;
     private constructor();
     /**
      * Sets new options for the interactive segmenter.
@@ -2004,7 +1974,7 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      * @param options The options for the interactive segmenter.
      * @return A Promise that resolves when the settings have been applied.
      */
-    setOptions(options: InteractiveSegmenterOptions): Promise<void>;
+    setOptions(options: InteractiveSegmenterLegacyOptions): Promise<void>;
     /**
      * Performs interactive segmentation on the provided single image and invokes
      * the callback with the response. The method returns synchronously once the
@@ -2017,7 +1987,7 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      *    lifetime of the returned data is only guaranteed for the duration of the
      *    callback.
      */
-    segment(image: ImageSource, roi: RegionOfInterest, callback: InteractiveSegmenterCallback): void;
+    segment(image: ImageSource, roi: RegionOfInterest, callback: InteractiveSegmenterLegacyCallback): void;
     /**
      * Performs interactive segmentation on the provided single image and invokes
      * the callback with the response. The method returns synchronously once the
@@ -2037,7 +2007,7 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      *    lifetime of the returned data is only guaranteed for the duration of the
      *    callback.
      */
-    segment(image: ImageSource, roi: RegionOfInterest, imageProcessingOptions: ImageProcessingOptions, callback: InteractiveSegmenterCallback): void;
+    segment(image: ImageSource, roi: RegionOfInterest, imageProcessingOptions: ImageProcessingOptions, callback: InteractiveSegmenterLegacyCallback): void;
     /**
      * Performs interactive segmentation on the provided video frame and returns
      * the segmentation result. This method creates a copy of the resulting masks
@@ -2049,7 +2019,7 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      * @return The segmentation result. The data is copied to avoid lifetime
      *     limits.
      */
-    segment(image: ImageSource, roi: RegionOfInterest): InteractiveSegmenterResult;
+    segment(image: ImageSource, roi: RegionOfInterest): InteractiveSegmenterLegacyResult;
     /**
      * Performs interactive segmentation on the provided video frame and returns
      * the segmentation result. This method creates a copy of the resulting masks
@@ -2068,7 +2038,7 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
      * @return The segmentation result. The data is copied to avoid lifetime
      *     limits.
      */
-    segment(image: ImageSource, roi: RegionOfInterest, imageProcessingOptions: ImageProcessingOptions): InteractiveSegmenterResult;
+    segment(image: ImageSource, roi: RegionOfInterest, imageProcessingOptions: ImageProcessingOptions): InteractiveSegmenterLegacyResult;
 }
 
 /**
@@ -2077,18 +2047,18 @@ export declare class InteractiveSegmenter extends VisionTaskRunner {
  * asynchronous processing is needed, all data needs to be copied before the
  * callback returns.
  */
-export declare type InteractiveSegmenterCallback = (result: InteractiveSegmenterResult) => void;
+export declare type InteractiveSegmenterLegacyCallback = (result: InteractiveSegmenterLegacyResult) => void;
 
 /** Options to configure the MediaPipe Interactive Segmenter Task */
-export declare interface InteractiveSegmenterOptions extends TaskRunnerOptions {
+export declare interface InteractiveSegmenterLegacyOptions extends VisionTaskOptions {
     /** Whether to output confidence masks. Defaults to true. */
     outputConfidenceMasks?: boolean | undefined;
     /** Whether to output the category masks. Defaults to false. */
     outputCategoryMask?: boolean | undefined;
 }
 
-/** The output result of InteractiveSegmenter. */
-export declare class InteractiveSegmenterResult {
+/** The output result of InteractiveSegmenterLegacy. */
+export declare class InteractiveSegmenterLegacyResult {
     /**
      * Multiple masks represented as `Float32Array` or `WebGLTexture`-backed
      * `MPImage`s where, for each mask, each pixel represents the prediction
@@ -2137,6 +2107,30 @@ export declare class InteractiveSegmenterResult {
      * @export
      */
     close(): void;
+}
+
+/** Options to configure the MediaPipe Interactive Segmenter Task. */
+export declare interface InteractiveSegmenterOptions extends TaskRunnerOptions {
+    /**
+     * The canvas element or offscreen canvas to use for WebGL context creation and
+     * mask rendering/transfers. If not provided, a canvas is created internally.
+     */
+    canvas?: HTMLCanvasElement | OffscreenCanvas;
+}
+
+/**
+ * The WasmModule interface for Interactive Segmenter, defining the native
+ * methods exported by the C++ WebAssembly wrapper.
+ */
+export declare interface InteractiveSegmenterWasmModule extends WasmModule {
+    /** Creates the native C++ InteractiveSegmenter engine instance. */
+    _interactive_segmenter_create: (baseOptionsPtr: number, baseOptionsSize: number) => number;
+    /** Sets the input image for segmentation, executing the encoder model. */
+    _interactive_segmenter_set_image: (handle: number, pixelPtr: number, width: number, height: number, channels: number) => boolean;
+    /** Executes the lightweight decoder model with user strokes. */
+    _interactive_segmenter_segment: (handle: number, strokesPtr: number, strokesSize: number, outWidthPtr: number, outHeightPtr: number, outSizePtr: number) => number;
+    /** Safely deletes the native C++ engine instance. */
+    _interactive_segmenter_close: (handle: number) => void;
 }
 
 /**
@@ -2516,6 +2510,12 @@ export declare class ObjectDetector extends VisionTaskRunner {
 export declare interface ObjectDetectorOptions extends VisionTaskOptions, ClassifierOptions {
 }
 
+/** Represents a single 2D coordinate point in normalized [0, 1] space. */
+declare interface Point {
+    readonly x: number;
+    readonly y: number;
+}
+
 /** Performs pose landmarks detection on images. */
 export declare class PoseLandmarker extends VisionTaskRunner {
     /**
@@ -2802,11 +2802,28 @@ number
  */
 declare type RunningMode = "IMAGE" | "VIDEO";
 
+/**
+ * A listener that receives the contents of a non-empty MediaPipe packet and
+ * its timestamp.
+ */
+declare type SimpleListener<T> = (data: T, timestamp: number) => void;
+
+/** Represents a single user-drawn stroke for interactive segmentation. */
+export declare interface Stroke {
+    /** The brush mode used for this stroke. */
+    readonly brushMode: BrushMode;
+    /** The sequence of normalized points forming the stroke. */
+    readonly point: readonly Point[];
+    /** Whether the stroke is complete. */
+    readonly isCompleted: boolean;
+}
+
 /** Base class for all MediaPipe Tasks. */
 declare abstract class TaskRunner {
     protected constructor();
     /** Configures the task with custom options. */
     abstract setOptions(options: TaskRunnerOptions): Promise<void>;
+    enableLogging(options: TaskRunnerOptions): void;
     /**
      * Closes and cleans up the resources held by this task.
      * @export
@@ -2817,8 +2834,16 @@ declare abstract class TaskRunner {
 /** Options to configure MediaPipe Tasks in general. */
 declare interface TaskRunnerOptions {
     /** Options to configure the loading of the model assets. */
-    baseOptions?: BaseOptions_2;
+    baseOptions?: BaseOptions;
 }
+
+/**
+ * A listener that receives a single element of vector-returning output packet.
+ * Receives one element at a time (in order). Once all elements are processed,
+ * the listener is invoked with `data` set to `unknown` and `done` set to true.
+ * Intended for internal usage.
+ */
+declare type VectorListener<T> = (data: T, done: boolean, timestamp: number) => void;
 
 /** The options for configuring a MediaPipe vision task. */
 declare interface VisionTaskOptions extends TaskRunnerOptions {
@@ -2873,6 +2898,104 @@ declare interface WasmFileset {
     assetLoaderPath?: string;
     /** The optional path to the assets binary. */
     assetBinaryPath?: string;
+}
+
+/**
+ * Declarations for Emscripten's WebAssembly Module behavior, so TS compiler
+ * doesn't break our various JS/C++ bridges. For internal usage.
+ */
+declare interface WasmModule {
+    canvas: HTMLCanvasElement | OffscreenCanvas | null;
+    HEAPU8: Uint8Array;
+    HEAPU32: Uint32Array;
+    HEAPF32: Float32Array;
+    HEAPF64: Float64Array;
+    FS_createDataFile: (parent: string, name: string, data: Uint8Array, canRead: boolean, canWrite: boolean, canOwn: boolean) => void;
+    FS_createPath: (parent: string, name: string, canRead: boolean, canWrite: boolean) => void;
+    FS_unlink(path: string): void;
+    gpuOriginForWebTexturesIsBottomLeft?: boolean;
+    errorListener?: ErrorListener;
+    _bindTextureToCanvas: () => boolean;
+    _changeBinaryGraph: (size: number, dataPtr: number) => void;
+    _changeTextGraph: (size: number, dataPtr: number) => void;
+    _closeGraph: () => void;
+    _free: (ptr: number) => void;
+    _malloc: (size: number) => number;
+    _processFrame: (width: number, height: number, timestamp: number) => void;
+    _setAutoRenderToScreen: (enabled: boolean) => void;
+    _waitUntilIdle: () => void;
+    dataFileDownloads?: {
+        [url: string]: {
+            loaded: number;
+            total: number;
+        };
+    };
+    stringToNewUTF8: (data: string) => number;
+    _bindTextureToStream: (streamNamePtr: number) => void;
+    _addBoundTextureToStream: (streamNamePtr: number, width: number, height: number, timestamp: number) => void;
+    _addBoolToInputStream: (data: boolean, streamNamePtr: number, timestamp: number) => void;
+    _addDoubleToInputStream: (data: number, streamNamePtr: number, timestamp: number) => void;
+    _addFloatToInputStream: (data: number, streamNamePtr: number, timestamp: number) => void;
+    _addIntToInputStream: (data: number, streamNamePtr: number, timestamp: number) => void;
+    _addUintToInputStream: (data: number, streamNamePtr: number, timestamp: number) => void;
+    _addStringToInputStream: (dataPtr: number, streamNamePtr: number, timestamp: number) => void;
+    _addBoolVectorToInputStream: (vecPtr: number, streamNamePtr: number, timestamp: number) => void;
+    _addDoubleVectorToInputStream: (vecPtr: number, streamNamePtr: number, timestamp: number) => void;
+    _addFloatVectorToInputStream: (vecPtr: number, streamNamePtr: number, timestamp: number) => void;
+    _addIntVectorToInputStream: (vecPtr: number, streamNamePtr: number, timestamp: number) => void;
+    _addUintVectorToInputStream: (vecPtr: number, streamNamePtr: number, timestamp: number) => void;
+    _addStringVectorToInputStream: (vecPtr: number, streamNamePtr: number, timestamp: number) => void;
+    _addFlatHashMapToInputStream: (keysPtr: number, valuesPtr: number, count: number, streamNamePtr: number, timestamp: number) => void;
+    _addRawDataSpanToInputStream: (dataPtr: number, dataSize: number, streamNamePtr: number, timestamp: number) => void;
+    _addProtoToInputStream: (dataPtr: number, dataSize: number, protoNamePtr: number, streamNamePtr: number, timestamp: number) => void;
+    _addEmptyPacketToInputStream: (streamNamePtr: number, timestamp: number) => void;
+    _addBoolToInputSidePacket: (data: boolean, streamNamePtr: number) => void;
+    _addDoubleToInputSidePacket: (data: number, streamNamePtr: number) => void;
+    _addFloatToInputSidePacket: (data: number, streamNamePtr: number) => void;
+    _addIntToInputSidePacket: (data: number, streamNamePtr: number) => void;
+    _addUintToInputSidePacket: (data: number, streamNamePtr: number) => void;
+    _addStringToInputSidePacket: (dataPtr: number, streamNamePtr: number) => void;
+    _addRawDataSpanToInputSidePacket: (dataPtr: number, dataSize: number, streamNamePtr: number) => void;
+    _addProtoToInputSidePacket: (dataPtr: number, dataSize: number, protoNamePtr: number, streamNamePtr: number) => void;
+    _addBoolVectorToInputSidePacket: (vecPtr: number, streamNamePtr: number) => void;
+    _addDoubleVectorToInputSidePacket: (vecPtr: number, streamNamePtr: number) => void;
+    _addFloatVectorToInputSidePacket: (vecPtr: number, streamNamePtr: number) => void;
+    _addIntVectorToInputSidePacket: (vecPtr: number, streamNamePtr: number) => void;
+    _addUintVectorToInputSidePacket: (vecPtr: number, streamNamePtr: number) => void;
+    _addStringVectorToInputSidePacket: (vecPtr: number, streamNamePtr: number) => void;
+    _allocateBoolVector: (size: number) => number;
+    _allocateDoubleVector: (size: number) => number;
+    _allocateFloatVector: (size: number) => number;
+    _allocateIntVector: (size: number) => number;
+    _allocateUintVector: (size: number) => number;
+    _allocateStringVector: (size: number) => number;
+    _addBoolVectorEntry: (vecPtr: number, entry: boolean) => void;
+    _addDoubleVectorEntry: (vecPtr: number, entry: number) => void;
+    _addFloatVectorEntry: (vecPtr: number, entry: number) => void;
+    _addIntVectorEntry: (vecPtr: number, entry: number) => void;
+    _addUintVectorEntry: (vecPtr: number, entry: number) => void;
+    _addStringVectorEntry: (vecPtr: number, entryStringPtr: number) => void;
+    simpleListeners?: Record<string, SimpleListener<unknown> | VectorListener<unknown>>;
+    emptyPacketListeners?: Record<string, EmptyPacketListener>;
+    _attachBoolListener: (streamNamePtr: number) => void;
+    _attachBoolVectorListener: (streamNamePtr: number) => void;
+    _attachDoubleListener: (streamNamePtr: number) => void;
+    _attachDoubleVectorListener: (streamNamePtr: number) => void;
+    _attachFloatListener: (streamNamePtr: number) => void;
+    _attachFloatVectorListener: (streamNamePtr: number) => void;
+    _attachIntListener: (streamNamePtr: number) => void;
+    _attachIntVectorListener: (streamNamePtr: number) => void;
+    _attachUintListener: (streamNamePtr: number) => void;
+    _attachUintVectorListener: (streamNamePtr: number) => void;
+    _attachStringListener: (streamNamePtr: number) => void;
+    _attachStringVectorListener: (streamNamePtr: number) => void;
+    _attachProtoListener: (streamNamePtr: number, makeDeepCopy?: boolean) => void;
+    _attachProtoVectorListener: (streamNamePtr: number, makeDeepCopy?: boolean) => void;
+    _attachAudioListener: (streamNamePtr: number, makeDeepCopy?: boolean) => void;
+    _addAudioToInputStream: (dataPtr: number, numChannels: number, numSamples: number, streamNamePtr: number, timestamp: number) => void;
+    _configureAudio: (channels: number, samples: number, sampleRate: number, streamNamePtr: number, headerNamePtr: number) => void;
+    _getGraphConfig: (streamNamePtr: number, makeDeepCopy?: boolean) => void;
+    _processGl: (frameDataPtr: number) => number;
 }
 
 export { }

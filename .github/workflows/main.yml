@@ -21,13 +21,13 @@ jobs:
         lfs: 'true'
     
     - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.3.1
+      uses: microsoft/setup-msbuild@v3
 
     - name: Setup Nuget.exe
-      uses: nuget/setup-nuget@v1
+      uses: nuget/setup-nuget@v4.0
 
     - name: Publish VL Nuget
-      uses: vvvv/PublishVLNuget@1.0.42
+      uses: vvvv/PublishVLNuget@1.0.47
       with:
         csproj: src\VL.MediaPipe.csproj
         nuspec: deployment\VL.MediaPipe.nuspec

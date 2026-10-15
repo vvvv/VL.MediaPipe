@@ -1,5 +1,6 @@
 namespace MediaPipe;
 
+public enum FaceDetectionModels { ShortRange, FullRange };
 public enum PoseModels { Lite, Full, Heavy };
 public enum ObjectModels { Fast, Full, Accurate };
 public enum ImageModels { Full, Accurate };
