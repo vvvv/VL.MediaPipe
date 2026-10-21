@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="Nok3gNLoMHQQLnQxKlRlRD" LanguageVersion="2025.7.1" Version="0.128">
-  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2025.7.1" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="Nok3gNLoMHQQLnQxKlRlRD" LanguageVersion="2025.7.4" Version="0.128">
+  <NugetDependency Id="LlgpqYpbpIDN4Yh4YGtVJj" Location="VL.CoreLib" Version="2025.7.4" />
   <Patch Id="Q76TiVeE82cNHpdVGLNjIM">
     <Canvas Id="PHmrnxQ15guOqUWjJc4afe" DefaultCategory="Main" CanvasType="FullCategory" />
     <!--
@@ -58,6 +58,7 @@
             </p:NodeReference>
             <Pin Id="Ra9VWzaj8p6McFi2EH5BfU" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="NyfBMSSSnkjM3aYYF8r97A" Name="Bounds" Kind="InputPin" DefaultValue="1248, 58.666668, 446, 306" IsHidden="true" />
+            <Pin Id="G9tURSTqbUqPqz2iv55CJo" Name="Is Borderless" Kind="InputPin" IsHidden="true" />
             <Pin Id="Q40I4RjRzUVNq3G8Ieqcje" Name="Bound to Document" Kind="InputPin" IsHidden="true" />
             <Pin Id="He2hbK6oDs7MlCcLoXHGTu" Name="Dialog If Document Changed" Kind="InputPin" IsHidden="true" />
             <Pin Id="SI0HYnfhKKpMVm2GynbzCG" Name="Save Bounds" Kind="InputPin" IsHidden="true" />
@@ -176,10 +177,10 @@
                 <Pin Id="G1rHvdqfWwDOy2x8Lcn3ee" Name="Index" Kind="InputPin" />
               </Patch>
               <Patch Id="EuiXO7FeqXUMLCsNupOblV" Name="Dispose" ManuallySortedPins="true" />
-              <Node Bounds="491,608,66,26" Id="CxbboAYyaF5Pe1Qdhb90eP">
-                <p:NodeReference LastCategoryFullName="MediaPipe.FaceLandmarksDetector.Facelandmark" LastDependency="VL.MediaPipe.vl">
+              <Node Bounds="491,608,66,19" Id="CxbboAYyaF5Pe1Qdhb90eP">
+                <p:NodeReference LastCategoryFullName="MediaPipe.Landmark" LastDependency="VL.MediaPipe.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <FullNameCategoryReference ID="MediaPipe.FaceLandmarksDetector.Facelandmark" />
+                  <CategoryReference Kind="ClassType" Name="Landmark" NeedsToBeDirectParent="true" />
                   <Choice Kind="OperationCallFlag" Name="Position" />
                 </p:NodeReference>
                 <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
@@ -561,8 +562,8 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.7.3" />
-  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2025.7.1" />
+  <NugetDependency Id="RxQUDZMcKbWNbdZgm6RaSj" Location="VL.CEF.Stride" Version="0.8.3" />
+  <NugetDependency Id="UomYyo1o89EL1tzcQv645B" Location="VL.Stride" Version="2025.7.4" />
   <NugetDependency Id="LVi6AOgIWYkNdVDA5if0rq" Location="VL.MediaPipe" Version="0.0.0" />
-  <NugetDependency Id="VswMGsckNm7MdIGTdxknDf" Location="VL.Skia" Version="2025.7.1" />
+  <NugetDependency Id="VswMGsckNm7MdIGTdxknDf" Location="VL.Skia" Version="2025.7.4" />
 </Document>

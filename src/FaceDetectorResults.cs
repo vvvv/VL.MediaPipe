@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace MediaPipe.FaceDetectorResults
 {
@@ -36,14 +35,6 @@ namespace MediaPipe.FaceDetectorResults
         public int angle { get; set; }
     }
 
-    public class Category
-    {
-        public float Score { get; set; }
-        public int Index { get; set; }
-        public string CategoryName { get; set; }
-        public string DisplayName { get; set; }
-    }
-
     public class Keypoint
     {
         public float x { private get; init; }
@@ -51,11 +42,5 @@ namespace MediaPipe.FaceDetectorResults
         public Vector2 Position { get {  return new Vector2(x, y); } }
         public int Score { get; set; }
         public string Label { get; set; }
-    }
-
-    public class Resolution
-    {
-        public int Width { get; set; }
-        public int Height { get; set; }
     }
 }

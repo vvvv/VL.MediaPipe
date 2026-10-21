@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace VL.MediaPipe.ObjectResults
+namespace MediaPipe.ObjectResults
 {
     public class ObjectRoot
     {
@@ -30,19 +30,5 @@ namespace VL.MediaPipe.ObjectResults
         public int width { get; set; }
         public int height { get; set; }
         public int angle { get; set; }
-    }
-
-    public class Category
-    {
-        public float Score { get; set; }
-        public int Index { get; set; }
-        public string CategoryName { get; set; }
-        public string DisplayName { get; set; }
-    }
-
-    public class Resolution
-    {
-        public int Width { get; set; }
-        public int Height { get; set; }
     }
 }

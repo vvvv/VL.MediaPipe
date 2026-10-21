@@ -205,13 +205,10 @@
                     <Patch Id="J70mflmo42XNu1C97D747L" Name="Create" ManuallySortedPins="true" />
                     <Patch Id="KgVqYiQSgXEOewWDR8u30g" Name="Update" ManuallySortedPins="true" />
                     <Patch Id="EB8S8Wfd6pwPHIaYunKaLK" Name="Dispose" ManuallySortedPins="true" />
-                    <Node Bounds="1249,491,48,26" Id="HeOVnivmLaQLk2Buc9bRbQ">
-                      <p:NodeReference LastCategoryFullName="MediaPipe.FaceDetector.Category" LastDependency="VL.MediaPipe.vl">
+                    <Node Bounds="1249,491,48,19" Id="HeOVnivmLaQLk2Buc9bRbQ">
+                      <p:NodeReference LastCategoryFullName="MediaPipe.Category" LastDependency="VL.MediaPipe.vl">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <CategoryReference Kind="ClassType" Name="Category" />
-                        <CategoryReference Kind="ClassType" Name="Category" NeedsToBeDirectParent="true">
-                          <p:OuterCategoryReference Kind="Category" Name="FaceDetector" NeedsToBeDirectParent="true" />
-                        </CategoryReference>
                         <Choice Kind="OperationCallFlag" Name="Score" />
                       </p:NodeReference>
                       <Pin Id="GIet9trJqlaP03Y4qs8Lap" Name="Input" Kind="StateInputPin" />

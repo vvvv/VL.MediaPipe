@@ -11,5 +11,4 @@
         public int DrawTime { get; set; }
         public int SourceFrameRate { get; set; }
     }
-
 }

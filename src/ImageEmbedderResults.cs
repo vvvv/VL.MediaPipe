@@ -1,4 +1,4 @@
-﻿namespace VL.MediaPipe.ImageEmbedderResults
+﻿namespace MediaPipe.ImageEmbedderResults
 {
     public class ImageembedderRoot
     {
@@ -17,11 +17,5 @@
         public int hHadIndex { get; set; }
         public string HeadName { get; set; }
         public float[] FloatEmbedding { get; set; }
-    }
-
-    public class Resolution
-    {
-        public int Width { get; set; }
-        public int Height { get; set; }
     }
 }

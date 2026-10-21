@@ -1,4 +1,4 @@
-﻿namespace VL.MediaPipe.ImageResults
+﻿namespace MediaPipe.ImageResults
 {
     public class ImageRoot
     {
@@ -17,11 +17,5 @@
         public object[] Categories { get; set; }
         public int HeadIndex { get; set; }
         public string HeadName { get; set; }
-    }
-
-    public class Resolution
-    {
-        public int Width { get; set; }
-        public int Height { get; set; }
     }
 }
